@@ -1,0 +1,94 @@
+table td{
+	padding: 15px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: black;
+}
+table{
+	float: left;
+	border-style: groove;
+	border-color: lightgray;
+	border-width: 1px;
+	padding: 2px;
+	width: 25%;
+}
+#all_info{
+	margin:10px;
+	border-style: solid;
+	border-color: red;
+	border-width: 1px;
+	width: 25%;
+	position: absolute;
+	left: 30%;
+	padding: 5px;
+	background-color: lightgray;
+	opacity: 0.8;
+}
+#controls{
+	border-style:solid;
+	padding: 20px;
+	background-color: pink;
+	width: 30%;
+	margin-left:10px;
+	border-width: 1px;
+}
+#score{
+	border-style: inset;
+	border-color: gray;
+	font-variant: small-caps;
+	font-size: 17px;
+	font-family: Consolas;
+	color: red;
+	padding:10px;
+	margin-left:10px;
+	border-width: 1px;
+	width: 85%;
+}
+#menu{
+	border-style:solid;
+	padding: 20px;
+	background-color: pink;
+	width: 30%;
+	margin-left: 10px;
+	border-width: 1px;
+}
+#rotate{
+	background-color: red;
+	border-style: solid;
+	border-color: green;
+	margin: 20px;
+	color: white;
+	font-family: Courier New;
+	font-size: 15px;
+	padding: 5px;
+	font-variant: small-caps;
+	font-size: 15px;
+	font-family: Consolas;
+}
+#restartgame, #startgame{
+	margin-top:10px;
+	width: 100px;
+}
+#right, #left {
+	background-color: blue;
+	border-style: solid;
+	border-color: red;
+	color: white;
+	font-family: Courier New;
+	font-size: 15px;
+	padding: 5px;
+	font-variant: small-caps;
+	font-size: 17px;
+	font-family: Consolas;
+}
+#startgame, #restartgame{
+	font-variant: small-caps;
+	font-size: 15px;
+	font-family: Consolas;
+	font-weight: bold;
+}
+body{
+	background-image: url(tetris_page_background.jpg);
+	background-repeat: no-repeat;
+	background-size: 100%;
+}

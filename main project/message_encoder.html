@@ -1,0 +1,30 @@
+<html>
+	<head>
+	  <title>Message Encoder</title>
+	  <script src="encode_decode.js"></script>
+	  <link rel="stylesheet" href="style.css"> <!-- This is an external CSS -->
+	</head>
+
+	<body id="msg_encoder">
+		<table>
+			<tr>
+				<td>
+					<div id = "encode_left_div">
+						<p>Enter your text in the box below:</p><br>
+						<textarea oninput = "NumberOfCharsEncode()" cols="80" rows="20" value="" id="text_to_encode"></textarea><br>
+						
+						<input type="button" id="button_encode" onclick="EncodeButtonPressed()" value="Encode"></input>
+					</div>
+				</td>
+				<td>
+					<div id="encode_paragraph">
+						 <p>Message Log:</p>
+						 <p id="encode_message_log">Message log will be displayed here!</p>
+					 </div>
+					 
+				</td>
+			</tr>
+		</table>
+	</body>
+
+</html>
