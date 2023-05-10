@@ -304,10 +304,11 @@ class TowerBlock
 	}
 }
 
-var block = new TowerBlock();
-var build_platform = new Platform();
+
 var msCounter = 0;
 var recurrence = 100;
+var block;
+var build_platform;
 
 setInterval(function() {
 	if(game_started)
@@ -335,13 +336,19 @@ setInterval(function() {
 
 function StartGame()
 {
-	game_started = true;
+	window.block = new TowerBlock();
+	window.build_platform = new Platform();
+	window.msCounter = 0;
+	window.blocksClimbed = 0;
+	window.spareBlocks = 3;
+	window.game_started = true;
 	updateBlocksClimbed();
 	updateSpareBlocks();
 	build_platform.DrawPlatform();
 	document.getElementById("startgame").disabled = true;
 	document.getElementById("controlInfo").innerHTML = "Press SPACE KEY to drop the block.";
 	document.getElementById("restartgame").disabled = false;
+	document.getElementById("gameStatus").innerHTML = "";
 }
 
 document.onkeydown = function (e) //trigger event when key is pressed down
@@ -361,16 +368,7 @@ function RestartGame()
 			document.getElementById("elem" + numberToString(i) + numberToString(j)).style.backgroundImage = "";
 		}
 	}
-	window.blocksClimbed = 0;
-	window.spareBlocks = 3;
-	updateBlocksClimbed();
-	updateSpareBlocks();
-	build_platform.DrawPlatform();
-	block = new TowerBlock();
-	document.getElementById("gameStatus").innerHTML = "";
-	game_started = true;
-	document.getElementById("startgame").disabled = true;
-	document.getElementById("restartgame").disabled = false;
+	StartGame();
 }
 function numberToString(n){
     return n > 9 ? "" + n: "0" + n;
