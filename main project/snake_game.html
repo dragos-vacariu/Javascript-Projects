@@ -88,23 +88,21 @@
 				<td id = "elem77" onclick="SquareClicked('elem77')"  ></td>
 			</tr>
 		</table>
-		<div id="all_info">
-			<h4 id="score">Score: </h4>
-			<p id="game_Info"><b>Game Info:</b> The purpose of the game is to control the snake within the table, grab the fruit will raise the score and 
-			allow the snake to grow longer. 
-			<br><br><b>Be careful while controlling the snake, if you hit the tail the game if over.</b>
-			</p>
-			<h3 id="result"></h3>
-			<input type="button" id="startgame" onclick="gameStart()" value="Start Game"></input>
-			<input type="button" id="restartgame" disabled="true" onclick="gameRestart()" value="Restart Game"></input>
-			<form id="controls">
-				Controls: <br><br>
-				<input type="button" id="turnUp" disabled="true" onclick="setDirUp()" value="Up"></input><br>
-				<input type="button" id="turnLeft" disabled="true" onclick="setDirLeft()" value="Left"></input>
-				<input type="button" id="turnRight" disabled="true" onclick="setDirRight()" value="Right"></input><br>
-				<input type="button" id="turnDown" disabled="true" onclick="setDirDown()" value="Down"></input>
-			</form>
-		</div>
+		<h4 id="score">Score: </h4>
+		<p id="game_Info"><b>Game Info:</b> The purpose of the game is to control the snake within the table, grab the fruit will raise the score and 
+		allow the snake to grow longer. 
+		<br><br><b>Be careful while controlling the snake, if you hit the tail the game if over.</b>
+		</p>
+		<h3 id="result"></h3>
+		<input type="button" id="startgame" onclick="gameStart()" value="Start Game"></input>
+		<input type="button" id="restartgame" disabled="true" onclick="gameRestart()" value="Restart Game"></input>
+		<form id="controls">
+		Controls: <br><br>
+		<input type="button" id="turnUp" disabled="true" onclick="setDirUp()" value="Up"></input><br>
+		<input type="button" id="turnLeft" disabled="true" onclick="setDirLeft()" value="Left"></input>
+		<input type="button" id="turnRight" disabled="true" onclick="setDirRight()" value="Right"></input><br>
+		<input type="button" id="turnDown" disabled="true" onclick="setDirDown()" value="Down"></input>
+		</form>
 	</body>
 
 </html>

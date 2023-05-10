@@ -263,7 +263,7 @@ class Shape
 		}
 		else if(optionChoice=="clear")
 		{
-			color = "transparent";
+			color = "white";
 		}
 		if(this.Coords[0][0]==9)
 		{
@@ -296,7 +296,7 @@ class Shape
 		}
 		else if(optionChoice=="clear")
 		{
-			color = "transparent";
+			color = "white";
 		}
 		if(this.Coords[0][0]==8)
 		{
@@ -336,7 +336,7 @@ class Shape
 		}
 		else if(optionChoice=="clear")
 		{
-			color = "transparent";
+			color = "white";
 		}
 		if(this.Coords[0][0]==9)
 		{
@@ -369,7 +369,7 @@ class Shape
 		}
 		else if(optionChoice=="clear")
 		{
-			color = "transparent";
+			color = "white";
 		}
 		if(this.Coords[0][0]==8)
 		{
@@ -409,7 +409,7 @@ class Shape
 		}
 		else if(optionChoice=="clear")
 		{
-			color = "transparent";
+			color = "white";
 		}
 		if(this.Coords[3][0]==10)
 		{
@@ -442,7 +442,7 @@ class Shape
 		}
 		else if(optionChoice=="clear")
 		{
-			color = "transparent";
+			color = "white";
 		}
 		if(this.Coords[3][0]==10)
 		{
@@ -475,7 +475,7 @@ class Shape
 		}
 		else if(optionChoice=="clear")
 		{
-			color = "transparent";
+			color = "white";
 		}
 		if(this.Coords[3][0]==10)
 		{
@@ -515,7 +515,7 @@ class Shape
 		}
 		else if(optionChoice=="clear")
 		{
-			color = "transparent";
+			color = "white";
 		}
 		if(this.Coords[0][0]==7)
 		{
@@ -562,7 +562,7 @@ class Shape
 		}
 		else if(optionChoice=="clear")
 		{
-			color = "transparent";
+			color = "white";
 		}
 		if(this.Coords[0][0]>9)
 		{
@@ -588,7 +588,7 @@ class Shape
 		}
 		else if(optionChoice=="clear")
 		{
-			color = "transparent";
+			color = "white";
 		}
 		if(this.Coords[3][0]==10)
 		{
@@ -621,7 +621,7 @@ class Shape
 		}
 		else if(optionChoice=="clear")
 		{
-			color = "transparent";
+			color = "white";
 		}
 		if(this.Coords[3][0]==10)
 		{
@@ -661,7 +661,7 @@ class Shape
 		}
 		else if(optionChoice=="clear")
 		{
-			color = "transparent";
+			color = "white";
 		}
 		if(this.Coords[3][0]==10)
 		{
@@ -694,7 +694,7 @@ class Shape
 		}
 		else if(optionChoice=="clear")
 		{
-			color = "transparent";
+			color = "white";
 		}
 		if(this.Coords[3][0]==10)
 		{
@@ -1250,11 +1250,11 @@ class Shape
 					{
 						if(i > 9)
 						{
-							document.getElementById("elem" + i + "0" + j).style.backgroundColor = "transparent";
+							document.getElementById("elem" + i + "0" + j).style.backgroundColor = "white";
 						}
 						else
 						{
-							document.getElementById("elem0" + i + "0" + j).style.backgroundColor = "transparent";
+							document.getElementById("elem0" + i + "0" + j).style.backgroundColor = "white";
 						}
 					}
 					//Copy the row above:
@@ -1278,7 +1278,7 @@ class Shape
 					}
 					else
 					{
-						document.getElementById("elem" + i + "0" + j).style.backgroundColor = "transparent";
+						document.getElementById("elem" + i + "0" + j).style.backgroundColor = "white";
 					}
 				}
 				else if( parseInt(i-1)==9)
@@ -1289,7 +1289,7 @@ class Shape
 					}
 					else
 					{
-						document.getElementById("elem" + i + "0" + j).style.backgroundColor = "transparent";
+						document.getElementById("elem" + i + "0" + j).style.backgroundColor = "white";
 					}
 				}
 				else
@@ -1300,7 +1300,7 @@ class Shape
 					}
 					else
 					{
-						document.getElementById("elem0" + i + "0" + j).style.backgroundColor = "transparent";
+						document.getElementById("elem0" + i + "0" + j).style.backgroundColor = "white";
 					}
 				}
 			}
@@ -1308,7 +1308,7 @@ class Shape
 		//Clear the top row:
 		for(var j = 0; j<8; j++)
 		{
-			document.getElementById("elem000" + j).style.backgroundColor = "transparent";
+			document.getElementById("elem000" + j).style.backgroundColor = "white";
 		}
 	}
 }
@@ -1357,11 +1357,11 @@ function RestartGame()
 		{
 			if(i<10)
 			{
-				document.getElementById("elem0" + i + "0" + j).style.backgroundColor = "transparent";
+				document.getElementById("elem0" + i + "0" + j).style.backgroundColor = "white";
 			}
 			else
 			{
-				document.getElementById("elem" + i + "0" + j).style.backgroundColor = "transparent";
+				document.getElementById("elem" + i + "0" + j).style.backgroundColor = "white";
 			}
 		}
 	}

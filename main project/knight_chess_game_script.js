@@ -1,5 +1,5 @@
 var emptyTable=true;
-var knightChess = "url('knight_chess.png')"
+var knightChess = "url('knight_chess_resources/knight_chess.png')"
 var piece = "";
 var validOption = [];
 var score = 0;

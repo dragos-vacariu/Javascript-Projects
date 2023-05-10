@@ -1,14 +1,13 @@
 function EncodeButtonPressed()
 {
 	document.getElementById("encode_message_log").innerHTML = "";
-	var Text_To_Convert = document.getElementById("text_to_encode").value;
 	if(document.getElementById("text_to_encode").value == "")
 	{
 		document.getElementById("encode_message_log").innerHTML = "Text box is empty.";
 		document.getElementById("encode_message_log").style.backgroundColor = "#F5A9A9";
-		document.getElementById("encode_message_log").style.color = "black";
 	}
-	else if(Text_To_Convert[Text_To_Convert.length-1] =="c" && Text_To_Convert[Text_To_Convert.length-2] =="n"
+	var Text_To_Convert = document.getElementById("text_to_encode").value;
+	if(Text_To_Convert[Text_To_Convert.length-1] =="c" && Text_To_Convert[Text_To_Convert.length-2] =="n"
 					&& Text_To_Convert[Text_To_Convert.length-3] =="e")
 	{
 		document.getElementById("encode_message_log").innerHTML = "This message is already encoded.";
@@ -53,8 +52,7 @@ function EncodeButtonPressed()
 		document.getElementById("text_to_encode").value += "\n" + "\n" + "Encoded Message: " + result;
 		document.getElementById("encode_message_log").innerHTML = "Message has been successfully encoded.";
 		document.getElementById("text_to_encode").style.backgroundColor = "#58FA58";
-		document.getElementById("encode_message_log").style.backgroundColor = "transparent";
-		document.getElementById("encode_message_log").style.color = "white";
+		document.getElementById("encode_message_log").style.backgroundColor = "white";
 	}
 }
 
@@ -68,22 +66,20 @@ function NumberOfCharsEncode()
 	else
 	{
 		document.getElementById("text_to_encode").style.backgroundColor = "#F2F2F2";
-		document.getElementById("encode_message_log").style.backgroundColor = "transparent";
-		document.getElementById("encode_message_log").style.color = "white";
+		document.getElementById("encode_message_log").style.backgroundColor = "white";
 	}
 }
 
 function DecodeButtonPressed()
 {
 	document.getElementById("decode_message_log").innerHTML = "";
-	var Text_To_Decode = document.getElementById("text_to_decode").value;
 	if(document.getElementById("text_to_decode").value == "")
 	{
 		document.getElementById("decode_message_log").innerHTML = "Text box is empty.";
 		document.getElementById("decode_message_log").style.backgroundColor = "#F5A9A9";
-		document.getElementById("encode_message_log").style.color = "black";
 	}
-	else if(Text_To_Decode[Text_To_Decode.length-1] =="c" && Text_To_Decode[Text_To_Decode.length-2] =="n"
+	var Text_To_Decode = document.getElementById("text_to_decode").value;
+	if(Text_To_Decode[Text_To_Decode.length-1] =="c" && Text_To_Decode[Text_To_Decode.length-2] =="n"
 					&& Text_To_Decode[Text_To_Decode.length-3] =="e")
 	{
 		/*Decoding starts here*/
@@ -133,8 +129,7 @@ function DecodeButtonPressed()
 		document.getElementById("text_to_decode").value += "\n" + "\n" + "Decoded Message: " + msg;
 		document.getElementById("decode_message_log").innerHTML = "Message has been successfully decoded.";
 		document.getElementById("text_to_decode").style.backgroundColor = "#58FA58";
-		document.getElementById("decode_message_log").style.backgroundColor = "transparent";
-		document.getElementById("decode_message_log").style.color = "white";
+		document.getElementById("decode_message_log").style.backgroundColor = "white";
 	}
 	else
 	{
@@ -153,7 +148,6 @@ function NumberOfCharsDecode()
 	else
 	{
 		document.getElementById("text_to_decode").style.backgroundColor = "#F2F2F2";
-		document.getElementById("decode_message_log").style.backgroundColor = "transparent";
-		document.getElementById("decode_message_log").style.color = "white";
+		document.getElementById("decode_message_log").style.backgroundColor = "white";
 	}
 }

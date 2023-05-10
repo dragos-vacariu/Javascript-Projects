@@ -1,18 +1,22 @@
 var blocksClimbed=0;
 var game_started=false;
-var blockSquareTexture = "url('brick.jpg')";
-var platformTexture = "url('platform.jpg')"
+var blockSquareTexture = "url('towerblocks_resources/brick.jpg')";
+var platformTexture = "url('towerblocks_resources/platform.jpg')"
 var TableRows = 15
 var TableCols = 15
-var blocksMissed = 3;
+var spareBlocks = 3;
 var blockDone = false;
 
 class Platform
 {
 	constructor()
 	{
-		this.PosX = 6;
+		this.PosX = parseInt(TableCols/2)-1;
 		this.FormBuilder();
+        this.bendDirection = "right";
+        this.bendValue = 0;
+        this.currentBend = parseInt(TableCols/2);
+        
 	}
 	FormBuilder()
 	{
@@ -28,6 +32,106 @@ class Platform
         document.getElementById("elem"+ numberToString(this.Coords[1][0])+ numberToString(this.Coords[1][1])).style.backgroundImage=platformTexture;			
         document.getElementById("elem"+ numberToString(this.Coords[2][0])+ numberToString(this.Coords[2][1])).style.backgroundImage=platformTexture;
         document.getElementById("elem"+ numberToString(this.Coords[3][0])+ numberToString(this.Coords[3][1])).style.backgroundImage=platformTexture;
+	}
+    bendBuildingLeft()
+	{
+		var offset = 1;
+		for(var i = TableRows; i>=0; i--)
+		{
+			for(var j = 0; j<=TableCols; j++)
+			{
+                if (this.checkIfCoordsTakenByBlock(i,j) == false && this.checkIfCoordsTakenByBlock(i,j+offset) == false && block.dropping == false)
+                {
+                    if (j+offset <= TableCols)
+                    {
+                        document.getElementById("elem"+ numberToString(i)+ numberToString(j)).style.backgroundImage = 
+                                            document.getElementById("elem"+ numberToString(i)+ numberToString(j+offset)).style.backgroundImage;
+                    }
+                    else
+                    {
+                        document.getElementById("elem"+ numberToString(i)+ numberToString(j)).style.backgroundImage = "";
+                    }
+                }
+			}
+		}
+	}
+    bendBuildingRight()
+	{
+		var offset = 1;
+		for(var i = TableRows; i>=0; i--)
+		{
+			for(var j = TableCols; j>=0; j--)
+			{
+                if (this.checkIfCoordsTakenByBlock(i,j) == false && this.checkIfCoordsTakenByBlock(i,j-offset) == false && block.dropping == false)
+                {
+                    if (j-offset >= 0)
+                    {
+                        document.getElementById("elem"+ numberToString(i)+ numberToString(j)).style.backgroundImage = 
+                                            document.getElementById("elem"+ numberToString(i)+ numberToString(j-offset)).style.backgroundImage;
+                    }
+                    else{
+                        document.getElementById("elem"+ numberToString(i)+ numberToString(j)).style.backgroundImage = "";
+                    }
+                }
+			}
+		}
+	}
+    checkIfCoordsTakenByBlock(row, column){
+        if ( (row == block.Coords[0][0] && column == block.Coords[0][1]) || (row == block.Coords[1][0] && column == block.Coords[1][1] ) ||
+             (row == block.Coords[2][0] && column == block.Coords[2][1]) || (row == block.Coords[3][0] && column == block.Coords[3][1] ) )
+         {
+             return true;
+         }
+         else
+         {
+             return false;
+         }
+    }
+    MoveBuildingLeftRight()
+	{
+        if (window.blocksClimbed>=10 && window.blocksClimbed<20)
+        {
+            this.bendValue=1;
+        }
+        else if (window.blocksClimbed>=20 && window.blocksClimbed<30)
+        {
+            this.bendValue=2;
+        }
+        else if (window.blocksClimbed>=30 && window.blocksClimbed<40)
+        {
+            this.bendValue=3;
+        }
+        else if (window.blocksClimbed>=40)
+        {
+            this.bendValue=4;
+        }
+        if(this.bendValue > 0)
+        {
+            if(this.bendDirection=="right")
+            {
+                if (this.currentBend <= ((parseInt(TableCols/2)) + this.bendValue))
+                {
+                    this.bendBuildingRight();
+                    this.currentBend++;
+                }
+                else
+                {
+                    this.bendDirection="left"
+                }
+            }
+            else
+            {
+                if (this.currentBend >= ((parseInt(TableCols/2)) - this.bendValue))
+                {
+                    this.bendBuildingLeft();
+                    this.currentBend--;
+                }
+                else
+                {
+                    this.bendDirection="right"
+                }
+            }
+        }
 	}
 }
 
@@ -73,7 +177,7 @@ class TowerBlock
             this.Coords[3][0]++;
 			if (this.Coords[0][0] > TableRows  )
 			{
-				window.blocksMissed--;
+				window.spareBlocks--;
 				this.dropping = false;
 				this.reachedDown = true;
 				window.blockDone = true;
@@ -201,38 +305,51 @@ class TowerBlock
 }
 
 var block = new TowerBlock();
-var build_platform = new Platform()
+var build_platform = new Platform();
+var msCounter = 0;
+var recurrence = 100;
 
 setInterval(function() {
 	if(game_started)
 	{
+        window.msCounter += window.recurrence;
+        if (window.msCounter % 400 == 0) // enter here every 400 ms
+        {
+             build_platform.MoveBuildingLeftRight();
+        }
 		block.MoveBlockLeftRight();
+
 		if (blockDone == true)
 		{
 			block = new TowerBlock();
-			if (blocksMissed == 0)
+			if (spareBlocks == 0)
 			{
-					document.getElementById("gameStatus").innerHTML = "GAME OVER!";
+					document.getElementById("gameStatus").innerHTML = "GAME OVER -> NO BLOCKS TO SPARE. YOU CANNOT FINISH THE TOWER BUILDING.";
 					game_started = false;
 			}
 			updateBlocksClimbed();
-			updateBlocksMissed();
+			updateSpareBlocks();
 		}
 	}
-}, 200);
+}, recurrence);
+
 function StartGame()
 {
 	game_started = true;
 	updateBlocksClimbed();
-	updateBlocksMissed();
+	updateSpareBlocks();
 	build_platform.DrawPlatform();
 	document.getElementById("startgame").disabled = true;
+	document.getElementById("controlInfo").innerHTML = "Press SPACE KEY to drop the block.";
 	document.getElementById("restartgame").disabled = false;
 }
 
-function Drop()
+document.onkeydown = function (e) //trigger event when key is pressed down
 {
-    block.dropBlock()
+    if (e.key == " " || e.code == "Space" || e.keyCode == 32 ) //if the key pressed is SPACE KEY
+    {
+        block.dropBlock()
+    }
 }
 
 function RestartGame()
@@ -245,9 +362,9 @@ function RestartGame()
 		}
 	}
 	window.blocksClimbed = 0;
-	window.blocksMissed = 3;
+	window.spareBlocks = 3;
 	updateBlocksClimbed();
-	updateBlocksMissed();
+	updateSpareBlocks();
 	build_platform.DrawPlatform();
 	block = new TowerBlock();
 	document.getElementById("gameStatus").innerHTML = "";
@@ -263,7 +380,7 @@ function updateBlocksClimbed()
 {
 	document.getElementById("blocksClimbed").innerHTML = "Blocks Climbed: " + window.blocksClimbed;
 }
-function updateBlocksMissed()
+function updateSpareBlocks()
 {
-	document.getElementById("blocksMissed").innerHTML = "Blocks Missed: " + window.blocksMissed;
+	document.getElementById("spareBlocks").innerHTML = "Spare Blocks: " + window.spareBlocks;
 }

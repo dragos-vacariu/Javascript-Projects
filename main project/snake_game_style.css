@@ -5,47 +5,19 @@ table td{
 	background-repeat: no-repeat; background-size: 60px;
 }
 table{
-	width: 40%;
 	float:left;
 	margin-right:40px;
-	border-width: 1px;
-	padding:2px;
-	border-color: yellow;
-	background-image: url(snake_background2.bmp);
+	background-image: url(snake_resources/snake_background2.bmp);
 }
 #restart{
 	padding:2px;
 	margin:50px;
 	margin-bottom:0px;
 	width:100px;
-	font-variant: small-caps;
-	font-family: Consolas; 
-	font-size: 18px;
 }
 #controls{
-	padding:10px;
-	margin: 10px;
-	border-style: dashed;
-	border-width: 1px;
-	border-color: yellow;
-	width: 20%;
-	height: 150px;
-	left: 40%;
-}
-#all_info{
-	float: right;
-	width: 50%;
-	border-style: dashed;
-	border-color: yellow;
-	border-width:1px;
-	padding: 10px;
-	font-variant: small-caps;
-	font-family: Consolas; 
-	font-size: 18px;
-}
-#all_info p{
-	width:100%;
-	margin:5px;
+	padding:2px;
+	margin: 40px;
 }
 #turnUp{
 	margin-left:20px;
@@ -54,17 +26,4 @@ table{
 #turnDown{
 	margin-left:20px;
 	margin-top:10px;
-}
-#turnLeft, #turnRight, #turnDown, #turnUp, #startgame, #restartgame{
-	font-variant: small-caps;
-	font-family: Consolas; 
-	font-size: 18px;
-	border-style: solid;
-	border-color: red;
-	border-width: 1px;
-}
-body{
-	background-repeat: no-repeat; 
-	background-size: 100%;
-	background-image: url(snake_page_background.jpg);
 }

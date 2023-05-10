@@ -183,17 +183,17 @@
 	font-family: Consolas;
 }
 #msg_encoder{
-	background-image: url(space.jpg);
+	background-image: url(encoder_decoder_resources/space.jpg);
 	background-repeat: no-repeat;
 	background-size: 100%;
 }
 #msg_decoder{
-	background-image: url(space_mirror.jpg);
+	background-image: url(encoder_decoder_resources/space_mirror.jpg);
 	background-repeat: no-repeat;
 	background-size: 100%;
 }
 #quote_body{
-	background-image: url(random_solid.jpg);
+	background-image: url(encoder_decoder_resources/random_solid.jpg);
 	background-repeat: no-repeat;
 	background-size: 100%;
 }

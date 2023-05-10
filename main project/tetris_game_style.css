@@ -88,7 +88,7 @@ table{
 	font-weight: bold;
 }
 body{
-	background-image: url(tetris_page_background.jpg);
+	background-image: url(tetris_resources/tetris_page_background.jpg);
 	background-repeat: no-repeat;
 	background-size: 100%;
 }

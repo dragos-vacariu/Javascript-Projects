@@ -4,9 +4,9 @@ var SnakeDirMoving="";
 var Fruit = "";
 var score = 0;
 var gameOver=false;
-var FruitTexture = "url('snake_game_fruit.png')";
-var snakeHeadTexture = "url('snake_head.png')";
-var snakeBodyTexture = "url('snake_body.png')";
+var FruitTexture = "url('snake_resources/snake_game_fruit.png')";
+var snakeHeadTexture = "url('snake_resources/snake_head.png')";
+var snakeBodyTexture = "url('snake_resources/snake_body.png')";
 function SquareClicked(x)
 {
 	if(snakeSeettled==false)
@@ -42,6 +42,36 @@ function gameStart()
 		document.getElementById(Fruit).style.backgroundImage = FruitTexture;
 		document.getElementById("score").innerHTML = "Score: " + score;
 	}
+}
+document.onkeydown = function (e) //trigger event when key is pressed down
+{
+    switch (e.key) //if the key pressed is SPACE KEY
+    {
+        case "ArrowLeft":
+        {
+            setDirLeft();
+            break;
+        }
+        case "ArrowRight":
+        {
+            setDirRight();
+            break;
+        }
+        case "ArrowUp":
+        {
+            setDirUp();
+            break;
+        }
+        case "ArrowDown":
+        {
+            setDirDown();
+            break;
+        }
+        default:
+        {
+            break;
+        }
+    }
 }
 function setDirLeft()
 {

@@ -1,16 +1,23 @@
 table td{
 	padding: 3%;
-	border-style: solid;
+	padding-top: 3.8%;
+    margin: 0px;
+	border-left: solid;
+
 	border-width: 1px;
-	border-color: black;
-	background-repeat: no-repeat; background-size: 60px;
+	border-color: white;
+    background-repeat: no-repeat; background-size: contain;
 }
 table{
+    border-style: none;
     position: relative;
     float:left;
 	margin-left:0%;
     width: 40%;
-	background-image: url(towerblocks_resources/tower_blocks.jpg);
+    border-color: black;
+    background-image: url(roadcross_resources/asphalt.jpg);
+    background-size: 50px;
+    background-repeat: repeat;
 }
 #hud h3, h4{
     margin-left: 10px;
@@ -47,10 +54,6 @@ table{
 	border-style:solid;
 	padding: 20px;
 	background-color: pink;
-}
-#drop{
-    margin-top:10px;
-	width: 100px;
 }
 #restartgame, #startgame{
 	margin-top:10px;
