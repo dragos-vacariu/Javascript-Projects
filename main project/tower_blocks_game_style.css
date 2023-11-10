@@ -1,3 +1,7 @@
+body{
+	background-image: url(towerblocks_resources/towerblocks_page_background.jpg);
+	background-size:1300px;
+}
 table td{
 	padding: 3%;
 	border-style: solid;
