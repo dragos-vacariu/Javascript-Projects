@@ -4,6 +4,7 @@ var piece = "";
 var validOption = [];
 var score = 0;
 var gameOver=2; // 0 for game lost, 1 for game won, 2 for init.
+var displayOptions=false
 function SquareClicked(x)
 {
 	var square = document.getElementById(x);
@@ -15,7 +16,10 @@ function SquareClicked(x)
 	}
 	else if(x[4] + x[5] == piece)
 	{
-		SearchOption();
+		if(displayOptions == false)
+		{
+			SearchOption();
+		}
 		if(validOption.length == 0)
 		{
 			getGameOverStatus();
@@ -27,6 +31,7 @@ function SquareClicked(x)
 		{
 			if(x==validOption[i])
 			{
+				displayOptions = false;
 				square = document.getElementById(x);
 				square.style.backgroundImage = knightChess;
 				score++;
@@ -39,14 +44,17 @@ function SquareClicked(x)
 				{
 					square.style.backgroundColor = "white";
 				}
-				document.getElementById("elem"+piece).style.backgroundImage="";
-				if(document.getElementById("elem"+piece).style.backgroundColor == "white")
+				if (square != document.getElementById("elem"+piece))
 				{
-					document.getElementById("elem"+piece).style.backgroundColor="yellow";
-				}
-				else if(document.getElementById("elem"+piece).style.backgroundColor == "black")
-				{
-					document.getElementById("elem"+piece).style.backgroundColor="blue";
+					document.getElementById("elem"+piece).style.backgroundImage="";
+					if(document.getElementById("elem"+piece).style.backgroundColor == "white")
+					{
+						document.getElementById("elem"+piece).style.backgroundColor="yellow";
+					}
+					else if(document.getElementById("elem"+piece).style.backgroundColor == "black")
+					{
+						document.getElementById("elem"+piece).style.backgroundColor="blue";
+					}
 				}
 				piece = x[4] + x[5];
 
@@ -69,6 +77,7 @@ function SquareClicked(x)
 
 function SearchOption()
 {
+	displayOptions = true;
 	var tdRow = parseInt(piece[0]);
 	var tdCol = parseInt(piece[1]);
 	if(tdRow+2 < 8 && tdCol+1 < 8) //hard coded option 1
