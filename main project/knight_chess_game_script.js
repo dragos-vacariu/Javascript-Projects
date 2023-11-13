@@ -5,6 +5,7 @@ var validOption = [];
 var score = 0;
 var gameOver=2; // 0 for game lost, 1 for game won, 2 for init.
 var displayOptions=false
+
 function SquareClicked(x)
 {
 	var square = document.getElementById(x);
@@ -13,17 +14,15 @@ function SquareClicked(x)
 		emptyTable = false;
 		square.style.backgroundImage = knightChess;
 		piece = x[4] + x[5];
+		SearchOption(); //validOption will get filled here
 	}
 	else if(x[4] + x[5] == piece)
 	{
-		if(displayOptions == false)
+		if(displayOptions == true)
 		{
-			SearchOption();
+			displayMoveOption();
 		}
-		if(validOption.length == 0)
-		{
-			getGameOverStatus();
-		}
+
 	}
 	else 
 	{
@@ -71,8 +70,49 @@ function SquareClicked(x)
 				}
 			}
 		}
+		
 		validOption = [];
+		SearchOption(); //validOption will get filled here
+		if(validOption.length == 0)
+		{
+			getGameOverStatus();
+		}
+		if(score >= 10 && score < 20)
+		{
+			document.getElementById("score").style.backgroundColor = "#FF9E00"; //bronze color
+		}
+		else if(score >= 20 && score < 30)
+		{
+			document.getElementById("score").style.backgroundColor = "#FACD00"; //yellow color;
+		}
+		else if(score >= 30 && score < 45)
+		{
+			document.getElementById("score").style.backgroundColor = "silver";
+		}
+		else if(score >= 45 && score < 60)
+		{
+			document.getElementById("score").style.backgroundColor = "gold";
+		}
+		else if(score >= 60)
+		{
+			document.getElementById("score").style.backgroundColor = "green";
+		}
 	}
+}
+
+function displayMoveOption()
+{
+	validOption.forEach(element => 
+	{
+			if(document.getElementById(element).style.backgroundColor=="white")
+			{
+				document.getElementById(element).style.backgroundColor="pink";
+			}
+			else if(document.getElementById(element).style.backgroundColor=="black")
+			{		
+				document.getElementById(element).style.backgroundColor="red";
+			}
+	});
 }
 
 function SearchOption()
@@ -87,14 +127,7 @@ function SearchOption()
 				document.getElementById(elem).style.backgroundColor!="blue")
 		{
 			validOption.push(elem);
-			if(document.getElementById(elem).style.backgroundColor=="white")
-			{
-				document.getElementById(elem).style.backgroundColor="pink";
-			}
-			else if(document.getElementById(elem).style.backgroundColor=="black")
-			{		
-				document.getElementById(elem).style.backgroundColor="red";
-			}
+
 		}
 	}
 	if(tdRow+2 < 8 && tdCol-1 >=0) //hard coded option 2
@@ -104,14 +137,6 @@ function SearchOption()
 				document.getElementById(elem).style.backgroundColor!="blue")
 		{
 			validOption.push(elem);
-			if(document.getElementById(elem).style.backgroundColor=="white")
-			{
-				document.getElementById(elem).style.backgroundColor="pink";
-			}
-			else if(document.getElementById(elem).style.backgroundColor=="black")
-			{		
-				document.getElementById(elem).style.backgroundColor="red";
-			}
 		}
 	}
 	if(tdRow+1 < 8 && tdCol+2 < 8) //hard coded option 3
@@ -121,14 +146,6 @@ function SearchOption()
 				document.getElementById(elem).style.backgroundColor!="blue")
 		{
 			validOption.push(elem);
-			if(document.getElementById(elem).style.backgroundColor=="white")
-			{
-				document.getElementById(elem).style.backgroundColor="pink";
-			}
-			else if(document.getElementById(elem).style.backgroundColor=="black")
-			{		
-				document.getElementById(elem).style.backgroundColor="red";
-			}
 		}
 	}
 	if(tdRow-1 >= 0 && tdCol+2 < 8) //hard coded option 4
@@ -139,14 +156,6 @@ function SearchOption()
 		{
 
 			validOption.push(elem);
-			if(document.getElementById(elem).style.backgroundColor=="white")
-			{
-				document.getElementById(elem).style.backgroundColor="pink";
-			}
-			else if(document.getElementById(elem).style.backgroundColor=="black")
-			{		
-				document.getElementById(elem).style.backgroundColor="red";
-			}
 		}
 	}
 	if(tdRow+1 < 8 && tdCol-2 >=0) //hard coded option 5
@@ -156,14 +165,6 @@ function SearchOption()
 				document.getElementById(elem).style.backgroundColor!="blue")
 		{
 			validOption.push(elem);
-			if(document.getElementById(elem).style.backgroundColor=="white")
-			{
-				document.getElementById(elem).style.backgroundColor="pink";
-			}
-			else if(document.getElementById(elem).style.backgroundColor=="black")
-			{		
-				document.getElementById(elem).style.backgroundColor="red";
-			}
 		}
 	}
 	if(tdRow-1 >= 0 && tdCol-2 >=0) //hard coded option 6
@@ -173,14 +174,6 @@ function SearchOption()
 				document.getElementById(elem).style.backgroundColor!="blue")
 		{
 			validOption.push(elem);
-			if(document.getElementById(elem).style.backgroundColor=="white")
-			{
-				document.getElementById(elem).style.backgroundColor="pink";
-			}
-			else if(document.getElementById(elem).style.backgroundColor=="black")
-			{		
-				document.getElementById(elem).style.backgroundColor="red";
-			}
 		}
 	}
 	if(tdRow-2 >= 0 && tdCol+1 < 8) //hard coded option 7
@@ -190,14 +183,6 @@ function SearchOption()
 				document.getElementById(elem).style.backgroundColor!="blue")
 		{
 			validOption.push(elem);
-			if(document.getElementById(elem).style.backgroundColor=="white")
-			{
-				document.getElementById(elem).style.backgroundColor="pink";
-			}
-			else if(document.getElementById(elem).style.backgroundColor=="black")
-			{		
-				document.getElementById(elem).style.backgroundColor="red";
-			}
 		}
 	}
 	if(tdRow-2 >= 0 && tdCol-1 >= 0) //hard coded option 8
@@ -207,14 +192,6 @@ function SearchOption()
 			document.getElementById(elem).style.backgroundColor!="blue")
 		{
 			validOption.push(elem);
-			if(document.getElementById(elem).style.backgroundColor=="white")
-			{
-				document.getElementById(elem).style.backgroundColor="pink";
-			}
-			else if(document.getElementById(elem).style.backgroundColor=="black")
-			{		
-				document.getElementById(elem).style.backgroundColor="red";
-			}
 		}
 	}
 }
