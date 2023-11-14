@@ -1,0 +1,115 @@
+body{
+	background-image: url(snake_page_background.jpg);
+	background-size:100%;
+	background-repeat: repeat;
+}
+table td{
+	border-style: solid; 
+	border-width: 1%;
+    position: relative;
+    margin: 1%;
+    padding: 6%;
+    background-size: 100%;
+    background-repeat: no-repeat; 
+}
+table{
+	float:left;
+	margin-right:4%;
+	background-image: url(snake_background2.bmp);
+    padding:0%;
+    width: 40%;
+    border-spacing: 1%;
+    background-repeat: repeat; 
+    background-size: 100%;
+    border-spacing: 1px;
+    opacity: 0.9;
+}
+#restart{
+	padding:1%;
+	margin:5%;
+	margin-bottom:0%;
+	width:100px;
+}
+#controls{
+    border-style:solid;
+	border-width:1px;
+	border-color:black;
+    width: 20%;
+	padding:2%;
+	margin: 4%;
+    background-color: rgba(255,255,255,0.5);
+}
+#controls input{
+    width:4vw;
+    text-align: center;
+    font-size: 1vw; /* font-size in percent of the viewport size.*/
+}
+
+#turnUp{
+    position: relative;
+	margin-left:25%;
+}
+#turnDown{
+    position: relative;
+	margin-left:25%;
+}
+#turnLeft{
+    position: relative;
+	margin-left:0%;
+}
+#turnRight{
+    position: relative;
+	margin-left:0%;
+}
+
+form p{
+    margin:0%;
+    padding: 0%;
+    left:20%;
+    font-family:Courier New;
+	font-size: 1vw; /* font-size 1% of the viewport size.*/
+    font-weight: bold;
+	opacity: 0.9;
+}
+
+#game_hud{
+    position: relative;
+    float:right;
+    width:50%;
+    top:0%;
+    margin-right:5%;
+    border-style:solid;
+	border-width:2px;
+	border-color:black;
+    background-color: rgba(255,255,255,0.2);
+}
+
+#startgame, #restartgame{
+    width:8vw;
+    text-align: center;
+    font-size: 1vw; /* font-size in percent of the viewport size.*/
+}
+
+#speed{
+    float: right;
+    position: relative;
+    left: 50%;
+}
+
+#score, #result, #speed, input{
+    margin: 2%;
+}
+#game_Info{
+    position: relative;
+	width:90%;
+	padding:1%;
+	background-color: lightgreen;
+	color:black;
+	font-family:Consolas;
+	font-size: 1vw; /* font-size 1% of the viewport size.*/
+	opacity: 0.9;
+    margin: 2%;
+    border-style:solid;
+	border-width:1px;
+	border-color:white;
+}

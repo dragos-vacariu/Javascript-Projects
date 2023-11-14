@@ -4,9 +4,11 @@ var SnakeDirMoving="";
 var Fruit = "";
 var score = 0;
 var gameOver=false;
-var FruitTexture = "url('snake_resources/snake_game_fruit.png')";
-var snakeHeadTexture = "url('snake_resources/snake_head.png')";
-var snakeBodyTexture = "url('snake_resources/snake_body.png')";
+var gameStarted = false;
+var FruitTexture = "url('snake_game_fruit.png')";
+var snakeHeadTexture = "url('snake_head.png')";
+var snakeBodyTexture = "url('snake_body.png')";
+var SnakeSpeed = 500;
 function SquareClicked(x)
 {
 	if(snakeSeettled==false)
@@ -41,6 +43,7 @@ function gameStart()
 		Fruit = "elem" + fruitX + fruitY;
 		document.getElementById(Fruit).style.backgroundImage = FruitTexture;
 		document.getElementById("score").innerHTML = "Score: " + score;
+        gameStarted = true;
 	}
 }
 document.onkeydown = function (e) //trigger event when key is pressed down
@@ -75,19 +78,35 @@ document.onkeydown = function (e) //trigger event when key is pressed down
 }
 function setDirLeft()
 {
-	SnakeDirMoving="left";
+    //do this check to avoid turning 180 degrees around.
+    if(SnakeDirMoving!="right" )
+    {
+        SnakeDirMoving="left";
+    }
 }
 function setDirRight()
 {
-	SnakeDirMoving="right";
+    //do this check to avoid turning 180 degrees around.
+    if(SnakeDirMoving!="left" )
+    {
+        SnakeDirMoving="right";
+    }
 }
 function setDirUp()
 {
-	SnakeDirMoving="up";
+    //do this check to avoid turning 180 degrees around.
+    if(SnakeDirMoving!="down" )
+    {
+        SnakeDirMoving="up";
+    }
 }
 function setDirDown()
 {
-	SnakeDirMoving="down";
+    //do this check to avoid turning 180 degrees around.
+    if(SnakeDirMoving!="up")
+    {
+        SnakeDirMoving="down";
+    }
 }
 
 //The main loop function:
@@ -218,13 +237,15 @@ window.setInterval(function(){
 			{
 				if(snakeHeadPos[i][4] == Fruit[4] && snakeHeadPos[i][5] == Fruit[5]) //the head of the snake is at index [0]
 				{
-					document.getElementById(Fruit).style.backgroundImage = ""; //remove fruit texture from the table.
-					var fruitX = Math.floor(Math.random() * 8);
-					var fruitY = Math.floor(Math.random() * 8);
-					checkFruitCoords(fruitX, fruitY);
-					document.getElementById(Fruit).style.backgroundImage = FruitTexture; //add fruit texture to the new respawned fruit
+					//document.getElementById(Fruit).style.backgroundImage = ""; //remove fruit texture from the table is not necessary as the loop drawing the snake will handle this.
 					score++;
 					document.getElementById("score").innerHTML = "Score: " + score;
+                    Fruit=""; // the fruit just been eaten.
+                    //increase the snake speed with every fruit eaten
+                    if (SnakeSpeed > 100)
+                    {
+                        SnakeSpeed-=10;
+                    }
 					var lastTailY = parseInt(snakeHeadPos[snakeHeadPos.length-1][4]);
 					var lastTailX = parseInt(snakeHeadPos[snakeHeadPos.length-1][5]);
 					if(SnakeDirMoving == "down")
@@ -279,8 +300,15 @@ window.setInterval(function(){
 				}
 			}
 		}
+        else if (Fruit ==""  && gameStarted)
+        {
+            fruitX = Math.floor(Math.random() * 8);
+			fruitY = Math.floor(Math.random() * 8);
+            checkFruitCoords(fruitX, fruitY);
+            document.getElementById(Fruit).style.backgroundImage = FruitTexture; //add fruit texture to the new respawned fruit
+        }
 	}
-}, 500); //this functions is executed every 500 mili-seconds. 2FPS per second.
+}, SnakeSpeed); //this functions is executed every 500 mili-seconds. 2FPS per second.
 
 function checkSnakeCollision()
 {
@@ -292,6 +320,7 @@ function checkSnakeCollision()
 			{
 				document.getElementById("result").innerHTML = "Game Over!";
 				gameOver=true;
+                gameStarted = false;
 			}
 		}
 	}
@@ -301,15 +330,12 @@ function checkFruitCoords(fruitX, fruitY)
 	for(var i = 0; i<snakeHeadPos.length;i++) //Make sure the fruit gets respawned on a free square.
 	{
 		var reselect=false;
-		while(fruitX == parseInt(snakeHeadPos[i][5]) && fruitY==parseInt(snakeHeadPos[i][4]) )
+		if(fruitX == parseInt(snakeHeadPos[i][5]) && fruitY==parseInt(snakeHeadPos[i][4]) )
 		{
 			fruitX = Math.floor(Math.random() * 8);
 			fruitY = Math.floor(Math.random() * 8);
-			reselect=true;
-		}
-		if(reselect)
-		{
-			i=0;
+			checkFruitCoords(fruitX, fruitY);
+            break;
 		}
 	}
 	Fruit = "elem" + fruitX + fruitY;
@@ -322,6 +348,7 @@ function gameRestart()
 	Fruit = "";
 	score = 0;
 	gameOver=false;
+    gameStarted = false;
 	document.getElementById("result").innerHTML = "";
 	document.getElementById("startgame").disabled = false;
 	document.getElementById("restartgame").disabled = true;

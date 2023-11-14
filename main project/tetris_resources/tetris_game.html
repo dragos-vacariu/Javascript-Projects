@@ -170,15 +170,22 @@
 	</table>
 	<div id="all_info">
 		<h3 id="score">Score: </h3> </br>
-		<form id="menu">
-			<input type="button" id="startgame" onclick = "StartGame()" value="Start Game"></input><br>
-			<input type="button" id="restartgame" disabled onclick = "RestartGame()" value="Restart Game"></input><br>
-		</form>
-		<form id="controls">
-			<input type="button" id="rotate" onclick = "Rotate()" value="Rotate"></input><br>
-			<input type="button" id="left" onclick = "TurnLeft()" value="Left"></input>
-			<input type="button" id="right" onclick = "TurnRight()" value="Right"></input>
-		</form>
+        <div id="button_div">
+            <form id="menu">
+                <input type="button" id="startgame" onclick = "StartGame()" value="Start Game"></input><br>
+                <input type="button" id="restartgame" disabled onclick = "RestartGame()" value="Restart Game"></input><br>
+            </form>
+            <form id="controls">
+                <input type="button" id="rotate" onclick = "Rotate()" value="Rotate"></input><br>
+                <input type="button" id="left" onclick = "TurnLeft()" value="Left"></input>
+                <input type="button" id="right" onclick = "TurnRight()" value="Right"></input>
+            </form>
+        </div>
+        <div id = "controlInfo"><span id="code_style">Control Info:</span><br><br>Use the buttons from the left or Key Arrows <span id="code_style"><- -></span> to move the item.<br><br> Use 
+        <span id="code_style">Space</span> button or <span id="code_style">Rotate</span> button to rotate the item.
+        <br><br>Use <span id="code_style">Down Arrow</span> to accelerate the fall.
+        </div>
+        <h3>If the items stack reach to the top of the screen the game is over.</h3>
 	</div>
 </body>
 </html>

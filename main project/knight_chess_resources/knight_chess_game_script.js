@@ -1,5 +1,5 @@
 var emptyTable=true;
-var knightChess = "url('knight_chess_resources/knight_chess.png')"
+var knightChess = "url('knight_chess.png')"
 var piece = "";
 var validOption = [];
 var score = 0;
@@ -11,6 +11,8 @@ function SquareClicked(x)
 	var square = document.getElementById(x);
 	if(emptyTable)
 	{
+        document.getElementById("result").innerHTML = "";
+		document.getElementById("result").color = "white";
 		emptyTable = false;
 		square.style.backgroundImage = knightChess;
 		piece = x[4] + x[5];
@@ -205,7 +207,6 @@ function getGameOverStatus()
 				document.getElementById("elem"+i+j).style.backgroundColor == "black")
 			{
 				document.getElementById("result").innerHTML = "Game Over. You failed to conquer the checkerboard.";
-				document.getElementById("result").color = "red";
 				gameOver=0;
 				break;
 			}
@@ -214,7 +215,6 @@ function getGameOverStatus()
 	if(gameOver!=0)
 	{
 		document.getElementById("result").innerHTML = "Congratulations. You have conquered the checkerboard.";
-		document.getElementById("result").color = "green";
 	}
 }
 
@@ -226,8 +226,8 @@ function gameRestart()
 	score = 0;
 	gameOver=2; // 0 for game lost, 1 for game won, 2 for init.
 	document.getElementById("score").innerHTML = "Score: ";
-	document.getElementById("result").color = "black";
 	document.getElementById("result").innerHTML = "";
+    document.getElementById("result").innerHTML = "Choose a square in order to begin.";
 	for(var i =0; i<8; i++)
 	{
 		for(var j=0;j<8;j++)

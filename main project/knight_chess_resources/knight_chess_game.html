@@ -88,15 +88,16 @@
 				<td id = "elem77" onclick="SquareClicked('elem77')"  style="background-color: black;" ></td>
 			</tr>
 		</table>
-		<h4 id="score">Score: </h4>
-		<p id="game_Info"><b>Game Info:</b> The purpose of the game is to travel each individual Square on the Chessboard using only the Knight piece.
-		You are allowed to travel each square only once. The game is won only when you successful conquer each square on the chessboard.
-		If you run out of squares to travel, but failed to conquer the whole chessboard the game is over.
-		<br><br>
-		<b>Choose a square in order to begin.</b>
-		</p>
-		<h3 id="result"></h3>
-		<input type="button" id="restart" onclick="gameRestart()" value="Restart"></input>
+        <div id="gameHud">
+            <h4 id="score">Score: </h4>
+            <p id="game_Info"><b>Game Info:</b> The purpose of the game is to travel each individual Square on the Chessboard using only the Knight piece.
+            You are allowed to travel each square only once. The game is won only when you successful conquer each square on the chessboard.
+            If you run out of squares to travel, but failed to conquer the whole chessboard the game is over.
+            <br><br>
+            </p>
+            <h3 id="result">Choose a square in order to begin.</h3>
+            <input type="button" id="restart" onclick="gameRestart()" value="Restart"></input>
+        </div>
 	</body>
 
 </html>

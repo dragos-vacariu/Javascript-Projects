@@ -1,30 +1,40 @@
+#pagination_table{
+	margin:5px;
+}
 body{
-	background-image: url(code1.png);
-	background-size:1300px;
+	background-image: url(homepage_background.jpeg);
+	background-size:100%;
+    background-repeat: repeat;
 }
 #pagination_div{
+    width:40%; 
 	opacity: 0.7;
 	background-color:gray;
 	font-family: Trebucket MS;
-	font-size: 16px;
-	border-style: outset;
-	border-width: 2px;
-	border-color: lightgreen;
+	font-size: 1vw;
+	border-style: ridge;
+	border-width: 1.2vw;
+	border-color: white;
+    margin:1%; 
+	padding:1%;
 }
 #pagination_div h2{
 	font-family: Consolas;
-	color: black;
+	color: white;
+    font-size: 1.5vw;
 	font-variant: small-caps;
 }
 #pagination_div h4{
 	font-family: Verdana;
-	color: red;
+	color: gold;
 	opacity: 0.7;
 	border-style: solid;
-	border-width: 2px;
-	border-color: lightgreen;
-	padding: 5px;
+	border-width: 1%;
+	border-color: white;
+	padding: 2%;
 	letter-spacing: 1px;
+    font-size: 1.5vw;
+    background-color: rgba(0,0,0,0.4);
 }
 #pagination_div a{
 	color: lightgreen;
@@ -35,7 +45,7 @@ body{
 	font-weight: bold;
 	line-height: 1.6;
 	font-variant: small-caps;
-	font-size: 20px;
+	font-size: 2vw;
 	text-decoration: none;
 }
 #pagination_div a:hover{
@@ -47,6 +57,6 @@ body{
 	font-weight: bold;
 	line-height: 1.6;
 	font-variant: small-caps;
-	font-size: 20px;
+	font-size: 2vw;
 	text-decoration: none;
 }

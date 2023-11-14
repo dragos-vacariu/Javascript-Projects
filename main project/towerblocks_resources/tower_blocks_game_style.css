@@ -1,0 +1,76 @@
+body{
+	background-image: url(towerblocks_page_background.jpg);
+	background-size:100%;
+}
+
+table tr{
+    padding: 0%;
+}
+
+table td{
+    padding:3%;
+    margin:0%;
+	border-style: solid;
+	border-width: 2px;
+	border-color: black;
+	background-repeat: no-repeat; 
+    background-size: 100%;
+}
+table{
+    border-spacing: 0px;
+    border-collapse: collapse;
+    position: relative;
+    float:left;
+	margin-left:2%;
+    padding:0%;
+    width: 40%;
+    background-color: rgba(200,200,200,0.5);
+}
+#hud h3, h4{
+    margin-left: 1%;
+}
+#hud h3{
+    font-family: Consolas;
+    font-size : 1vw; /* font-size 1% of the viewport size.*/
+	color: black;
+}
+#controlInfo{
+    color:blue;
+}
+#hud{
+    position:absolute;
+    left:50%;
+	width:15%;
+    top: 1%;
+	border-style:solid;
+	padding: 2%;
+    font-family: Courier New;
+    font-size : 1vw; /* font-size 1% of the viewport size.*/
+	color: black;
+    background-color: rgba(200,200,200,0.5);
+}
+#gameStatus{
+    color: red;
+}
+#menu{
+    position: relative;
+	border-style:none;
+	padding: 1%;
+}
+#controls{
+    position: relative;
+	border-style:solid;
+	padding: 2%;
+}
+#drop{
+    margin-top:10px;
+	width: 8vw;
+}
+#restartgame, #startgame{
+	margin-top:10px;
+    position: relative;
+    left:0%;
+	width: 8vw;
+    text-align: center;
+    font-size: 1vw; /* font-size in percent of the viewport size.*/
+}

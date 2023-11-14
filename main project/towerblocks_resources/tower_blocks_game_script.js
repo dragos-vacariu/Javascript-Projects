@@ -1,7 +1,7 @@
 var blocksClimbed=0;
 var game_started=false;
-var blockSquareTexture = "url('towerblocks_resources/brick.jpg')";
-var platformTexture = "url('towerblocks_resources/platform.jpg')"
+var blockSquareTexture = "url('brick.jpg')";
+var platformTexture = "url('platform.jpg')"
 var TableRows = 15
 var TableCols = 15
 var spareBlocks = 3;

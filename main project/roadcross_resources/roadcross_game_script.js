@@ -1,20 +1,20 @@
 var carTextures = [];
-carTextures.push("url('roadcross_resources/cars_facing_down/car0.png')");
-carTextures.push("url('roadcross_resources/cars_facing_down/car1.png')");
-carTextures.push("url('roadcross_resources/cars_facing_down/car2.png')");
-carTextures.push("url('roadcross_resources/cars_facing_down/car3.png')");
-carTextures.push("url('roadcross_resources/cars_facing_down/car4.png')");
-carTextures.push("url('roadcross_resources/cars_facing_down/car5.png')");
-carTextures.push("url('roadcross_resources/cars_facing_down/car6.png')");
-carTextures.push("url('roadcross_resources/cars_facing_down/car7.png')");
-carTextures.push("url('roadcross_resources/cars_facing_down/car8.png')");
-carTextures.push("url('roadcross_resources/cars_facing_down/car9.png')");
+carTextures.push("url('cars_facing_down/car0.png')");
+carTextures.push("url('cars_facing_down/car1.png')");
+carTextures.push("url('cars_facing_down/car2.png')");
+carTextures.push("url('cars_facing_down/car3.png')");
+carTextures.push("url('cars_facing_down/car4.png')");
+carTextures.push("url('cars_facing_down/car5.png')");
+carTextures.push("url('cars_facing_down/car6.png')");
+carTextures.push("url('cars_facing_down/car7.png')");
+carTextures.push("url('cars_facing_down/car8.png')");
+carTextures.push("url('cars_facing_down/car9.png')");
 
 var carTexturesReversed = [];
-carTexturesReversed.push("url('roadcross_resources/cars_facing_up/car10.png')");
-carTexturesReversed.push("url('roadcross_resources/cars_facing_up/car11.png')");
-carTexturesReversed.push("url('roadcross_resources/cars_facing_up/car12.png')");
-carTexturesReversed.push("url('roadcross_resources/cars_facing_up/car13.png')");
+carTexturesReversed.push("url('cars_facing_up/car10.png')");
+carTexturesReversed.push("url('cars_facing_up/car11.png')");
+carTexturesReversed.push("url('cars_facing_up/car12.png')");
+carTexturesReversed.push("url('cars_facing_up/car13.png')");
 
 var numberOfRows = 15;
 var numberOfCols = 15;
@@ -124,7 +124,7 @@ class Person
 	{
 		this.PosX = 0;
 		this.PosY = parseInt(numberOfRows/2);
-        this.texture = "url('roadcross_resources/person.png')";
+        this.texture = "url('person.png')";
 	}
     Draw()
 	{
