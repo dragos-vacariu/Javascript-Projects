@@ -10,3 +10,6 @@ TowerBlocks Game video available at: https://youtu.be/eVgVYRv5R4A
 
 Preview the HTML Content:
 https://htmlpreview.github.io/?https://github.com/dragos-vacariu/Javascript-Projects/blob/master/main%20project/homepage.html
+
+Portable Download: 
+https://github.com/dragos-vacariu/Portable-Downloads/tree/main/JavaScript%20In-Browser%20Games
