@@ -1,0 +1,64 @@
+body{
+	background-image: url(textures/snake_page_background.jpg);
+	background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+#game_canvas {
+    border: 0.5vw double #000000;
+    background-color: #f1f1f1;
+    background-image: url(textures/concrete.jpg);
+    background-size: 40%  40%; /*scaling the image for high resolution*/
+    background-repeat: repeat;
+	width: 70vw;
+	height: 35vw;
+    margin:0.5vw;
+}
+
+#label_canvas{
+	position: absolute;
+    border: 0.5vw double #000000;
+    background-color: #f1f1f1;
+    background-size: 100%;
+    background-repeat: no-repeat;
+	width: 20vw;
+	left:72vw;
+	height: 20vw;
+	opacity:0.8;
+    margin:0.5vw;
+}
+
+#buttons
+{
+	border-style:double;
+	border-width: 0.5vw;
+	border-color: black;
+	background-color: #f1f1f1;
+	width: 70vw;
+	opacity: 0.8;
+	padding-top: 0.5vw;
+	padding-bottom: 1vw;
+    margin-left:0.5vw;
+}
+#buttons input
+{
+	width: 8vw;
+	height: 3vw;
+	font-size: 2vw;
+	font-variant: small-caps;
+}
+#buttons #Up, #Down{
+	position: relative;
+	left: 30vw;
+	background-color: green;
+	color: white;
+	font-weight: bold;
+}
+#buttons #Left, #Right{
+	position: relative;
+	left: 20vw;
+    margin-right:12vw;
+	background-color: green;
+	color: white;
+	font-weight: bold;
+}
