@@ -9,7 +9,7 @@ Message Encoder / Decoder video available at: https://www.youtube.com/watch?v=h2
 TowerBlocks Game video available at: https://youtu.be/eVgVYRv5R4A
 
 Preview the HTML Content:
-https://htmlpreview.github.io/?https://github.com/dragos-vacariu/Javascript-Projects/blob/master/main%20project/homepage.html
+https://htmlpreview.github.io/?https://github.com/dragos-vacariu/Javascript-Projects/full_homepage.html
 
 Game Applications Page: 
 https://dragos-vacariu.github.io/Javascript-Projects/
