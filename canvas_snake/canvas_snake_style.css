@@ -4,61 +4,106 @@ body{
     background-repeat: no-repeat;
 }
 
+#left_block
+{
+	position: relative;
+	width: 60%;
+	top:0%;
+	padding:1%;
+	margin:0.5%;
+}
 #game_canvas {
     border: 0.5vw double #000000;
     background-color: #f1f1f1;
     background-image: url(textures/concrete.jpg);
     background-size: 40%  40%; /*scaling the image for high resolution*/
     background-repeat: repeat;
-	width: 70vw;
-	height: 35vw;
-    margin:0.5vw;
+	width: 100%;
+	opacity: 0.8;
 }
-
-#label_canvas{
-	position: absolute;
-    border: 0.5vw double #000000;
-    background-color: #f1f1f1;
-    background-size: 100%;
-    background-repeat: no-repeat;
-	width: 20vw;
-	left:72vw;
-	height: 20vw;
-	opacity:0.8;
-    margin:0.5vw;
-}
-
 #buttons
 {
+	position: relative;
 	border-style:double;
 	border-width: 0.5vw;
 	border-color: black;
 	background-color: #f1f1f1;
-	width: 70vw;
+	width: 100%;
 	opacity: 0.8;
-	padding-top: 0.5vw;
-	padding-bottom: 1vw;
-    margin-left:0.5vw;
+	padding-top: 0.5%;
+	padding-bottom: 1%;
 }
 #buttons input
 {
-	width: 8vw;
-	height: 3vw;
+	width: 18%;
 	font-size: 2vw;
 	font-variant: small-caps;
 }
+
 #buttons #Up, #Down{
 	position: relative;
-	left: 30vw;
+	left: 40%;
 	background-color: green;
 	color: white;
 	font-weight: bold;
 }
 #buttons #Left, #Right{
 	position: relative;
-	left: 20vw;
-    margin-right:12vw;
+	left: 20.5%;
+    margin-right:20%;
 	background-color: green;
 	color: white;
 	font-weight: bold;
+}
+
+#right_block
+{
+	position: absolute;
+	width: 30%;
+	left:63%;
+	top:0%;
+	padding:1%;
+	margin:0.5%;
+}
+#label_canvas{
+	position: relative;
+	width: 100%;
+    border: 0.5vw double #000000;
+    background-color: #f1f1f1;
+    background-size: 100%;
+    background-repeat: no-repeat;
+	opacity:0.8;
+    margin-top:0.5%;
+    margin-right:0.5%;
+    margin-bottom:0.5%;
+    margin-left:3.5%;
+}
+#instructions
+{
+	position: relative;
+	width: 100%;
+	background-color: #f1f1f1;
+	border-style: double;
+	border-width: 0.5vw;
+	border-color: black;
+	opacity: 0.8;
+	padding-top: 0.5%;
+	padding-bottom: 1%;
+	margin-top:0%;
+    margin-right:0.5%;
+    margin-bottom:0.5%;
+	margin-left:3.5%;
+}
+#instructions p
+{
+	font-size: 2vw;
+	font-variant: small-caps;
+	text-align: center;
+	padding: 1.5%;
+	font-family:Trebuchet MS;
+}
+
+#instructions p code
+{
+	color: blue;
 }

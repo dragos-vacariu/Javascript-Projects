@@ -9,7 +9,7 @@ var snakeHeadTexture_UP = "./textures/red_snake_head_up.png";
 var snakeHeadTexture_DOWN = "./textures/red_snake_head_down.png";
 var snakeBodyTexture = "./textures/red_snake_body.png";
 var fruitTexture = "./textures/fruit.png"
-var defaultComponentSize = 80; //component size in pixels;
+var defaultComponentSize = 70; //component size in pixels;
 
 gameCanvas = document.getElementById("game_canvas");
 gameContext = gameCanvas.getContext("2d");
@@ -21,10 +21,11 @@ labelContext.scale(1,1);
 //Collecting the window size info and calculating the aspect ratio values for the canvas to be 1:1 with the window:
 
 gameCanvas.width = window.innerWidth;
+//gameCanvas.height = 10* window.innerWidth/16; // aspect ratio 16:10
 gameCanvas.height = 10* window.innerWidth/16; // aspect ratio 16:10
 
 labelCanvas.width = window.innerWidth;
-labelCanvas.height = 10* window.innerWidth/16; // aspect ratio 16:10
+labelCanvas.height = 1* window.innerWidth/4; // aspect ratio 16:10
 
 /*
 The setting of aspect ratio for the canvas above is very important in order to draw the image textures in good quality.
@@ -58,9 +59,9 @@ class text_component
         this.context.font = this.size + " "  + this.fontFamily + " " + "bold";
 		this.context.fontVariantCaps = "small-caps";
 		this.context.fontWeight = "bold";
-		this.context.letterSpacing = "2vw";
+		this.context.letterSpacing = "3vw";
         this.context.fillStyle = this.color;
-        this.context.fillText(this.textMessage, this.PosX, this.PosY);
+        this.context.fillText(this.textMessage, this.PosX , this.PosY);
     }
 }
 
@@ -125,7 +126,6 @@ class Snake
         this.snake = [];
         //the snake shall start from the middle of the screen.
         this.snake.push(new shape_component (gameCanvas.width/2, gameCanvas.height/2, snakeHeadTexture_LEFT));
-		this.inputDelayMechanism_inputTookEfect = true; 
 	}
     
     //Making update function capable of calling other function within the class by using this keyword.
@@ -141,13 +141,6 @@ class Snake
             {
                 this.snake[i].update();
             }
-			//unlock the input as the changes took place and been rendered to the screen
-			if(this.inputDelayMechanism_inputTookEfect == false)
-			{
-				//If you received input last recurence, the the input was validated.
-				this.inputDelayMechanism_inputTookEfect = true; //reset the flag
-				//the user is allowed enter new input
-			}	
         }
     }
     setSnakeMovementDirection_LEFT()
@@ -157,16 +150,10 @@ class Snake
         */
         if ( this.snakeDirection != "right") //Do not allow 180 degrees turns
         {
-			if(this.inputDelayMechanism_inputTookEfect == true) //accept only input after the action took place
-			{
-				//If you received input, but the snake didn't have time to move based on the previous input 
-				//then you shall do nothing.
-				this.snakeDirection = "left";
-				this.inputDelayMechanism_inputTookEfect = false;
-				this.snake[0].texture = snakeHeadTexture_LEFT;  
-				resetInputButtonColors();
-				document.getElementById("Left").style.backgroundColor = "red";
-			}
+			this.snakeDirection = "left";
+			this.snake[0].texture = snakeHeadTexture_LEFT;  
+			resetInputButtonColors();
+			document.getElementById("Left").style.backgroundColor = "red";
 
         }
     }
@@ -177,16 +164,10 @@ class Snake
         */
         if ( this.snakeDirection != "left") //Do not allow 180 degrees turns
         {
-			if(this.inputDelayMechanism_inputTookEfect == true) //accept only input after the action took place
-			{
-				//If you received input, but the snake didn't have time to move based on the previous input 
-				//then you shall do nothing.
-				this.snakeDirection = "right";
-				this.inputDelayMechanism_inputTookEfect = false;
-				this.snake[0].texture = snakeHeadTexture_RIGHT; 
-				resetInputButtonColors();
-				document.getElementById("Right").style.backgroundColor = "red";				
-			}
+			this.snakeDirection = "right";
+			this.snake[0].texture = snakeHeadTexture_RIGHT; 
+			resetInputButtonColors();
+			document.getElementById("Right").style.backgroundColor = "red";				
 
         }
     }
@@ -197,16 +178,10 @@ class Snake
         */
         if ( this.snakeDirection != "up") //Do not allow 180 degrees turns
         {
-			if(this.inputDelayMechanism_inputTookEfect == true) //accept only input after the action took place
-			{
-				//If you received input, but the snake didn't have time to move based on the previous input 
-				//then you shall do nothing.
-				this.snakeDirection = "down";
-				inputDelayMechanism_inputTookEfect = false;
-				this.snake[0].texture = snakeHeadTexture_DOWN; 
-				resetInputButtonColors();
-				document.getElementById("Down").style.backgroundColor = "red";   
-			}
+			this.snakeDirection = "down";
+			this.snake[0].texture = snakeHeadTexture_DOWN; 
+			resetInputButtonColors();
+			document.getElementById("Down").style.backgroundColor = "red";   
          
         }
     }
@@ -217,16 +192,10 @@ class Snake
         */
         if ( this.snakeDirection != "down") //Do not allow 180 degrees turns
         {
-			if(this.inputDelayMechanism_inputTookEfect == true) //accept only input after the action took place
-			{
-				//If you received input, but the snake didn't have time to move based on the previous input 
-				//then you shall do nothing.
-				this.snakeDirection = "up";
-				this.inputDelayMechanism_inputTookEfect = false;
-				this.snake[0].texture = snakeHeadTexture_UP; 
-				resetInputButtonColors();
-				document.getElementById("Up").style.backgroundColor = "red";
-			}
+			this.snakeDirection = "up";
+			this.snake[0].texture = snakeHeadTexture_UP; 
+			resetInputButtonColors();
+			document.getElementById("Up").style.backgroundColor = "red";
 
         }
     }
@@ -370,9 +339,9 @@ class Game
         this.fruit = "";
         this.gameOver = false;
         this.time_interval =  200;
-        this.scoreTextComponent = new text_component(labelCanvasMargin, labelCanvas.height+(labelCanvasMargin-labelCanvas.height), "Score:", "13vw", "black", labelCanvas,labelContext);
-        this.gameOverTextComponent = new text_component( (gameCanvas.width/2)-gameCanvas.width/3, (gameCanvas.height/2) - (gameCanvas.height/5), "", "13vw", "white", gameCanvas, gameContext);
-        this.gameResultTextComponent = new text_component( (gameCanvas.width/2)-gameCanvas.width/3, (gameCanvas.height/2), "", "6vw", "white", gameCanvas, gameContext);
+        this.scoreTextComponent = new text_component(250, 150, "Score:", "10vw", "black", labelCanvas,labelContext);
+        this.gameOverTextComponent = new text_component( 200, 200, "", "13vw", "white", gameCanvas, gameContext);
+        this.gameResultTextComponent = new text_component( 220, 400, "", "6vw", "white", gameCanvas, gameContext);
         this.scoreValue = 0;
         this.player = new Snake();
         this.generateFruit();
