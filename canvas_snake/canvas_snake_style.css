@@ -21,39 +21,31 @@ body{
 	width: 100%;
 	opacity: 0.8;
 }
-#buttons
+#instructions
 {
 	position: relative;
-	border-style:double;
+	width: 100%;
+	background-color: #f1f1f1;
+	border-style: double;
 	border-width: 0.5vw;
 	border-color: black;
-	background-color: #f1f1f1;
-	width: 100%;
 	opacity: 0.8;
 	padding-top: 0.5%;
 	padding-bottom: 1%;
+	margin:0.5%;
 }
-#buttons input
+#instructions p
 {
-	width: 18%;
-	font-size: 2vw;
+	font-size: 1.5vw;
 	font-variant: small-caps;
+	text-align: center;
+	padding: 0%;
+	font-family:Trebuchet MS;
 }
 
-#buttons #Up, #Down{
-	position: relative;
-	left: 40%;
-	background-color: green;
-	color: white;
-	font-weight: bold;
-}
-#buttons #Left, #Right{
-	position: relative;
-	left: 20.5%;
-    margin-right:20%;
-	background-color: green;
-	color: white;
-	font-weight: bold;
+#instructions p code
+{
+	color: blue;
 }
 
 #right_block
@@ -78,32 +70,47 @@ body{
     margin-bottom:0.5%;
     margin-left:3.5%;
 }
-#instructions
+#buttons
 {
 	position: relative;
-	width: 100%;
-	background-color: #f1f1f1;
-	border-style: double;
+	border-style:double;
 	border-width: 0.5vw;
 	border-color: black;
+	background-color: #f1f1f1;
+	width: 100%;
 	opacity: 0.8;
 	padding-top: 0.5%;
 	padding-bottom: 1%;
-	margin-top:0%;
+	margin-top:0.5%;
     margin-right:0.5%;
     margin-bottom:0.5%;
-	margin-left:3.5%;
+    margin-left:3.5%;
 }
-#instructions p
+#buttons input
 {
+	width: 30%;
 	font-size: 2vw;
 	font-variant: small-caps;
-	text-align: center;
-	padding: 1.5%;
-	font-family:Trebuchet MS;
 }
 
-#instructions p code
+#buttons #Up, #Down{
+	position: relative;
+	left: 33%;
+	background-color: green;
+	color: white;
+	font-weight: bold;
+	margin:3%;
+}
+#buttons #Left, #Right{
+	position: relative;
+	left: 5%;
+	background-color: green;
+	color: white;
+	font-weight: bold;
+	margin-top:5%;
+	margin-bottom:5%;
+}
+#Right
 {
-	color: blue;
+	left: 35%;
 }

@@ -339,7 +339,7 @@ class Game
         this.fruit = "";
         this.gameOver = false;
         this.time_interval =  200;
-        this.scoreTextComponent = new text_component(250, 150, "Score:", "10vw", "black", labelCanvas,labelContext);
+        this.scoreTextComponent = new text_component(300, 200, "Score:", "10vw", "black", labelCanvas,labelContext);
         this.gameOverTextComponent = new text_component( 200, 200, "", "13vw", "white", gameCanvas, gameContext);
         this.gameResultTextComponent = new text_component( 220, 400, "", "6vw", "white", gameCanvas, gameContext);
         this.scoreValue = 0;
