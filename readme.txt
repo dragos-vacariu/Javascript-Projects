@@ -2,19 +2,19 @@
 VIDEOS
 
 Knight chess video: 
-https://www.youtube.com/watch?v=8pu59b3phtI&list=PLCma1j5Hgqtct-faQ8YIU9zQpXMgiIETA&index=9
+https://dragos-vacariu.github.io/Javascript-Projects/knight_chess_resources/knight_chess_video_page.html
 
 Snake Game video: 
-https://www.youtube.com/watch?v=BzqcmGwwI_k&list=PLCma1j5Hgqtct-faQ8YIU9zQpXMgiIETA&index=8
+https://dragos-vacariu.github.io/Javascript-Projects/snake_resources/snake_video_page.html
 
 Tetris Game video: 
-https://www.youtube.com/watch?v=X1V_FmHcKR0&list=PLCma1j5Hgqtct-faQ8YIU9zQpXMgiIETA&index=7
-
-Message Encoder / Decoder video: 
-https://www.youtube.com/watch?v=h2u26jyEW9o&list=PLCma1j5Hgqtct-faQ8YIU9zQpXMgiIETA&index=10
+https://dragos-vacariu.github.io/Javascript-Projects/tetris_resources/tetris_video_page.html
 
 TowerBlocks Game video: 
-https://youtu.be/eVgVYRv5R4A
+https://dragos-vacariu.github.io/Javascript-Projects/towerblocks_resources/towerblocks_video_page.html
+
+Canvas Snake Game video: 
+https://dragos-vacariu.github.io/Javascript-Projects/canvas_snake/canvas_snake_video_page.html
 
 ========================================================================================================
 PREVIEWS
