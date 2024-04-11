@@ -1,0 +1,36 @@
+name: 'GitHub Action Submodule Update (Directcommit)'
+description: 'Update submodules and creates a new commit for parent repository'
+author: 'releasehub, PaulRitter'
+
+branding:
+  icon: 'git-commit'
+  color: 'yellow'
+
+inputs:
+  parent_branch:
+    description: 'Branch to commit to'
+    required: false
+    default: 'main'
+  parent_repository:
+    description: 'Parent Repository'
+    required: true
+  
+runs:
+  using: 'composite'
+  steps:
+  - name: Checkout parent repository and branch
+    uses: actions/checkout@v3
+    with:
+      repository: ${{ inputs.parent_repository }}
+      ref: ${{ inputs.parent_branch }}
+      submodules: true
+      fetch-depth: 0
+
+  - name: Create new commit and push changes
+    shell: bash
+    run: |
+      git config user.name github-actions
+      git config user.email github-actions@github.com
+      git submodule update --remote
+      git commit -am "updating submodules"
+      git push
