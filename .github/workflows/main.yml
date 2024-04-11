@@ -1,27 +1,14 @@
-name: Send submodule updates to parent repo
-
+name: Dispatch Update Submodule
 on:
   push:
-    branches: 
+    branches:
       - main
-
 jobs:
-  update:
+  dispatch:
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v2
-        with: 
+      - name: Dispatch update to Git Blog Project
+        uses: peter-evans/repository-dispatch@v3
+        with:
           repository: dragos.vacariu/portfolio
-
-      - name: Pull & update submodules recursively
-        run: |
-          git submodule update --init --recursive
-          git submodule update --recursive --remote
-      - name: Commit
-        run: |
-          git config user.email "actions@github.com"
-          git config user.name "GitHub Actions - update submodules"
-          git add --all
-          git commit -m "Update submodules" || echo "No changes to commit"
-          git push
+          event-type: update-submodule
