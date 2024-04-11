@@ -2,14 +2,12 @@ name: Dispatch Update Submodule
 on:
   push:
     branches:
-      - main
+      - master
 jobs:
   dispatch:
-    runs-on: ubuntu-latest
     steps:
       - name: Dispatch update to Git Referenced Submodules
         uses: dragos.vacariu/portofolio
         with:
-          token:
           repository: dragos.vacariu/portofolio
           event-type: update-submodule
