@@ -7,7 +7,7 @@ jobs:
   dispatch:
     steps:
       - name: Dispatch update to Git Referenced Submodules
-        uses: dragos.vacariu/Javascript-Projects
+        uses: deploy
         with:
           repository: dragos.vacariu/portofolio
           event-type: update-submodule
