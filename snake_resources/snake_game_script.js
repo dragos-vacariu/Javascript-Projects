@@ -9,6 +9,61 @@ var FruitTexture = "url('snake_game_fruit.png')";
 var snakeHeadTexture = "url('snake_head.png')";
 var snakeBodyTexture = "url('snake_body.png')";
 var SnakeSpeed = 500;
+
+var isFullScreen = false;
+
+function FullscreenMode(e) {
+    var game_content = document.getElementById("game_content");
+    var fullscreen_button = document.getElementById("fullscreen_button");
+	if (isFullScreen == false)
+	{
+		if (game_content.requestFullscreen) 
+		{
+			game_content.requestFullscreen();
+			isFullScreen = true;
+			fullscreen_button.value   = "Exit Fullscreen";
+			fullscreen_button.style.backgroundColor = "pink";
+		} 
+		else if (game_content.webkitRequestFullscreen) 
+		{ /* Safari */
+			game_content.webkitRequestFullscreen();
+			isFullScreen = true;
+			fullscreen_button.value   = "Exit Fullscreen";
+			fullscreen_button.style.backgroundColor = "pink";
+		} else if (game_content.msRequestFullscreen) 
+		{ /* IE11 */
+			game_content.msRequestFullscreen();
+			isFullScreen = true;
+			fullscreen_button.value   = "Exit Fullscreen";
+			fullscreen_button.style.backgroundColor = "pink";
+		}
+	}
+	else
+	{
+
+		if (document.exitFullscreen) 
+		{
+			document.exitFullscreen();
+			isFullScreen = false;
+			fullscreen_button.value = "Enter Fullscreen";
+			fullscreen_button.style.backgroundColor = "white";
+		} 
+		else if (document.webkitExitFullscreen) 
+		{ /* Safari */
+			document.webkitExitFullscreen();
+			isFullScreen = false;
+			fullscreen_button.value = "Enter Fullscreen";
+			fullscreen_button.style.backgroundColor = "white";
+		} else if (document.msExitFullscreen) 
+		{ /* IE11 */
+			document.msExitFullscreen();
+			isFullScreen = false;
+			fullscreen_button.value = "Enter Fullscreen";
+			fullscreen_button.style.backgroundColor = "white";
+		}
+	}
+}
+
 function SquareClicked(x)
 {
 	if(snakeSeettled==false)
@@ -112,7 +167,7 @@ function setDirDown()
 //The main loop function:
 window.setInterval(function(){
 	//Creating a main loop;
-	if(!gameOver) //if not gameover
+	if(gameStarted == true && gameOver == false) //if game is running
 	{
 		if(SnakeDirMoving=="left")
 		{
@@ -231,7 +286,7 @@ window.setInterval(function(){
 				}
 			}
 		}
-		if(Fruit!="" && snakeHeadPos.length>0)
+		if(snakeHeadPos.length>0)
 		{
 			for(var i=0; i<snakeHeadPos.length; i++)
 			{
@@ -299,14 +354,14 @@ window.setInterval(function(){
 
 				}
 			}
+			if (Fruit =="")
+			{
+				fruitX = Math.floor(Math.random() * 8);
+				fruitY = Math.floor(Math.random() * 8);
+				checkFruitCoords(fruitX, fruitY);
+				document.getElementById(Fruit).style.backgroundImage = FruitTexture; //add fruit texture to the new respawned fruit
+			}
 		}
-        else if (Fruit ==""  && gameStarted)
-        {
-            fruitX = Math.floor(Math.random() * 8);
-			fruitY = Math.floor(Math.random() * 8);
-            checkFruitCoords(fruitX, fruitY);
-            document.getElementById(Fruit).style.backgroundImage = FruitTexture; //add fruit texture to the new respawned fruit
-        }
 	}
 }, SnakeSpeed); //this functions is executed every 500 mili-seconds. 2FPS per second.
 
