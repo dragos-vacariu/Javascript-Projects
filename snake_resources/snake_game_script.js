@@ -46,20 +46,20 @@ function FullscreenMode(e) {
 			document.exitFullscreen();
 			isFullScreen = false;
 			fullscreen_button.value = "Enter Fullscreen";
-			fullscreen_button.style.backgroundColor = "white";
+			fullscreen_button.style.backgroundColor = "yellow";
 		} 
 		else if (document.webkitExitFullscreen) 
 		{ /* Safari */
 			document.webkitExitFullscreen();
 			isFullScreen = false;
 			fullscreen_button.value = "Enter Fullscreen";
-			fullscreen_button.style.backgroundColor = "white";
+			fullscreen_button.style.backgroundColor = "yellow";
 		} else if (document.msExitFullscreen) 
 		{ /* IE11 */
 			document.msExitFullscreen();
 			isFullScreen = false;
 			fullscreen_button.value = "Enter Fullscreen";
-			fullscreen_button.style.backgroundColor = "white";
+			fullscreen_button.style.backgroundColor = "yellow";
 		}
 	}
 }

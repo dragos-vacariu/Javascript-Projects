@@ -60,16 +60,6 @@
 	margin-left:0%;
 }
 
-#fullscreen_button
-{
-	position: relative;
-	margin:2%;
-	left: 25%;
-	width: 12vw;
-	font-size: 1vw; 
-	
-}
-
 form h6{
     margin:0%;
     padding: 0%;
@@ -116,9 +106,19 @@ form h6{
 }
 
 #startgame, #restartgame{
+	position: relative;
     width:8vw;
-    text-align: center;
     font-size: 1vw; /* font-size in percent of the viewport size.*/
+}
+
+#fullscreen_button
+{
+	position: relative;
+	margin:2%;
+	width: 10vw;
+	font-size: 1vw; 
+	background-color: yellow;
+	
 }
 
 #speed{
