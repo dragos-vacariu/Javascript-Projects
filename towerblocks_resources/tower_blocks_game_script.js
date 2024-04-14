@@ -7,6 +7,54 @@ var TableCols = 15
 var spareBlocks = 3;
 var blockDone = false;
 
+var isFullScreen = false;
+
+function FullscreenMode(e) {
+    var game_content = document.getElementById("game_content");
+    var fullscreen_button = document.getElementById("fullscreen");
+	if (isFullScreen == false)
+	{
+		if (game_content.requestFullscreen) 
+		{
+			game_content.requestFullscreen();
+			isFullScreen = true;
+			fullscreen_button.style.backgroundColor = "pink";
+		} 
+		else if (game_content.webkitRequestFullscreen) 
+		{ /* Safari */
+			game_content.webkitRequestFullscreen();
+			isFullScreen = true;
+			fullscreen_button.style.backgroundColor = "pink";
+		} else if (game_content.msRequestFullscreen) 
+		{ /* IE11 */
+			game_content.msRequestFullscreen();
+			isFullScreen = true;
+			fullscreen_button.style.backgroundColor = "pink";
+		}
+	}
+	else
+	{
+
+		if (document.exitFullscreen) 
+		{
+			document.exitFullscreen();
+			isFullScreen = false;
+			fullscreen_button.style.backgroundColor = "lightgray";
+		} 
+		else if (document.webkitExitFullscreen) 
+		{ /* Safari */
+			document.webkitExitFullscreen();
+			isFullScreen = false;
+			fullscreen_button.style.backgroundColor = "lightgray";
+		} else if (document.msExitFullscreen) 
+		{ /* IE11 */
+			document.msExitFullscreen();
+			isFullScreen = false;
+			fullscreen_button.style.backgroundColor = "lightgray";
+		}
+	}
+}
+
 class Platform
 {
 	constructor()
@@ -346,17 +394,29 @@ function StartGame()
 	updateSpareBlocks();
 	build_platform.DrawPlatform();
 	document.getElementById("startgame").disabled = true;
-	document.getElementById("controlInfo").innerHTML = "Press SPACE KEY to drop the block.";
+	document.getElementById("controlInfo").innerHTML = "Press SPACE KEY or DROP BLOCK BUTTON to drop the block.";
 	document.getElementById("restartgame").disabled = false;
+	document.getElementById("drop_block").disabled = false;
 	document.getElementById("gameStatus").innerHTML = "";
 }
 
 document.onkeydown = function (e) //trigger event when key is pressed down
 {
-    if (e.key == " " || e.code == "Space" || e.keyCode == 32 ) //if the key pressed is SPACE KEY
-    {
-        block.dropBlock()
-    }
+	if(game_started == true && block != null)
+	{
+		if (e.key == " " || e.code == "Space" || e.keyCode == 32 ) //if the key pressed is SPACE KEY
+		{
+			block.dropBlock()
+		}
+	}
+}
+
+function DropBlock()
+{
+	if(game_started == true && block != null)
+	{
+		block.dropBlock()
+	}
 }
 
 function RestartGame()
@@ -376,9 +436,9 @@ function numberToString(n){
 
 function updateBlocksClimbed()
 {
-	document.getElementById("blocksClimbed").innerHTML = "Blocks Climbed: " + window.blocksClimbed;
+	document.getElementById("blocksClimbed").innerHTML = "SCORE: " + window.blocksClimbed;
 }
 function updateSpareBlocks()
 {
-	document.getElementById("spareBlocks").innerHTML = "Spare Blocks: " + window.spareBlocks;
+	document.getElementById("spareBlocks").innerHTML = "SPARES: " + window.spareBlocks;
 }
