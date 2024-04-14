@@ -1,16 +1,30 @@
-body{
+#page_block #game_content{
+	position:relative;
+	width:80vw;
+	height:auto;
+	left:10vw;
 	background-image: url(textures/snake_page_background.jpg);
 	background-size: 100%;
-    background-repeat: no-repeat;
+	background-repeat: repeat;
+	background-size: cover;
+	position:relative;
+	border: solid 2px black;
 }
 
 #left_block
 {
 	position: relative;
-	width: 60%;
+	width: 50vw;
 	top:0%;
-	padding:1%;
-	margin:0.5%;
+}
+
+#right_block
+{
+	position: relative;
+	width: 25vw;
+	top:0vw;
+	padding:0.2vw;
+    margin:0.2vw;;
 }
 #game_canvas {
     border: 0.5vw double #000000;
@@ -19,8 +33,22 @@ body{
     background-size: 40%  40%; /*scaling the image for high resolution*/
     background-repeat: repeat;
 	width: 100%;
+	margin:0.2vw;
 	opacity: 0.8;
 }
+
+
+#label_canvas{
+	position: relative;
+	width: 100%;
+    border: 0.5vw double #000000;
+    background-color: #f1f1f1;
+    background-size: 100%;
+    background-repeat: no-repeat;
+	opacity:0.8;
+    margin:0%;
+}
+
 #instructions
 {
 	position: relative;
@@ -32,14 +60,15 @@ body{
 	opacity: 0.8;
 	padding-top: 0.5%;
 	padding-bottom: 1%;
-	margin:0.5%;
+    margin:0%;
 }
+
 #instructions p
 {
-	font-size: 1.5vw;
+	font-size: 1.2vw;
 	font-variant: small-caps;
-	text-align: center;
-	padding: 0%;
+	padding: 1%;
+	margin:1%;
 	font-family:Trebuchet MS;
 }
 
@@ -48,28 +77,6 @@ body{
 	color: blue;
 }
 
-#right_block
-{
-	position: absolute;
-	width: 30%;
-	left:63%;
-	top:0%;
-	padding:1%;
-	margin:0.5%;
-}
-#label_canvas{
-	position: relative;
-	width: 100%;
-    border: 0.5vw double #000000;
-    background-color: #f1f1f1;
-    background-size: 100%;
-    background-repeat: no-repeat;
-	opacity:0.8;
-    margin-top:0.5%;
-    margin-right:0.5%;
-    margin-bottom:0.5%;
-    margin-left:3.5%;
-}
 #buttons
 {
 	position: relative;
@@ -81,10 +88,8 @@ body{
 	opacity: 0.8;
 	padding-top: 0.5%;
 	padding-bottom: 1%;
-	margin-top:0.5%;
-    margin-right:0.5%;
-    margin-bottom:0.5%;
-    margin-left:3.5%;
+    margin-bottom:2%;
+
 }
 #buttons input
 {
@@ -95,22 +100,22 @@ body{
 
 #buttons #Up, #Down{
 	position: relative;
-	left: 33%;
 	background-color: green;
 	color: white;
 	font-weight: bold;
-	margin:3%;
+    margin:1%;
 }
 #buttons #Left, #Right{
 	position: relative;
-	left: 5%;
+	right: 15%;
 	background-color: green;
 	color: white;
 	font-weight: bold;
 	margin-top:5%;
 	margin-bottom:5%;
+	margin:0%;
 }
 #Right
 {
-	left: 35%;
+	left: 15%;
 }

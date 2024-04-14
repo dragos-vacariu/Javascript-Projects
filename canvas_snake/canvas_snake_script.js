@@ -11,6 +11,60 @@ var snakeBodyTexture = "./textures/red_snake_body.png";
 var fruitTexture = "./textures/fruit.png"
 var defaultComponentSize = 70; //component size in pixels;
 
+var isFullScreen = false;
+
+function FullscreenMode(e) {
+    var game_content = document.getElementById("game_content");
+    var fullscreen_button = document.getElementById("fullscreen_button");
+	if (isFullScreen == false)
+	{
+		if (game_content.requestFullscreen) 
+		{
+			game_content.requestFullscreen();
+			isFullScreen = true;
+			fullscreen_button.value   = "Exit Fullscreen";
+			fullscreen_button.style.backgroundColor = "pink";
+		} 
+		else if (game_content.webkitRequestFullscreen) 
+		{ /* Safari */
+			game_content.webkitRequestFullscreen();
+			isFullScreen = true;
+			fullscreen_button.value   = "Exit Fullscreen";
+			fullscreen_button.style.backgroundColor = "pink";
+		} else if (game_content.msRequestFullscreen) 
+		{ /* IE11 */
+			game_content.msRequestFullscreen();
+			isFullScreen = true;
+			fullscreen_button.value   = "Exit Fullscreen";
+			fullscreen_button.style.backgroundColor = "pink";
+		}
+	}
+	else
+	{
+
+		if (document.exitFullscreen) 
+		{
+			document.exitFullscreen();
+			isFullScreen = false;
+			fullscreen_button.value = "Enter Fullscreen";
+			fullscreen_button.style.backgroundColor = "yellow";
+		} 
+		else if (document.webkitExitFullscreen) 
+		{ /* Safari */
+			document.webkitExitFullscreen();
+			isFullScreen = false;
+			fullscreen_button.value = "Enter Fullscreen";
+			fullscreen_button.style.backgroundColor = "yellow";
+		} else if (document.msExitFullscreen) 
+		{ /* IE11 */
+			document.msExitFullscreen();
+			isFullScreen = false;
+			fullscreen_button.value = "Enter Fullscreen";
+			fullscreen_button.style.backgroundColor = "yellow";
+		}
+	}
+}
+
 gameCanvas = document.getElementById("game_canvas");
 gameContext = gameCanvas.getContext("2d");
 gameContext.scale(1,1);
@@ -26,6 +80,8 @@ gameCanvas.height = 10* window.innerWidth/16; // aspect ratio 16:10
 
 labelCanvas.width = window.innerWidth;
 labelCanvas.height = 1* window.innerWidth/4; // aspect ratio 16:10
+
+defaultComponentSize = gameCanvas.width/20; //let the component be a ratio of the gameCanvas size
 
 /*
 The setting of aspect ratio for the canvas above is very important in order to draw the image textures in good quality.
@@ -507,6 +563,8 @@ document.getElementById("Left").addEventListener("click", function (e) {gameObj.
 document.getElementById("Right").addEventListener("click", function (e) {gameObj.player.setSnakeMovementDirection_RIGHT();});
 document.getElementById("Up").addEventListener("click", function (e) {gameObj.player.setSnakeMovementDirection_UP();});
 document.getElementById("Down").addEventListener("click", function (e) {gameObj.player.setSnakeMovementDirection_DOWN();});
+document.getElementById("fullscreen").addEventListener("click", function (e) {FullscreenMode();});
+document.getElementById("restart").addEventListener("click", function (e) {location.reload(); });
 
 //Prevent the default behaviour on this window.
 window.addEventListener("keydown", function(e) {

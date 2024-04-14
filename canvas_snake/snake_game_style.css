@@ -1,0 +1,187 @@
+#game_div table{
+	position: relative;
+	background-image: url(snake_background2.bmp);
+    padding:0%;
+    width: 40vw;
+    background-repeat: repeat; 
+    background-size: 100%;
+    margin-left:2%;
+    margin-bottom:2%;
+    margin-top:2%;
+    width: 100%;
+    border-spacing: 2px;
+	border-color:black;
+	border-width:1px;
+	opacity: 0.9;
+}
+
+#game_div table td{
+	position: relative;
+	padding: 5%;
+	border-style: ridge; 
+	border-color:black;
+	border-width:2px;
+    position: relative;
+    background-size: 80%;
+    background-repeat: no-repeat;
+	background-position: center;
+    margin:0%;
+}
+
+#restart{
+	padding:1%;
+	margin:5%;
+	margin-bottom:0%;
+	width:100px;
+}
+#controls{
+    border-style:solid;
+	border-width:1px;
+	border-color:black;
+    width: 90%;
+	padding:2%;
+	margin: 2%;
+    background-color: rgba(255,255,255,0.5);
+}
+#controls input{
+    width:10vw;
+	padding:0.5vw;
+	margin:0.3vw;
+    text-align: center;
+    font-size: 1vw; /* font-size in percent of the viewport size.*/
+}
+
+#turnUp, #turnDown{
+    position: relative;
+}
+
+#turnLeft, #turnRight{
+    position: relative;
+	margin-left:0%;
+}
+
+form h6{
+    margin:0%;
+    padding: 0%;
+    left:20%;
+    font-family:Courier New;
+	font-size: 1.2vw; /* font-size 1% of the viewport size.*/
+    font-weight: bold;
+	background-color: rgba(255,0,0,0.9);
+	color:white;
+	font-weight: bold;
+	opacity: 0.9;
+	text-shadow: 3px 4px black;
+}
+
+#game_hud{
+    position: relative;
+    width:90%;
+    top:0%;
+    margin-left:5%;
+    border-style:solid;
+	border-width:2px;
+	border-color:black;
+    background-color: rgba(255,255,255,0.2);
+}
+
+#game_hud h6{ 
+	padding: 2%;
+	margin: 2%;
+	width:90%;
+	font-size: 1.2vw;
+}
+
+.game_button{
+	position:relative;
+    border-style:solid;
+	border-width: 2px;
+	border-color:darkred;
+	padding:1%;
+	margin:0%;
+    text-align: center;
+    font-size: 1.3vw; /* font-size in percent of the viewport size.*/
+    color: darkred;
+	font-weight: bold;
+}
+
+#startgame, #restartgame{
+	position: relative;
+    width:8vw;
+    font-size: 1vw; /* font-size in percent of the viewport size.*/
+}
+
+#fullscreen_button
+{
+	position: relative;
+	margin:2%;
+	width: 10vw;
+	font-size: 1vw; 
+	background-color: yellow;
+	
+}
+
+#speed{
+    float: right;
+    position: relative;
+    left: 50%;
+	text-shadow: 5px 5px blue;
+}
+
+#score
+{
+	background-color: rgba(255,255,255,0.7);
+	text-align: left;
+	font-weight: bold;
+	text-shadow: 3px 4px white;
+}
+
+#result
+{
+	background-color: rgba(0,0,255,0.2);
+	text-shadow: 2px 2px black;
+	color:yellow;
+	height: 3vw;
+	border-style: solid;
+	border-width: 2px;
+	border-color: black;
+	text-align: left;
+}
+
+#score, #result, #speed, input{
+    margin: 2%;
+}
+#game_Info{
+    position: relative;
+	width:90%;
+	padding:1%;
+	background-color: lightgreen;
+	color:black;
+	font-family:Consolas;
+	font-size: 1vw; /* font-size 1% of the viewport size.*/
+	opacity: 0.9;
+    margin: 2%;
+    border-style:solid;
+	border-width:1px;
+	border-color:white;
+}
+
+#game_div
+{
+	width: 45vw;
+	height:auto;
+	left: 0%;
+}
+
+#page_block #game_content
+{
+	position:relative;
+	width:80vw;
+	height:auto;
+	left:10vw;
+	background-image: url(snake_page_background.jpg);
+	background-repeat: repeat;
+	background-size: cover;
+	position:relative;
+	border: solid 2px black;
+}

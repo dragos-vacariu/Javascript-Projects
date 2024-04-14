@@ -1,32 +1,114 @@
 <!DOCTYPE html>
-<html>
-
-    <head>
-        <title>Canvas Snake Game</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <link rel="stylesheet" href="canvas_snake_style.css"> <!-- This is an external CSS -->
-    </head>
-    <body>
-		<div id="left_block">
-			<canvas id="game_canvas">
-			</canvas>
-			<div id="instructions">
-				<p>Use the <code>SPECIFIED KEYS</code> to move.</p>
-				<p style="color:green;">Eat the fruit to grow and earn points.</p>
-				<p style="color:red;">You will lose if you hit the tail or the wall.</p>
-			</div>
-
+<html  ng-app="myApplication" ng-controller="Controller">
+	<head>
+		<title>{{pageObject.page_title}} Canvas Snake Game</title>
+		<meta charset = "UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<!--Global resources-->
+		<link rel="stylesheet" href="../../portfolio/website_resources/global/css/global.css">
+		<link rel="stylesheet" href="../../portfolio/website_resources/global/css/video_page.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+		<script src="../../portfolio/website_resources/global/scripts/global_script.js"></script>
+		
+		<!--Local resources-->
+		<link rel="stylesheet" href="./canvas_snake_style.css">
+	
+	</head>
+	<body>
+		<header>
+			<div id="header_title">
+				<h2>{{pageObject.page_title}}</h2>
+			</div>				
+		</header>
+		<nav>
+			<table>
+				<tr>
+					<td>
+						<div>
+							<a class = "outer_href" href=../../portfolio{{pageObject.page_navigation[0].value}}>{{pageObject.page_navigation[0].name}}</a>
+						</div>
+					</td>
+					<td id = "selected_webpage" >
+						<div class="dropdown_menu">
+							<a class="outer_href">{{pageObject.page_navigation[1].name}}</a>
+							<div class="dropdown_content">
+								<a ng-repeat="page in pageObject.page_navigation_dropdown" href=../../{{page.value}}>{{page.name}}</a>
+							</div>
+						</div>
+					</td>
+					<td>
+						<div>
+							<a class = "outer_href"  href=../../portfolio{{pageObject.page_navigation[2].value}}>{{pageObject.page_navigation[2].name}}</a>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</nav>
+		<div id="page_block">
+			<h2>Catalogue -> <a href="../index.html">JavaScript-Projects:</a></h2>
+			<h3>Snake Chess Game</h3>
+			<table id="game_content">
+				<tr>
+					<td>
+						<div id="left_block">
+							<canvas id="game_canvas">
+							</canvas>
+						</div>
+					</td>
+					<td>
+						<div id="right_block">
+							<canvas id="label_canvas"> 
+							</canvas>
+							<div id="buttons">
+								<input type="button" id="Up" value="Up"></input><br>
+								<input type="button" id="Left" value="Left"></input>
+								<input type="button" id="Right" value="Right"></input><br>
+								<input type="button" id="Down" value="Down"></input>
+							</div>
+							<div id="instructions">
+								<p>Use the <code>SPECIFIED KEYS</code> to move.</p>
+								<p style="color:green;">Eat the fruit to grow and earn points.</p>
+								<p style="color:red;">You will lose if you hit the tail or the wall.</p>
+							</div>
+							<input type="button" id="fullscreen" value="Fullscreen"></input>
+							<input type="button" id="restart" value="Restart"></input>
+						</div>
+					</td>
+				</tr>
+			</table>
 		</div>
-		<div id="right_block">
-			<canvas id="label_canvas"> 
-			</canvas>
-			<div id="buttons">
-				<input type="button" id="Up" value="Up"></input><br>
-				<input type="button" id="Left" value="Left"></input>
-				<input type="button" id="Right" value="Right"></input><br>
-				<input type="button" id="Down" value="Down"></input>
-			</div>
-		</div>
-    </body>
-    <script src="canvas_snake_script.js"></script>
+		<footer>
+			<h4>{{pageObject.footer_copyright}}</h4>
+			<h5>{{pageObject.footer_paragraph}}</h5>
+			<table>
+				<tr>
+					<th>{{pageObject.footer_table_headers[0]}}</th>
+					<th>{{pageObject.footer_table_headers[1]}}</th>
+					<th>{{pageObject.footer_table_headers[2]}}</th>
+				</tr>
+				<tr>
+					<td>
+						<ul class="footer_list">
+							<li ng-repeat="x in pageObject.template_info">{{x}}</li>
+						</ul>
+					</td>
+					<td>
+						<ul class="footer_list">
+							<li ng-repeat="x in pageObject.connections_list">
+								<a class = "outer_href" href="https://www.{{x}}">{{x}}
+								</a>
+							</li>
+						</ul>
+					</td>
+					<td>
+						<ul class="footer_list">
+							<li ng-repeat="x in pageObject.tools_used">{{x}}</li>
+						</ul>
+					</td>
+				</tr>
+			</table>
+		</footer>
+	</body>
+	<!--Local resources-->
+	<script src="./canvas_snake_script.js"></script>
 </html>
