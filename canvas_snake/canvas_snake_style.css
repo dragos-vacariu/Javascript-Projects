@@ -119,3 +119,15 @@
 {
 	left: 15%;
 }
+
+#right_block #author
+{
+	position: relative;
+	border-style: none;
+	color: blue;
+	font-size: 1vw;
+	font-weight: bold;
+	background-color: rgba(255,255,255,0.6);
+	margin-top: 10%;
+	margin-left: 5%;
+}

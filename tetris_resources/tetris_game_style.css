@@ -25,7 +25,7 @@
 	height: auto;
     margin:1vw;
     padding:1vw;
-	border-style: groove;
+	border-style: none;
     border-spacing: 2px;
 	border-color:lightgray;
 	border-width:1px;
@@ -184,6 +184,8 @@
 
 #fullscreen{
 	position:relative;
-	left: 0%;
+	left: 5%;
 	bottom:5%;
+	-ms-transform: translateY(-50%); /*centering the button*/
+	transform: translateY(-50%); /*centering the button*/
 }

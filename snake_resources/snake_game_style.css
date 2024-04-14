@@ -128,12 +128,23 @@ form h6{
 	text-shadow: 5px 5px blue;
 }
 
-#score
+#game_hud #score
 {
+	width: 35%;
 	background-color: rgba(255,255,255,0.7);
 	text-align: left;
 	font-weight: bold;
 	text-shadow: 3px 4px white;
+}
+
+#game_hud #author
+{
+	position: absolute;
+	float: left;
+	width: 50%;
+	right: 0%;
+	top:0%;
+	font-size: 0.9vw;
 }
 
 #result
