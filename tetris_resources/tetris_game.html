@@ -1,191 +1,287 @@
-<html>
-<head>
-	<title>Tetris Game</title>
-	<script src="./tetris_game_script.js"></script>
-	<link rel="stylesheet" type="text/css" href="./tetris_game_style.css">
-</head>
-
-<body>
-	<table>
-		<tr>
-			<td id="elem0000" ></td>
-			<td id="elem0001"></td>
-			<td id="elem0002"></td>
-			<td id="elem0003"></td>
-			<td id="elem0004"></td>
-			<td id="elem0005"></td>
-			<td id="elem0006"></td>
-			<td id="elem0007"></td>
-		</tr>
-		<tr>
-			<td id="elem0100"></td>
-			<td id="elem0101"></td>
-			<td id="elem0102"></td>
-			<td id="elem0103"></td>
-			<td id="elem0104"></td>
-			<td id="elem0105"></td>
-			<td id="elem0106"></td>
-			<td id="elem0107"></td>
-		</tr>
-		<tr>
-			<td id="elem0200"></td>
-			<td id="elem0201"></td>
-			<td id="elem0202"></td>
-			<td id="elem0203"></td>
-			<td id="elem0204"></td>
-			<td id="elem0205"></td>
-			<td id="elem0206"></td>
-			<td id="elem0207"></td>
-		</tr>
-		<tr>
-			<td id="elem0300"></td>
-			<td id="elem0301"></td>
-			<td id="elem0302"></td>
-			<td id="elem0303"></td>
-			<td id="elem0304"></td>
-			<td id="elem0305"></td>
-			<td id="elem0306"></td>
-			<td id="elem0307"></td>
-		</tr>
-		<tr>
-			<td id="elem0400"></td>
-			<td id="elem0401"></td>
-			<td id="elem0402"></td>
-			<td id="elem0403"></td>
-			<td id="elem0404"></td>
-			<td id="elem0405"></td>
-			<td id="elem0406"></td>
-			<td id="elem0407"></td>
-		</tr>
-		<tr>
-			<td id="elem0500"></td>
-			<td id="elem0501"></td>
-			<td id="elem0502"></td>
-			<td id="elem0503"></td>
-			<td id="elem0504"></td>
-			<td id="elem0505"></td>
-			<td id="elem0506"></td>
-			<td id="elem0507"></td>
-		</tr>
-		<tr>
-			<td id="elem0600"></td>
-			<td id="elem0601"></td>
-			<td id="elem0602"></td>
-			<td id="elem0603"></td>
-			<td id="elem0604"></td>
-			<td id="elem0605"></td>
-			<td id="elem0606"></td>
-			<td id="elem0607"></td>
-		</tr>
-		<tr>
-			<td id="elem0700"></td>
-			<td id="elem0701"></td>
-			<td id="elem0702"></td>
-			<td id="elem0703"></td>
-			<td id="elem0704"></td>
-			<td id="elem0705"></td>
-			<td id="elem0706"></td>
-			<td id="elem0707"></td>
-		</tr>
-		<tr>
-			<td id="elem0800"></td>
-			<td id="elem0801"></td>
-			<td id="elem0802"></td>
-			<td id="elem0803"></td>
-			<td id="elem0804"></td>
-			<td id="elem0805"></td>
-			<td id="elem0806"></td>
-			<td id="elem0807"></td>
-		</tr>
+<!DOCTYPE html>
+<html  ng-app="myApplication" ng-controller="Controller">
+	<head>
+		<title>{{pageObject.page_title}} Tetris Game</title>
+		<meta charset = "UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1" /> <!--For mobile viewport proper resizing-->
+		<!--Global resources-->
+		<link rel="stylesheet" href="../../portfolio/website_resources/global/css/global.css">
+		<link rel="stylesheet" href="../../portfolio/website_resources/global/css/video_page.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+		<script src="../../portfolio/website_resources/global/scripts/global_script.js"></script>
+		
+		<!--Local resources-->
+		<script src="./tetris_game_script.js"></script>
+		<link rel="stylesheet" type="text/css" href="./tetris_game_style.css">
+	
+	</head>
+	<body>
+		<header>
+			<div id="header_title">
+				<h2>{{pageObject.page_title}}</h2>
+			</div>				
+		</header>
+		<nav>
+			<table>
 				<tr>
-			<td id="elem0900"></td>
-			<td id="elem0901"></td>
-			<td id="elem0902"></td>
-			<td id="elem0903"></td>
-			<td id="elem0904"></td>
-			<td id="elem0905"></td>
-			<td id="elem0906"></td>
-			<td id="elem0907"></td>
-		</tr>
-		<tr>
-			<td id="elem1000"></td>
-			<td id="elem1001"></td>
-			<td id="elem1002"></td>
-			<td id="elem1003"></td>
-			<td id="elem1004"></td>
-			<td id="elem1005"></td>
-			<td id="elem1006"></td>
-			<td id="elem1007"></td>
-		</tr>
+					<td>
+						<div>
+							<a class = "outer_href" href={{exitDir}}{{pageObject.page_navigation[0].value}}>{{pageObject.page_navigation[0].name}}</a>
+						</div>
+					</td>
+					<td id = "selected_webpage" >
+						<div class="dropdown_menu">
+							<a class="outer_href">{{pageObject.page_navigation[1].name}}</a>
+							<div class="dropdown_content">
+								<a ng-repeat="page in pageObject.page_navigation_dropdown" href={{exitDir}}{{page.value}}>{{page.name}}</a>
+							</div>
+						</div>
+					</td>
+					<td>
+						<div>
+							<a class = "outer_href"  href={{exitDir}}{{pageObject.page_navigation[2].value}}>{{pageObject.page_navigation[2].name}}</a>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</nav>
+		<div id="page_block">
+			<h2>Catalogue -> <a href="../index.html">JavaScript-Projects:</a></h2>
+			<h3>Tetris Game</h3>
+			<table id="game_content">
 				<tr>
-			<td id="elem1100"></td>
-			<td id="elem1101"></td>
-			<td id="elem1102"></td>
-			<td id="elem1103"></td>
-			<td id="elem1104"></td>
-			<td id="elem1105"></td>
-			<td id="elem1106"></td>
-			<td id="elem1107"></td>
-		</tr>
-		<tr>
-			<td id="elem1200"></td>
-			<td id="elem1201"></td>
-			<td id="elem1202"></td>
-			<td id="elem1203"></td>
-			<td id="elem1204"></td>
-			<td id="elem1205"></td>
-			<td id="elem1206"></td>
-			<td id="elem1207"></td>
-		</tr>
-		<tr>
-			<td id="elem1300"></td>
-			<td id="elem1301"></td>
-			<td id="elem1302"></td>
-			<td id="elem1303"></td>
-			<td id="elem1304"></td>
-			<td id="elem1305"></td>
-			<td id="elem1306"></td>
-			<td id="elem1307"></td>
-		</tr>
-		<tr>
-			<td id="elem1400"></td>
-			<td id="elem1401"></td>
-			<td id="elem1402"></td>
-			<td id="elem1403"></td>
-			<td id="elem1404"></td>
-			<td id="elem1405"></td>
-			<td id="elem1406"></td>
-			<td id="elem1407"></td>
-		</tr>
-		<tr>
-			<td id="elem1500"></td>
-			<td id="elem1501"></td>
-			<td id="elem1502"></td>
-			<td id="elem1503"></td>
-			<td id="elem1504"></td>
-			<td id="elem1505"></td>
-			<td id="elem1506"></td>
-			<td id="elem1507"></td>
-		</tr>
-	</table>
-	<div id="all_info">
-		<h3 id="score">Score: </h3> </br>
-        <div id="button_div">
-            <form id="menu">
-                <input type="button" id="startgame" onclick = "StartGame()" value="Start Game"></input><br>
-                <input type="button" id="restartgame" disabled onclick = "RestartGame()" value="Restart Game"></input><br>
-            </form>
-            <form id="controls">
-                <input type="button" id="rotate" onclick = "Rotate()" value="Rotate"></input><br>
-                <input type="button" id="left" onclick = "TurnLeft()" value="Left"></input>
-                <input type="button" id="right" onclick = "TurnRight()" value="Right"></input>
-            </form>
-        </div>
-        <div id = "controlInfo"><span id="code_style">Control Info:</span><br><br>Use the buttons from the left or Key Arrows <span id="code_style"><- -></span> to move the item.<br><br> Use 
-        <span id="code_style">Space</span> button or <span id="code_style">Rotate</span> button to rotate the item.
-        <br><br>Use <span id="code_style">Down Arrow</span> to accelerate the fall.
-        </div>
-        <h3>If the items stack reach to the top of the screen the game is over.</h3>
-	</div>
-</body>
+					<td>
+						<div id = "game_div">
+							<table>
+								<tr>
+									<td id="elem0000" ></td>
+									<td id="elem0001"></td>
+									<td id="elem0002"></td>
+									<td id="elem0003"></td>
+									<td id="elem0004"></td>
+									<td id="elem0005"></td>
+									<td id="elem0006"></td>
+									<td id="elem0007"></td>
+								</tr>
+								<tr>
+									<td id="elem0100"></td>
+									<td id="elem0101"></td>
+									<td id="elem0102"></td>
+									<td id="elem0103"></td>
+									<td id="elem0104"></td>
+									<td id="elem0105"></td>
+									<td id="elem0106"></td>
+									<td id="elem0107"></td>
+								</tr>
+								<tr>
+									<td id="elem0200"></td>
+									<td id="elem0201"></td>
+									<td id="elem0202"></td>
+									<td id="elem0203"></td>
+									<td id="elem0204"></td>
+									<td id="elem0205"></td>
+									<td id="elem0206"></td>
+									<td id="elem0207"></td>
+								</tr>
+								<tr>
+									<td id="elem0300"></td>
+									<td id="elem0301"></td>
+									<td id="elem0302"></td>
+									<td id="elem0303"></td>
+									<td id="elem0304"></td>
+									<td id="elem0305"></td>
+									<td id="elem0306"></td>
+									<td id="elem0307"></td>
+								</tr>
+								<tr>
+									<td id="elem0400"></td>
+									<td id="elem0401"></td>
+									<td id="elem0402"></td>
+									<td id="elem0403"></td>
+									<td id="elem0404"></td>
+									<td id="elem0405"></td>
+									<td id="elem0406"></td>
+									<td id="elem0407"></td>
+								</tr>
+								<tr>
+									<td id="elem0500"></td>
+									<td id="elem0501"></td>
+									<td id="elem0502"></td>
+									<td id="elem0503"></td>
+									<td id="elem0504"></td>
+									<td id="elem0505"></td>
+									<td id="elem0506"></td>
+									<td id="elem0507"></td>
+								</tr>
+								<tr>
+									<td id="elem0600"></td>
+									<td id="elem0601"></td>
+									<td id="elem0602"></td>
+									<td id="elem0603"></td>
+									<td id="elem0604"></td>
+									<td id="elem0605"></td>
+									<td id="elem0606"></td>
+									<td id="elem0607"></td>
+								</tr>
+								<tr>
+									<td id="elem0700"></td>
+									<td id="elem0701"></td>
+									<td id="elem0702"></td>
+									<td id="elem0703"></td>
+									<td id="elem0704"></td>
+									<td id="elem0705"></td>
+									<td id="elem0706"></td>
+									<td id="elem0707"></td>
+								</tr>
+								<tr>
+									<td id="elem0800"></td>
+									<td id="elem0801"></td>
+									<td id="elem0802"></td>
+									<td id="elem0803"></td>
+									<td id="elem0804"></td>
+									<td id="elem0805"></td>
+									<td id="elem0806"></td>
+									<td id="elem0807"></td>
+								</tr>
+										<tr>
+									<td id="elem0900"></td>
+									<td id="elem0901"></td>
+									<td id="elem0902"></td>
+									<td id="elem0903"></td>
+									<td id="elem0904"></td>
+									<td id="elem0905"></td>
+									<td id="elem0906"></td>
+									<td id="elem0907"></td>
+								</tr>
+								<tr>
+									<td id="elem1000"></td>
+									<td id="elem1001"></td>
+									<td id="elem1002"></td>
+									<td id="elem1003"></td>
+									<td id="elem1004"></td>
+									<td id="elem1005"></td>
+									<td id="elem1006"></td>
+									<td id="elem1007"></td>
+								</tr>
+										<tr>
+									<td id="elem1100"></td>
+									<td id="elem1101"></td>
+									<td id="elem1102"></td>
+									<td id="elem1103"></td>
+									<td id="elem1104"></td>
+									<td id="elem1105"></td>
+									<td id="elem1106"></td>
+									<td id="elem1107"></td>
+								</tr>
+								<tr>
+									<td id="elem1200"></td>
+									<td id="elem1201"></td>
+									<td id="elem1202"></td>
+									<td id="elem1203"></td>
+									<td id="elem1204"></td>
+									<td id="elem1205"></td>
+									<td id="elem1206"></td>
+									<td id="elem1207"></td>
+								</tr>
+								<tr>
+									<td id="elem1300"></td>
+									<td id="elem1301"></td>
+									<td id="elem1302"></td>
+									<td id="elem1303"></td>
+									<td id="elem1304"></td>
+									<td id="elem1305"></td>
+									<td id="elem1306"></td>
+									<td id="elem1307"></td>
+								</tr>
+								<tr>
+									<td id="elem1400"></td>
+									<td id="elem1401"></td>
+									<td id="elem1402"></td>
+									<td id="elem1403"></td>
+									<td id="elem1404"></td>
+									<td id="elem1405"></td>
+									<td id="elem1406"></td>
+									<td id="elem1407"></td>
+								</tr>
+								<tr>
+									<td id="elem1500"></td>
+									<td id="elem1501"></td>
+									<td id="elem1502"></td>
+									<td id="elem1503"></td>
+									<td id="elem1504"></td>
+									<td id="elem1505"></td>
+									<td id="elem1506"></td>
+									<td id="elem1507"></td>
+								</tr>
+							</table>
+						</div>
+					</td>
+					<td>
+						<div id="all_info">
+							<div id="button_div">
+								<h6 id="score">Score: </h6> </br>
+								<form id="menu">
+									<input type="button" id="startgame" onclick = "StartGame()" value="Start Game"></input><br>
+									<input type="button" id="restartgame" disabled onclick = "RestartGame()" value="Restart Game"></input><br>
+								</form>
+								<form id="controls">
+									<input type="button" id="rotate" onclick = "Rotate()" value="Rotate"></input><br>
+									<input type="button" id="left" onclick = "TurnLeft()" value="Left"></input>
+									<input type="button" id="right" onclick = "TurnRight()" value="Right"></input>
+								</form>
+							</div>
+						</div>
+					</td>
+					<td>
+						<div>
+							<div id = "controlInfo"><span id="code_style">Control Info:</span><br><br>Use the buttons from the left or Key Arrows <span id="code_style"><- -></span> to move the item.<br><br> Use 
+								<span id="code_style">Space</span> button or <span id="code_style">Rotate</span> button to rotate the item.
+								<br><br>Use <span id="code_style">Down Arrow</span> to accelerate the fall.
+								<h6>If the items stack reach to the top of the screen the game is over.</h6>
+								<input type="button" id="fullscreen" onclick = "FullscreenMode()" value="Fullscreen"></input><br>
+							</div>
+						</div>
+					</td>
+				</tr>
+			</table>
+			<h4>CONTROL INFO:<br>
+				Use the buttons from the left or Key Arrows <- -> to move the item.<br><br>
+				Use SPACE button or ROTATE button to rotate the item.<br><br>
+				Use DOWN ARROW to accelerate the fall.<br>
+				If the items stack reach to the top of the screen the game is over.<br>
+			</h4>
+		
+		</div>
+		<footer>
+			<h4>{{pageObject.footer_copyright}}</h4>
+			<h5>{{pageObject.footer_paragraph}}</h5>
+			<table>
+				<tr>
+					<th>{{pageObject.footer_table_headers[0]}}</th>
+					<th>{{pageObject.footer_table_headers[1]}}</th>
+					<th>{{pageObject.footer_table_headers[2]}}</th>
+				</tr>
+				<tr>
+					<td>
+						<ul class="footer_list">
+							<li ng-repeat="x in pageObject.template_info">{{x}}</li>
+						</ul>
+					</td>
+					<td>
+						<ul class="footer_list">
+							<li ng-repeat="x in pageObject.connections_list">
+								<a class = "outer_href" href="https://www.{{x}}">{{x}}
+								</a>
+							</li>
+						</ul>
+					</td>
+					<td>
+						<ul class="footer_list">
+							<li ng-repeat="x in pageObject.tools_used">{{x}}</li>
+						</ul>
+					</td>
+				</tr>
+			</table>
+		</footer>
+	</body>
 </html>

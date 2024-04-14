@@ -1,5 +1,55 @@
 var score=0;
 var game_started=false;
+
+var isFullScreen = false;
+
+function FullscreenMode(e) {
+    var game_content = document.getElementById("game_content");
+    var fullscreen_button = document.getElementById("fullscreen");
+	if (isFullScreen == false)
+	{
+		if (game_content.requestFullscreen) 
+		{
+			game_content.requestFullscreen();
+			isFullScreen = true;
+			fullscreen_button.style.backgroundColor = "pink";
+		} 
+		else if (game_content.webkitRequestFullscreen) 
+		{ /* Safari */
+			game_content.webkitRequestFullscreen();
+			isFullScreen = true;
+			fullscreen_button.style.backgroundColor = "pink";
+		} else if (game_content.msRequestFullscreen) 
+		{ /* IE11 */
+			game_content.msRequestFullscreen();
+			isFullScreen = true;
+			fullscreen_button.style.backgroundColor = "pink";
+		}
+	}
+	else
+	{
+
+		if (document.exitFullscreen) 
+		{
+			document.exitFullscreen();
+			isFullScreen = false;
+			fullscreen_button.style.backgroundColor = "lightgray";
+		} 
+		else if (document.webkitExitFullscreen) 
+		{ /* Safari */
+			document.webkitExitFullscreen();
+			isFullScreen = false;
+			fullscreen_button.style.backgroundColor = "lightgray";
+		} else if (document.msExitFullscreen) 
+		{ /* IE11 */
+			document.msExitFullscreen();
+			isFullScreen = false;
+			fullscreen_button.style.backgroundColor = "lightgray";
+		}
+	}
+}
+
+
 class Shape
 {
 	constructor(name, x, y)
