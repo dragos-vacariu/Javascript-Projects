@@ -26,8 +26,11 @@
 	padding:0.2vw;
     margin:0.2vw;;
 }
+
 #game_canvas {
-    border: 0.5vw double #000000;
+    border-style: double;
+    border-color: black;
+    border-width: 0.5vw;
     background-color: #f1f1f1;
     background-image: url(textures/concrete.jpg);
     background-size: 3.125%  5%; /*scaling the image for high resolution*/
@@ -35,6 +38,7 @@
 	width: 100%;
 	margin:0.2vw;
 	opacity: 0.8;
+	padding: 0.2vw;
 }
 
 

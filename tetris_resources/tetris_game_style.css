@@ -33,7 +33,7 @@
 }
 
 #game_div table tr td{
-    padding: 1vw 2vw ;
+    padding: 1vw 1vw ;
 	background-repeat: no-repeat; 
     background-size: 100%;
     margin:0%;
@@ -43,7 +43,7 @@
 
 }
 
-#all_info{
+#gameHud{
 	position:relative;
 	margin:1vw;
 	border-style: solid;
@@ -61,26 +61,41 @@
     width: 98%;
 }
 
-#all_info #score{
+#gameHud #score, #gameHud #gameStatus{
 	position: relative;
-	width: 80%;
 	padding: 1vw;
-	margin-left:3%;
-	font-variant: small-caps;
-	font-size: 1.5vw;
-	text-align: left;
+
+	font-weight: bold;
 	font-family: Consolas;
-	color: red;
 	border-width: 1px;
 	border-style: inset;
 	border-color: gray;
+	width: 80%;
+	margin: 3%;
+	margin-bottom: 5%;
+}
+
+#gameHud #score
+{
 	background-color: rgba(255,255,255,0.5);
+	color: red;
+	text-align: left;
+	text-shadow: 0.2vw 0.2vw white;
+	font-size: 1.5vw;
+}
+
+#gameHud #gameStatus
+{
+	background-color: rgba(0,0,255,0.2);
+	color: white;
+	text-shadow: 0.2vw 0.2vw black;
+	text-align: center;
+	font-size: 1.2vw;
 }
 
 #menu{
 	position: relative;
 	width: 90%;
-	left: 5%;
 	padding: 3%;
 	border-style:solid;
 	border-width: 1px;
@@ -90,10 +105,7 @@
 #controls{
     position: relative;
 	width: 90%;
-	left:5%;
-	padding-left: 5%;
-	padding-top: 5%;
-	padding-bottom: 5%;
+	padding:3%;
 	border-style:solid;
 	border-width: 1px;
 	background-color: pink;
@@ -120,14 +132,13 @@
 	font-variant: small-caps;
 	font-weight: bold;
 	padding: 0.5%;
-    right: 2%;
     width: 80%;
     padding:2%;
 }
 
 #right, #left {
     position:relative;
-    right: 5%;
+    right: 0%;
 	background-color: blue;
 	border-style: solid;
     border-width: 1px;

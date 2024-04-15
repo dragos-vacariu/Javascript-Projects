@@ -55,6 +55,14 @@ function FullscreenMode(e) {
 	}
 }
 
+function Enter_FullScreen(e)
+{
+	if (e.key == "f")
+	{
+		FullscreenMode(); 
+	}
+}
+
 class Platform
 {
 	constructor()

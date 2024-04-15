@@ -59,6 +59,14 @@ function FullscreenMode(e) {
 	}
 }
 
+function Enter_FullScreen(e)
+{
+	if (e.key == "f")
+	{
+		FullscreenMode(); 
+	}
+}
+
 function SquareClicked(x)
 {
 	var square = document.getElementById(x);

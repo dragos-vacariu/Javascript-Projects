@@ -33,27 +33,24 @@ var isFullScreen = false;
 
 function FullscreenMode(e) {
     var game_content = document.getElementById("game_content");
-    var fullscreen_button = document.getElementById("fullscreen_button");
+    var fullscreen_button = document.getElementById("fullscreen");
 	if (isFullScreen == false)
 	{
 		if (game_content.requestFullscreen) 
 		{
 			game_content.requestFullscreen();
 			isFullScreen = true;
-			fullscreen_button.value   = "Exit Fullscreen";
 			fullscreen_button.style.backgroundColor = "pink";
 		} 
 		else if (game_content.webkitRequestFullscreen) 
 		{ /* Safari */
 			game_content.webkitRequestFullscreen();
 			isFullScreen = true;
-			fullscreen_button.value   = "Exit Fullscreen";
 			fullscreen_button.style.backgroundColor = "pink";
 		} else if (game_content.msRequestFullscreen) 
 		{ /* IE11 */
 			game_content.msRequestFullscreen();
 			isFullScreen = true;
-			fullscreen_button.value   = "Exit Fullscreen";
 			fullscreen_button.style.backgroundColor = "pink";
 		}
 	}
@@ -64,21 +61,18 @@ function FullscreenMode(e) {
 		{
 			document.exitFullscreen();
 			isFullScreen = false;
-			fullscreen_button.value = "Enter Fullscreen";
-			fullscreen_button.style.backgroundColor = "yellow";
+			fullscreen_button.style.backgroundColor = "lightgray";
 		} 
 		else if (document.webkitExitFullscreen) 
 		{ /* Safari */
 			document.webkitExitFullscreen();
 			isFullScreen = false;
-			fullscreen_button.value = "Enter Fullscreen";
-			fullscreen_button.style.backgroundColor = "yellow";
+			fullscreen_button.style.backgroundColor = "lightgray";
 		} else if (document.msExitFullscreen) 
 		{ /* IE11 */
 			document.msExitFullscreen();
 			isFullScreen = false;
-			fullscreen_button.value = "Enter Fullscreen";
-			fullscreen_button.style.backgroundColor = "yellow";
+			fullscreen_button.style.backgroundColor = "lightgray";
 		}
 	}
 }
@@ -561,6 +555,15 @@ document.getElementById("Up").addEventListener("click", function (e) {gameObj.pl
 document.getElementById("Down").addEventListener("click", function (e) {gameObj.player.setSnakeMovementDirection_DOWN();});
 document.getElementById("fullscreen").addEventListener("click", function (e) {FullscreenMode();});
 document.getElementById("restart").addEventListener("click", function (e) {location.reload(); });
+
+
+function Enter_FullScreen(e)
+{
+	if (e.key == "f")
+	{
+		FullscreenMode(); 
+	}
+}
 
 //Prevent the default behaviour on this window.
 window.addEventListener("keydown", function(e) {

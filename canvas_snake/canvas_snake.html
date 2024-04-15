@@ -14,7 +14,7 @@
 		<link rel="stylesheet" href="./canvas_snake_style.css">
 	
 	</head>
-	<body>
+	<body onkeypress = "Enter_FullScreen(event)">
 		<header>
 			<div id="header_title">
 				<h2>{{pageObject.page_title}}</h2>
@@ -52,7 +52,9 @@
 					<td>
 						<div id="left_block">
 							<canvas id="game_canvas">
+								<div ="border"></div>
 							</canvas>
+
 						</div>
 					</td>
 					<td>

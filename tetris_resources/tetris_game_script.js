@@ -1,7 +1,18 @@
 var score=0;
 var game_started=false;
-
+var gameOverRowReferece = 6;
 var isFullScreen = false;
+var tableNumberOfCols = 10
+var tableNumberOfRows = 16
+
+
+function Enter_FullScreen(e)
+{
+	if (e.key == "f")
+	{
+		FullscreenMode(); 
+	}
+}
 
 function FullscreenMode(e) {
     var game_content = document.getElementById("game_content");
@@ -64,7 +75,7 @@ class Shape
 				 || this.Name=="s1" || this.Name=="s2" || this.Name=="i1" || this.Name=="i2" || this.Name=="f1"
 				|| this.Name=="f2" || this.Name=="f3" || this.Name=="f4")
 		{
-			if(this.Coords[3][0]+ 1 < 16)
+			if(this.Coords[3][0]+ 1 < tableNumberOfRows)
 			{
 				this.ClearShape(); //always clear before changing values.
 				this.Coords[0][0]++;
@@ -82,7 +93,7 @@ class Shape
 	MoveLeft()
 	{
 		if(this.reachedDown == false)
-		{
+		{	
 			//Check if there is a form
 			if(this.Name=="square" || this.Name=="l1" || this.Name=="l2" || this.Name=="l3" || this.Name=="l4" 
 				|| this.Name=="s2" || this.Name=="i1" || this.Name=="i2" || this.Name=="f1"
@@ -90,22 +101,43 @@ class Shape
 			{
 				if(this.Coords[2][1]- 1 >= 0) //check the left part to still be on the screen after moving.
 				{
-					this.ClearShape(); // always clear before changing values.
-					this.Coords[0][1]--;
-					this.Coords[1][1]--;
-					this.Coords[2][1]--;
-					this.Coords[3][1]--;
+					var elemName = "elem0"+ this.Coords[2][0]+ "0"+ (this.Coords[2][1]-1);
+					if (this.Coords[1][0] >= 10)
+					{
+						elemName = "elem"+ this.Coords[2][0]+ "0"+ (this.Coords[2][1]-1);
+					}
+					var elem = document.getElementById(elemName);
+					
+					if(elem.style.backgroundColor=="transparent")
+					{
+						this.ClearShape(); // always clear before changing values.
+						this.Coords[0][1]--;
+						this.Coords[1][1]--;
+						this.Coords[2][1]--;
+						this.Coords[3][1]--;
+					}
 				}
 			}
 			else if (this.Name=="s1" )
 			{
 				if(this.Coords[0][1]- 1 >= 0) //check the left part to still be on the screen after moving.
 				{
-					this.ClearShape(); // always clear before changing values.
-					this.Coords[0][1]--;
-					this.Coords[1][1]--;
-					this.Coords[2][1]--;
-					this.Coords[3][1]--;
+					
+					var elemName = "elem0"+ this.Coords[0][0]+ "0"+ (this.Coords[0][1]-1);
+					if (this.Coords[1][0] >= 10)
+					{
+						elemName = "elem"+ this.Coords[0][0]+ "0"+ (this.Coords[0][1]-1);
+					}
+					var elem = document.getElementById(elemName);
+					
+					if(elem.style.backgroundColor=="transparent")
+					{
+						this.ClearShape(); // always clear before changing values.
+						this.Coords[0][1]--;
+						this.Coords[1][1]--;
+						this.Coords[2][1]--;
+						this.Coords[3][1]--;
+					}
 				}
 			}
 		}
@@ -120,13 +152,23 @@ class Shape
 				 || this.Name=="s1" || this.Name=="s2" || this.Name=="i1" || this.Name=="i2" || this.Name=="f1"
 				|| this.Name=="f2" || this.Name=="f3" || this.Name=="f4")
 			{
-				if(this.Coords[1][1] +1 < 8) //check the right part to still be on the screen after moving.
+				
+				if(this.Coords[1][1] +1 < tableNumberOfCols ) //check the right part to still be on the screen after moving.
 				{
-					this.ClearShape(); // always clear before changing values.
-					this.Coords[0][1]++;
-					this.Coords[1][1]++;
-					this.Coords[2][1]++;
-					this.Coords[3][1]++;
+					var elemName = "elem0"+ this.Coords[1][0]+ "0"+ (this.Coords[1][1]+1);
+					if (this.Coords[1][0] >= 10)
+					{
+						elemName = "elem"+ this.Coords[1][0]+ "0"+ (this.Coords[1][1]+1);
+					}
+					var elem = document.getElementById(elemName);
+					if(elem.style.backgroundColor=="transparent")
+					{
+						this.ClearShape(); // always clear before changing values.
+						this.Coords[0][1]++;
+						this.Coords[1][1]++;
+						this.Coords[2][1]++;
+						this.Coords[3][1]++;
+					}
 				}
 			}
 		}
@@ -147,7 +189,7 @@ class Shape
 					break;
 				}
 				case "l2": {
-					if(this.Coords[3][0]+2 < 16)
+					if(this.Coords[3][0]+2 < tableNumberOfRows)
 					{
 						this.ClearShape();
 						this.Name = "l3"; 
@@ -165,7 +207,7 @@ class Shape
 					break;
 				}
 				case "l4": { 
-					if(this.Coords[3][0]+2<16)
+					if(this.Coords[3][0]+2 < tableNumberOfRows)
 					{
 						this.ClearShape();
 						this.Name = "l1"; 
@@ -174,7 +216,7 @@ class Shape
 					break;
 				}
 				case "s1": { 
-					if(this.Coords[3][0]+1<16)
+					if(this.Coords[3][0]+1 < tableNumberOfRows)
 					{
 						this.ClearShape();
 						this.Name = "s2"; 
@@ -201,7 +243,7 @@ class Shape
 					break;
 				}
 				case "i2": { 
-					if(this.Coords[0][0]+3 < 16)
+					if(this.Coords[0][0]+3 < tableNumberOfRows)
 					{
 						this.ClearShape();
 						this.Name = "i1";
@@ -210,7 +252,7 @@ class Shape
 					break;
 				}
 				case "f1": { 
-					if(this.Coords[3][0]+1 < 16)
+					if(this.Coords[3][0]+1 < tableNumberOfRows)
 					{
 						this.ClearShape();
 						this.Name = "f2"; 
@@ -245,7 +287,7 @@ class Shape
 					}
 					break;
 				}
-				default: {/*Enter here in case o square*/ break;}
+				default: {/*Enter here in case of square*/ break;}
 			}
 		}
 	}
@@ -1038,7 +1080,7 @@ class Shape
 							this.reachedDown = true;
 						}
 					}
-					else if(parseInt(this.Coords[3][0]+1) <= 15)
+					else if(parseInt(this.Coords[3][0]+1) < tableNumberOfRows)
 					{
 						if( (document.getElementById("elem" + parseInt(this.Coords[3][0]+1) + "0" + this.Coords[3][1]).style.backgroundColor == "blue")
 							|| (document.getElementById("elem" + parseInt(this.Coords[2][0]+1) + "0" + this.Coords[2][1]).style.backgroundColor == "blue") )
@@ -1060,7 +1102,7 @@ class Shape
 							this.reachedDown = true;
 						}
 					}
-					else if(parseInt(this.Coords[3][0]+1) <=15)
+					else if(parseInt(this.Coords[3][0]+1) < tableNumberOfRows)
 					{
 						if( (document.getElementById("elem" + parseInt(this.Coords[1][0]+1) + "0" + this.Coords[1][1]).style.backgroundColor == "blue") ||
 							(document.getElementById("elem" + parseInt(this.Coords[3][0]+1) + "0" + this.Coords[3][1]).style.backgroundColor == "blue") )
@@ -1079,7 +1121,7 @@ class Shape
 							this.reachedDown = true;
 						}
 					}
-					else if(parseInt(this.Coords[3][0]+1) <=15)
+					else if(parseInt(this.Coords[3][0]+1) < tableNumberOfRows)
 					{
 						if(document.getElementById("elem" + parseInt(this.Coords[3][0]+1) + "0" + this.Coords[3][1]).style.backgroundColor == "blue")
 						{
@@ -1101,7 +1143,7 @@ class Shape
 							this.reachedDown = true;
 						}
 					}
-					else if(parseInt(this.Coords[3][0]+1) <= 15)
+					else if(parseInt(this.Coords[3][0]+1) < tableNumberOfRows)
 					{
 						if( (document.getElementById("elem" + parseInt(this.Coords[0][0] +1) + "0" + this.Coords[0][1]).style.backgroundColor == "blue") ||
 							(document.getElementById("elem" +  parseInt(this.Coords[1][0] +1) + "0" + this.Coords[1][1]).style.backgroundColor == "blue") ||
@@ -1128,7 +1170,7 @@ class Shape
 							this.reachedDown = true;
 						}
 					}
-					else if(parseInt(this.Coords[3][0]+1) <= 15)
+					else if(parseInt(this.Coords[3][0]+1) < tableNumberOfRows)
 					{
 						if( (document.getElementById("elem" + parseInt(this.Coords[1][0]+1) + "0" + this.Coords[1][1]).style.backgroundColor == "blue") ||
 							(document.getElementById("elem" + parseInt(this.Coords[2][0]+1)+ "0" + this.Coords[2][1]).style.backgroundColor == "blue") ||
@@ -1161,7 +1203,7 @@ class Shape
 							this.reachedDown = true;
 						}
 					}
-					else if(parseInt(this.Coords[3][0]+1) <= 15)
+					else if(parseInt(this.Coords[3][0]+1) < tableNumberOfRows)
 					{
 						if( (document.getElementById("elem" + parseInt(this.Coords[1][0]+1) + "0" + this.Coords[1][1]).style.backgroundColor == "blue") ||
 							(document.getElementById("elem" + parseInt(this.Coords[3][0]+1) + "0" + this.Coords[3][1]).style.backgroundColor == "blue") )
@@ -1190,7 +1232,7 @@ class Shape
 							this.reachedDown = true;
 						}
 					}
-					else if(parseInt(this.Coords[3][0]+1) <= 15)
+					else if(parseInt(this.Coords[3][0]+1) < tableNumberOfRows)
 					{
 						if( (document.getElementById("elem" + parseInt(this.Coords[1][0]+1) + "0" + this.Coords[1][1]).style.backgroundColor == "blue") ||
 							(document.getElementById("elem" + parseInt(this.Coords[3][0]+1) + "0" + this.Coords[3][1]).style.backgroundColor == "blue") )
@@ -1220,7 +1262,7 @@ class Shape
 							this.reachedDown = true;
 						}
 					}
-					else if(parseInt(this.Coords[3][0]+1) <= 15)
+					else if(parseInt(this.Coords[3][0]+1) < tableNumberOfRows)
 					{
 						if( (document.getElementById("elem" + parseInt(this.Coords[2][0]+1) + "0" + this.Coords[2][1]).style.backgroundColor == "blue") ||
 							(document.getElementById("elem" + parseInt(this.Coords[3][0]+1) + "0" + this.Coords[3][1]).style.backgroundColor == "blue") )
@@ -1252,7 +1294,7 @@ class Shape
 							this.reachedDown = true;
 						}
 					}
-					else if(parseInt(this.Coords[3][0]+1) <= 15)
+					else if(parseInt(this.Coords[3][0]+1) < tableNumberOfRows)
 					{
 						if( (document.getElementById("elem" + parseInt(this.Coords[1][0]+1) + "0" + this.Coords[1][1]).style.backgroundColor == "blue") ||
 							(document.getElementById("elem" + parseInt(this.Coords[2][0]+1)+ "0" + this.Coords[2][1]).style.backgroundColor == "blue") ||
@@ -1265,17 +1307,24 @@ class Shape
 					break;
 				}
 			}
+			
+			if(this.reachedDown == true && this.Coords[3][0] < gameOverRowReferece)
+			{	//if the buttom part of the form overlap with something below row 5
+				//the game can continue, otherwise, let it be gameover - the player 
+				game_started = false;
+				document.getElementById("gameStatus").innerHTML = "Game Over";
+			}
 		}
 	}
 	checkScore()
 	{
 		var hit;
 		if(this.reachedDown == true)
-		{
-			for (var i=15; i>=0; i--)
+		{			
+			for (var i=(tableNumberOfRows-1); i>=0; i--)
 			{
 				hit=0;
-				for (var j=0; j<8; j++)
+				for (var j=0; j<tableNumberOfCols; j++)
 				{
 					if(i > 9)
 					{
@@ -1292,11 +1341,11 @@ class Shape
 						}
 					}
 				}
-				//alert("i = " + i + " hits: " + hit);
-				if(hit==8)
+
+				if(hit==tableNumberOfCols)
 				{
 					//Clear the current row:
-					for(var j=0; j<8; j++)
+					for(var j=0; j<tableNumberOfCols; j++)
 					{
 						if(i > 9)
 						{
@@ -1310,15 +1359,17 @@ class Shape
 					//Copy the row above:
 					this.copyRowsAbove(i);
 					score++;
+					return true;
 				}
 			}
 		}
+		return false;
 	}
 	copyRowsAbove(row)
 	{
 		for(var i = row; i>0; i--)
 		{
-			for(var j=0; j<8; j++)
+			for(var j=0; j<tableNumberOfCols; j++)
 			{
 				if( parseInt(i-1) > 9)
 				{
@@ -1356,7 +1407,7 @@ class Shape
 			}
 		}
 		//Clear the top row:
-		for(var j = 0; j<8; j++)
+		for(var j = 0; j<tableNumberOfCols; j++)
 		{
 			document.getElementById("elem000" + j).style.backgroundColor = "transparent";
 		}
@@ -1377,7 +1428,9 @@ setInterval(function() {
         {
             if(sq.reachedDown)
             {
-                sq.checkScore();
+				
+                while(sq.checkScore()); // call checkScore until it return false
+				/*in case 2 line are completely checkScore() will make both dissappear at once*/
                 sq.FormRecycle();
                 updateScore();
             }
@@ -1398,12 +1451,14 @@ function StartGame()
 	updateScore();
 	document.getElementById("startgame").disabled = true;
 	document.getElementById("restartgame").disabled = false;
+	document.getElementById("gameStatus").innerHTML = "Game Started";
+	
 }
 function RestartGame()
 {
-	for(var i = 0; i<16; i++)
+	for(var i = 0; i<tableNumberOfRows; i++)
 	{
-		for(var j=0;j<8;j++)
+		for(var j=0;j<tableNumberOfCols;j++)
 		{
 			if(i<10)
 			{
