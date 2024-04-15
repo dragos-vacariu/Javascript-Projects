@@ -8,13 +8,12 @@ labelContext.scale(1,1);
 //Collecting the window size info and calculating the aspect ratio values for the canvas to be 1:1 with the window:
 
 gameCanvas.width = window.innerWidth;
-//gameCanvas.height = 10* window.innerWidth/16; // aspect ratio 16:10
 gameCanvas.height = 10* window.innerWidth/16; // aspect ratio 16:10
 
 labelCanvas.width = window.innerWidth;
-labelCanvas.height = 1* window.innerWidth/4; // aspect ratio 16:10
+labelCanvas.height = 1* window.innerWidth/10; // aspect ratio 16:10
 
-var defaultComponentSize = gameCanvas.width/30;
+var defaultComponentSize = window.innerWidth/16;
 //let the component be a ratio of the gameCanvas pixel size
 
 /*
@@ -392,7 +391,7 @@ class Game
         this.fruit = "";
         this.gameOver = false;
         this.time_interval =  200;
-        this.scoreTextComponent = new text_component(300, 200, "Score:", "10vw", "black", labelCanvas,labelContext);
+        this.scoreTextComponent = new text_component(50, 100, "Score:", "7vw", "black", labelCanvas,labelContext);
         this.gameOverTextComponent = new text_component( 200, 200, "", "13vw", "white", gameCanvas, gameContext);
         this.gameResultTextComponent = new text_component( 220, 400, "", "6vw", "white", gameCanvas, gameContext);
         this.scoreValue = 0;

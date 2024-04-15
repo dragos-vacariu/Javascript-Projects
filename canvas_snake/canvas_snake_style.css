@@ -30,7 +30,7 @@
     border: 0.5vw double #000000;
     background-color: #f1f1f1;
     background-image: url(textures/concrete.jpg);
-    background-size: 40%  40%; /*scaling the image for high resolution*/
+    background-size: 20%  20%; /*scaling the image for high resolution*/
     background-repeat: repeat;
 	width: 100%;
 	margin:0.2vw;
@@ -70,6 +70,7 @@
 	padding: 1%;
 	margin:1%;
 	font-family:Trebuchet MS;
+	border-style: none;
 }
 
 #instructions p code
@@ -130,4 +131,10 @@
 	background-color: rgba(255,255,255,0.6);
 	margin-top: 10%;
 	margin-left: 5%;
+}
+
+#fullscreen, #restart{
+	width: 40%;
+	font-size: 1vw;
+	margin-top: 5%;
 }
