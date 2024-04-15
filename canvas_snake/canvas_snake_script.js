@@ -13,7 +13,7 @@ gameCanvas.height = 10* window.innerWidth/16; // aspect ratio 16:10
 labelCanvas.width = window.innerWidth;
 labelCanvas.height = 1* window.innerWidth/10; // aspect ratio 16:10
 
-var defaultComponentSize = window.innerWidth/16;
+var defaultComponentSize = window.innerWidth/32;
 //let the component be a ratio of the gameCanvas pixel size
 
 /*
@@ -391,9 +391,9 @@ class Game
         this.fruit = "";
         this.gameOver = false;
         this.time_interval =  200;
-        this.scoreTextComponent = new text_component(50, 100, "Score:", "7vw", "black", labelCanvas,labelContext);
-        this.gameOverTextComponent = new text_component( 200, 200, "", "13vw", "white", gameCanvas, gameContext);
-        this.gameResultTextComponent = new text_component( 220, 400, "", "6vw", "white", gameCanvas, gameContext);
+        this.scoreTextComponent = new text_component(gameCanvas.width - (90/100 * gameCanvas.width), (gameCanvas.height- (90/100 * gameCanvas.height)), "Score:", "7vw", "black", labelCanvas,labelContext);
+        this.gameOverTextComponent = new text_component( gameCanvas.width/2-100, gameCanvas.height/2, "", "7vw", "red", gameCanvas, gameContext);
+        this.gameResultTextComponent = new text_component( gameCanvas.width/2-100, gameCanvas.height/2+100, "", "5vw", "red", gameCanvas, gameContext);
         this.scoreValue = 0;
         this.player = new Snake();
         this.generateFruit();
