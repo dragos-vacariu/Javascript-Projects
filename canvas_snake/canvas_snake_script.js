@@ -1,7 +1,27 @@
-var gameCanvas;
-var gameContext;
-var labelCanvas;
-var labelContext;
+var gameCanvas = document.getElementById("game_canvas");
+var gameContext = gameCanvas.getContext("2d");
+gameContext.scale(1,1);
+var labelCanvas = document.getElementById("label_canvas");
+var labelContext = labelCanvas.getContext("2d");
+labelContext.scale(1,1);
+
+//Collecting the window size info and calculating the aspect ratio values for the canvas to be 1:1 with the window:
+
+gameCanvas.width = window.innerWidth;
+//gameCanvas.height = 10* window.innerWidth/16; // aspect ratio 16:10
+gameCanvas.height = 10* window.innerWidth/16; // aspect ratio 16:10
+
+labelCanvas.width = window.innerWidth;
+labelCanvas.height = 1* window.innerWidth/4; // aspect ratio 16:10
+
+var defaultComponentSize = gameCanvas.width/30;
+//let the component be a ratio of the gameCanvas pixel size
+
+/*
+The setting of aspect ratio for the canvas above is very important in order to draw the image textures in good quality.
+Without this everything will become pixelated and be rendered in very poor quality.
+*/
+
 var labelCanvasMargin = 150;
 var snakeHeadTexture_LEFT = "./textures/red_snake_head_left.png";
 var snakeHeadTexture_RIGHT = "./textures/red_snake_head_right.png";
@@ -9,7 +29,6 @@ var snakeHeadTexture_UP = "./textures/red_snake_head_up.png";
 var snakeHeadTexture_DOWN = "./textures/red_snake_head_down.png";
 var snakeBodyTexture = "./textures/red_snake_body.png";
 var fruitTexture = "./textures/fruit.png"
-var defaultComponentSize = 70; //component size in pixels;
 
 var isFullScreen = false;
 
@@ -65,28 +84,6 @@ function FullscreenMode(e) {
 	}
 }
 
-gameCanvas = document.getElementById("game_canvas");
-gameContext = gameCanvas.getContext("2d");
-gameContext.scale(1,1);
-labelCanvas = document.getElementById("label_canvas");
-labelContext = labelCanvas.getContext("2d");
-labelContext.scale(1,1);
-
-//Collecting the window size info and calculating the aspect ratio values for the canvas to be 1:1 with the window:
-
-gameCanvas.width = window.innerWidth;
-//gameCanvas.height = 10* window.innerWidth/16; // aspect ratio 16:10
-gameCanvas.height = 10* window.innerWidth/16; // aspect ratio 16:10
-
-labelCanvas.width = window.innerWidth;
-labelCanvas.height = 1* window.innerWidth/4; // aspect ratio 16:10
-
-defaultComponentSize = gameCanvas.width/20; //let the component be a ratio of the gameCanvas size
-
-/*
-The setting of aspect ratio for the canvas above is very important in order to draw the image textures in good quality.
-Without this everything will become pixelated and be rendered in very poor quality.
-*/
 
 class text_component
 {
@@ -137,7 +134,7 @@ class shape_component
         /*Function to update the component on the screen canvas*/
         this.image = new Image();
         this.image.src = this.texture;   
-        gameContext.drawImage(this.image, this.PosX, this.PosY, defaultComponentSize, defaultComponentSize);
+        gameContext.drawImage(this.image, this.PosX, this.PosY, gameCanvas.width/30, gameCanvas.width/30);
     }
     collidesWith(other_component)
     {

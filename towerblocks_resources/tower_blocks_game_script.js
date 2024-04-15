@@ -442,3 +442,10 @@ function updateSpareBlocks()
 {
 	document.getElementById("spareBlocks").innerHTML = "SPARES: " + window.spareBlocks;
 }
+
+//Prevent the default behaviour on this window.
+window.addEventListener("keydown", function(e) {
+    if(["Space","ArrowUp","ArrowDown","ArrowLeft","ArrowRight"].indexOf(e.code) > -1) {
+        e.preventDefault();
+    }
+}, false);
