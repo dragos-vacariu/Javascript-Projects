@@ -134,7 +134,7 @@ class shape_component
         /*Function to update the component on the screen canvas*/
         this.image = new Image();
         this.image.src = this.texture;   
-        gameContext.drawImage(this.image, this.PosX, this.PosY, gameCanvas.width/30, gameCanvas.width/30);
+        gameContext.drawImage(this.image, this.PosX, this.PosY, defaultComponentSize, defaultComponentSize);
     }
     collidesWith(other_component)
     {
