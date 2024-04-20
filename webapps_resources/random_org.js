@@ -1,8 +1,7 @@
 function RandomizeItems()
 {
-	var msg = document.getElementById("items_window").value;
-	document.getElementById("randomize_message_log").innerHTML = "";
-	document.getElementById("items_length").innerHTML = "No of items: "
+	var msg = document.getElementById("text_box").value;
+	document.getElementById("message_log").innerHTML = "";
 	if(msg.length>0){
 		var lst_of_msg = [];
 		var aux = "";
@@ -40,13 +39,12 @@ function RandomizeItems()
 				lst_length--;
 			}
 		}
-		document.getElementById("items_window").value = msg;
-		document.getElementById("randomize_message_log").innerHTML = "Items successfully randomized.";
-		document.getElementById("items_length").innerHTML = "No of items: " + lst_of_msg.length; 
+		document.getElementById("text_box").value = msg;
+		document.getElementById("message_log").innerHTML = "Items successfully randomized." +"\n" 
+		+ "No of items: " + lst_of_msg.length;
 	}
 	else
 	{
-		document.getElementById("randomize_message_log").innerHTML = "No list was entered.";
-		document.getElementById("items_length").innerHTML = "No of items: 0"
+		document.getElementById("message_log").innerHTML = "No list was entered.";
 	}
 }
