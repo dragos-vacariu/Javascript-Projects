@@ -102,7 +102,7 @@ function SquareClicked(x)
 				{
 					square.style.backgroundColor = "black";
 				}
-				else
+				else if (square.style.backgroundColor == "yellow")
 				{
 					square.style.backgroundColor = "white";
 				}

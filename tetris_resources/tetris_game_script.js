@@ -1423,7 +1423,7 @@ var AccelerateGame = false;
 setInterval(function() {
 	if(game_started)
 	{
-        window.msCounter+=window.reccurence;
+		window.msCounter += window.reccurence;
         if (window.msCounter % normalGameSpeed == 0 || window.AccelerateGame)
         {
             if(sq.reachedDown)
@@ -1433,6 +1433,7 @@ setInterval(function() {
 				/*in case 2 line are completely checkScore() will make both dissappear at once*/
                 sq.FormRecycle();
                 updateScore();
+				Decelerate();
             }
             else
             {
@@ -1483,16 +1484,22 @@ document.onkeydown = function (e) //trigger event when key is pressed down
 {
     switch (e.key) //if the key pressed is SPACE KEY
     {
+		case "a":
+		case "A":
         case "ArrowLeft":
         {
             TurnLeft();
             break;
         }
+		case "d":
+		case "D":
         case "ArrowRight":
         {
             TurnRight();
             break;
         }
+		case "s":
+		case "S":
         case "ArrowDown":
         {
             Accelerate();
