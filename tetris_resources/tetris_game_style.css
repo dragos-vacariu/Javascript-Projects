@@ -2,9 +2,9 @@
 #page_block #game_content
 {
 	position:relative;
-	width: 80vw;
+	width: 82%;
 	height: auto;
-	left: 10vw;
+	left: 10%;
 	background-image: url(tetris_page_background.jpg);
 	background-repeat: repeat;
 	background-size: cover;

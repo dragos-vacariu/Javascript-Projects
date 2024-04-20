@@ -1,8 +1,8 @@
 #page_block #game_content{
 	position:relative;
-	width:80vw;
+	width:82%;
 	height:auto;
-	left:10vw;
+	left:10%;
 	background-image: url(textures/snake_page_background.jpg);
 	background-size: 100%;
 	background-repeat: repeat;
