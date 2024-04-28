@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+	<loc>https://dragos-vacariu.github.io/Javascript-Projects/knight_chess_resources/knight_chess_game.html</loc>
+	<loc>https://dragos-vacariu.github.io/Javascript-Projects/snake_resources/snake_game.html</loc>
+	<loc>https://dragos-vacariu.github.io/Javascript-Projects/tetris_resources/tetris_game.html</loc>
+	<loc>https://dragos-vacariu.github.io/Javascript-Projects/towerblocks_resources/tower_blocks_game.html</loc>
+	<loc>https://dragos-vacariu.github.io/Javascript-Projects/canvas_snake/canvas_snake.html</loc>
+	<loc>https://dragos-vacariu.github.io/Javascript-Projects/presentation_video_page.html</loc>
+	<loc>https://dragos-vacariu.github.io/Javascript-Projects/knight_chess_resources/knight_chess_video_page.html</loc>
+	<loc>https://dragos-vacariu.github.io/Javascript-Projects/snake_resources/snake_video_page.html</loc>
+	<loc>https://dragos-vacariu.github.io/Javascript-Projects/tetris_resources/tetris_video_page.html</loc>
+	<loc>https://dragos-vacariu.github.io/Javascript-Projects/towerblocks_resources/towerblocks_video_page.html</loc>
+	<loc>https://dragos-vacariu.github.io/Javascript-Projects/canvas_snake/canvas_snake_video_page.html</loc>
+
+  <lastmod>2024-04-14T19:48:20+00:00</lastmod>
+</url>
+
+
+</urlset>
