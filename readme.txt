@@ -20,10 +20,10 @@ https://dragos-vacariu.github.io/Javascript-Projects/canvas_snake/canvas_snake_v
 PREVIEWS
 
 Preview Game Applications Catalogue Webpage: 
-https://dragos-vacariu.github.io/Javascript-Projects/
+https://dragos-vacariu.github.io/catalogue/Javascript-Games.html
 
 Preview The Full Applications Catalogue Webpage:
-https://dragos-vacariu.github.io/Javascript-Projects/full_homepage.html
+https://dragos-vacariu.github.io/catalogue/Javascript-WebApps.html
 
 =======================================================================================================
 DOWNLOADS
