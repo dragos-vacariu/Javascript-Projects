@@ -22,7 +22,7 @@ PREVIEWS
 Preview Game Applications Catalogue Webpage: 
 https://dragos-vacariu.github.io/catalogue/Javascript-Games.html
 
-Preview The Full Applications Catalogue Webpage:
+Preview The Web Applications Catalogue Webpage:
 https://dragos-vacariu.github.io/catalogue/Javascript-WebApps.html
 
 =======================================================================================================
