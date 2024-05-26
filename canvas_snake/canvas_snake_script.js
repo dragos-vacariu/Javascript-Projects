@@ -29,55 +29,6 @@ var snakeHeadTexture_DOWN = "./textures/red_snake_head_down.png";
 var snakeBodyTexture = "./textures/red_snake_body.png";
 var fruitTexture = "./textures/fruit.png"
 
-var isFullScreen = false;
-
-function FullscreenMode(e) {
-    var game_content = document.getElementById("game_content");
-    var fullscreen_button = document.getElementById("fullscreen");
-	if (isFullScreen == false)
-	{
-		if (game_content.requestFullscreen) 
-		{
-			game_content.requestFullscreen();
-			isFullScreen = true;
-			fullscreen_button.style.backgroundColor = "pink";
-		} 
-		else if (game_content.webkitRequestFullscreen) 
-		{ /* Safari */
-			game_content.webkitRequestFullscreen();
-			isFullScreen = true;
-			fullscreen_button.style.backgroundColor = "pink";
-		} else if (game_content.msRequestFullscreen) 
-		{ /* IE11 */
-			game_content.msRequestFullscreen();
-			isFullScreen = true;
-			fullscreen_button.style.backgroundColor = "pink";
-		}
-	}
-	else
-	{
-
-		if (document.exitFullscreen) 
-		{
-			document.exitFullscreen();
-			isFullScreen = false;
-			fullscreen_button.style.backgroundColor = "lightgray";
-		} 
-		else if (document.webkitExitFullscreen) 
-		{ /* Safari */
-			document.webkitExitFullscreen();
-			isFullScreen = false;
-			fullscreen_button.style.backgroundColor = "lightgray";
-		} else if (document.msExitFullscreen) 
-		{ /* IE11 */
-			document.msExitFullscreen();
-			isFullScreen = false;
-			fullscreen_button.style.backgroundColor = "lightgray";
-		}
-	}
-}
-
-
 class text_component
 {
     constructor(x_pos, y_pos, labelName, size, color, canvas, context)
@@ -537,6 +488,65 @@ function resetInputButtonColors()
     document.getElementById("Down").style.backgroundColor = "green";
 }
 
+function FullscreenMode(e) {
+    var game_content = document.getElementById("game_content");
+    var fullscreen_button = document.getElementById("fullscreen");
+	if (document.fullscreenElement == null)
+	{
+		if (game_content.requestFullscreen) 
+		{
+			game_content.requestFullscreen();
+		} 
+		else if (game_content.webkitRequestFullscreen) 
+		{ /* Safari */
+			game_content.webkitRequestFullscreen();
+		} 
+        else if (game_content.msRequestFullscreen) 
+		{ /* IE11 */
+			game_content.msRequestFullscreen();
+		}
+	}
+	else
+	{
+
+		if (document.exitFullscreen) 
+		{
+			document.exitFullscreen();
+		} 
+		else if (document.webkitExitFullscreen) 
+		{ /* Safari */
+			document.webkitExitFullscreen();
+		} 
+        else if (document.msExitFullscreen) 
+		{ /* IE11 */
+			document.msExitFullscreen();
+		}
+	}
+}
+
+function Enter_FullScreen(e)
+{
+	if (e.key == "f")
+	{
+		FullscreenMode(); 
+	}
+}
+
+function FullScreenZoom()
+{
+   if (document.fullscreenElement != null)
+   {
+        document.getElementById("fullscreen").style.backgroundColor = "pink";
+   }
+   else
+   {
+        document.getElementById("fullscreen").style.backgroundColor = "lightgray";
+   }
+}
+
+//When fullscreen changes call my function to handle the zooming
+document.addEventListener("fullscreenchange", FullScreenZoom, false);
+
 //The magic happens here:
 
 //Create the game.
@@ -555,15 +565,6 @@ document.getElementById("Up").addEventListener("click", function (e) {gameObj.pl
 document.getElementById("Down").addEventListener("click", function (e) {gameObj.player.setSnakeMovementDirection_DOWN();});
 document.getElementById("fullscreen").addEventListener("click", function (e) {FullscreenMode();});
 document.getElementById("restart").addEventListener("click", function (e) {location.reload(); });
-
-
-function Enter_FullScreen(e)
-{
-	if (e.key == "f")
-	{
-		FullscreenMode(); 
-	}
-}
 
 //Prevent the default behaviour on this window.
 window.addEventListener("keydown", function(e) {
