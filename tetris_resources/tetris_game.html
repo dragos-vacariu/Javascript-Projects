@@ -38,7 +38,7 @@
 			<h3>Tetris Game</h3>
 			<table id="game_content">
 				<tr>
-					<td>
+					<td id = "game_column">
 						<div id = "game_div">
 							<table>
 								<tr>
@@ -64,7 +64,7 @@
 									<td id="elem0107" style = "background-color: transparent;"></td>
 									<td id="elem0108" style = "background-color: transparent;"></td>
 									<td id="elem0109" style = "background-color: transparent;"></td>
-								\</tr>
+								</tr>
 								<tr>
 									<td id="elem0200" style = "background-color: transparent;"></td>
 									<td id="elem0201" style = "background-color: transparent;"></td>
@@ -236,7 +236,7 @@
 							</table>
 						</div>
 					</td>
-					<td>
+					<td id = "hud_column">
 						<div id="gameHud">
 								<div id="score">Score: </div>
 								<div id="gameStatus">Game Stopped</div> 
@@ -250,9 +250,10 @@
 									<input type="button" id="right" onclick = "TurnRight()" value="Right"></input><br>
 									<input type="button" id="down" onclick = "Accelerate()" value="Down"></input>
 								</form>
+                                <h6 id="author">Dragos Vacariu @ 2019</h6>
 						</div>
 					</td>
-					<td>
+					<td id = "info_column">
 						<div>
 							<div id = "controlInfo"><span id="code_style">Control Info:</span><br><br>Use the  <span id="code_style">Left</span> and  <span id="code_style">Right</span> 
 								buttons from the left or Key Arrows <span id="code_style"><- -></span> from the keyboard to move the bricks.<br><br> Use 
@@ -260,7 +261,8 @@
 								<br><br>Use <span id="code_style">Down Arrow</span> to accelerate the fall.
 								<h6>If the pile reaches reach to the top of the screen the game is over.</h6>
 								<input type="button" id="fullscreen" onclick = "FullscreenMode()" value="Fullscreen"></input><br>
-							</div>
+                                
+                            </div>
 						</div>
 					</td>
 				</tr>

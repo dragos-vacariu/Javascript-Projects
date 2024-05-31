@@ -11,23 +11,42 @@
 	border: solid 1px black;
 }
 
+#page_block #game_content td
+{
+    vertical-align: top;
+}
+
+#page_block #game_content #game_column
+{
+    border: none 1px black;
+    width: 50%;
+}
+
+#page_block #game_content #hud_column
+{
+    border: none 1px black;
+    width: 25%;
+}
+
 #game_div
 {
-	width: 100%;
-	height:auto;
-	left: 10%;
+    position: relative;
+    width: 80%;
+    height:auto;
+    padding: 0%;
+    margin: 0%;
 }
 
 
 #game_div table{
     position: relative;
-    width: 50%;
+    width: 90%;
 	height: auto;
-    margin:1vw;
-    padding:1vw;
+    margin: 3%;
+    padding:0px;
 	border-style: none;
     border-spacing: 2px;
-	border-color:lightgray;
+	border-color:blue;
 	border-width:1px;
 	opacity: 0.9;
 }
@@ -45,14 +64,16 @@
 
 #gameHud{
 	position:relative;
-	margin:1vw;
+	margin:5%;
 	border-style: solid;
 	border-color: black;
 	border-width: 1px;
-	width: 120%;
-	padding: 1vw;
+	width: 90%;
+	padding: 0vw;
 	background-color: lightgray;
 	opacity: 0.8;
+    padding-bottom: 3%;
+    min-height: 32vw;
 }
 
 #button_div
@@ -64,7 +85,6 @@
 #gameHud #score, #gameHud #gameStatus{
 	position: relative;
 	padding: 1vw;
-
 	font-weight: bold;
 	font-family: Consolas;
 	border-width: 1px;
@@ -82,21 +102,40 @@
 	text-align: left;
 	text-shadow: 0.2vw 0.2vw white;
 	font-size: 1.5vw;
+    /*width: 80%;*/ /*percent width on text elements are not accurate they don't respect boundaries*/
+    margin: 5%;
+    padding: 5%;
 }
 
 #gameHud #gameStatus
 {
+    position:relative;
 	background-color: rgba(0,0,255,0.2);
 	color: white;
 	text-shadow: 0.2vw 0.2vw black;
 	text-align: center;
 	font-size: 1.2vw;
+    margin: 5%;
+    padding: 5%;
+}
+
+#author
+{
+	position: relative;
+	border: inset 1px blue;
+	color: blue;
+	font-size: 1vw;
+	font-weight: bold;
+	background-color: rgba(255,255,255,0.9);
+    margin: 5%;
+    padding: 2%;
 }
 
 #menu{
 	position: relative;
 	width: 90%;
-	padding: 3%;
+	margin: 5%;
+    padding:2% 0%;
 	border-style:solid;
 	border-width: 1px;
 	background-color: pink;
@@ -105,19 +144,22 @@
 #controls{
     position: relative;
 	width: 90%;
-	padding:3%;
+    margin: 5%;
 	border-style:solid;
 	border-width: 1px;
 	background-color: pink;
+    padding: 2% 0%;
 }
 
 #restartgame, #startgame, #fullscreen, #controls{
-	margin-top:1vw;
+	margin-top:1%;
+	margin-bottom:1%;
 	width: 90%;
 	font-variant: small-caps;
 	font-size: 1.2vw;
 	font-family: Arial;
 	font-weight: bold;
+    padding: 2% 0%;
 }
 
 #rotate{
@@ -164,10 +206,10 @@
 #controlInfo
 {   
 	position:relative;
-	width: 65%;
-	left:25%;
-	padding: 0.5vw;
-	margin: 0.5vw;
+	width: 90%;
+	padding: 2%;
+	margin: 3%;
+    margin-top:5%;
     font-variant: small-caps;
 	font-size: 1.2vw;
 	text-align: left;
@@ -177,6 +219,7 @@
 	border-style: solid;
     border-width: 1px;
     border-color: black;
+    min-height: 32vw;
 }
 
 #controlInfo h6{
@@ -192,11 +235,9 @@
 	padding: 2%;
 }
 
-
 #fullscreen{
 	position:relative;
 	left: 5%;
-	bottom:5%;
 	-ms-transform: translateY(-50%); /*centering the button*/
 	transform: translateY(-50%); /*centering the button*/
 }
