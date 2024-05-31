@@ -1,144 +1,152 @@
 #page_block #game_content{
-	position:relative;
-	width:82%;
-	height:auto;
-	left:10%;
-	background-image: url(textures/snake_page_background.jpg);
-	background-size: 100%;
-	background-repeat: repeat;
-	background-size: cover;
-	position:relative;
-	border: solid 2px black;
+    position:relative;
+    width:82%;
+    height:auto;
+    left:10%;
+    background-image: url(textures/snake_page_background.jpg);
+    background-size: 100%;
+    background-repeat: repeat;
+    background-size: cover;
+    border: solid 2px black;
+    vertical-align: top;
+}
+
+#page_block #game_content tr td{
+    vertical-align: top;
 }
 
 #left_block
 {
-	position: relative;
-	width: 50vw;
-	top:0%;
+    position: relative;
+    width: 50vw;
+    top:0%;
+    padding: 0%;
+    margin:0%;
 }
 
 #right_block
 {
-	position: relative;
-	width: 25vw;
-	top:0vw;
-	padding:0.2vw;
-    margin:0.2vw;;
+    position: relative;
+    top:0%;
+    width: 25vw;
+    padding:0%;
+    margin:0%;
 }
 
 #game_canvas {
     border-style: double;
     border-color: black;
-    border-width: 0.5vw;
+    border-width: 1px;
     background-color: #f1f1f1;
     background-image: url(textures/concrete.jpg);
     background-size: 3.125%  5%; /*scaling the image for high resolution*/
     background-repeat: repeat;
-	width: 100%;
-	margin:0.2vw;
-	opacity: 0.8;
-	padding: 0.2vw;
+    width: 100%;
+    margin: 0%;
+    padding: 0%;
+    opacity: 0.8;
+
 }
 
 
 #label_canvas{
-	position: relative;
-	width: 100%;
-    border: 0.5vw double #000000;
+    position: relative;
+    width: 98%;
+    border-style:double;
+    border-width: 2%;
+    border-color: black;
     background-color: #f1f1f1;
     background-size: 100%;
     background-repeat: no-repeat;
-	opacity:0.8;
+    opacity:0.8;
     margin:0%;
 }
 
 #instructions
 {
-	position: relative;
-	width: 100%;
-	background-color: #f1f1f1;
-	border-style: double;
-	border-width: 0.5vw;
-	border-color: black;
-	opacity: 0.8;
-	padding-top: 0.5%;
-	padding-bottom: 1%;
+    position: relative;
+    width: 98%;
+    background-color: #f1f1f1;
+    border-style: double;
+    border-width: 2%;
+    border-color: black;
+    opacity: 0.8;
+    padding: 0%;
     margin:0%;
 }
 
 #instructions p
 {
-	font-size: 1.2vw;
-	font-variant: small-caps;
-	padding: 1%;
-	margin:1%;
-	font-family:Trebuchet MS;
-	border-style: none;
+    font-size: 1.2vw;
+    font-variant: small-caps;
+    padding: 1%;
+    margin:1%;
+    font-family:Trebuchet MS;
+    border-style: none;
 }
 
 #instructions p code
 {
-	color: blue;
+    color: blue;
 }
 
 #buttons
 {
-	position: relative;
-	border-style:double;
-	border-width: 0.5vw;
-	border-color: black;
-	background-color: #f1f1f1;
-	width: 100%;
-	opacity: 0.8;
-	padding-top: 0.5%;
-	padding-bottom: 1%;
+    position: relative;
+    border-style:double;
+    border-width: 2%;
+    border-color: black;
+    background-color: #f1f1f1;
+    width: 98%;
+    opacity: 0.8;
+    padding-top: 0.5%;
+    padding-bottom: 1%;
     margin-bottom:2%;
 
 }
 #buttons input
 {
-	width: 30%;
-	font-size: 2vw;
-	font-variant: small-caps;
+    width: 30%;
+    font-size: 2vw;
+    font-variant: small-caps;
 }
 
 #buttons #Up, #Down{
-	position: relative;
-	background-color: green;
-	color: white;
-	font-weight: bold;
+    position: relative;
+    background-color: green;
+    color: white;
+    font-weight: bold;
     margin:1%;
 }
 #buttons #Left, #Right{
-	position: relative;
-	right: 15%;
-	background-color: green;
-	color: white;
-	font-weight: bold;
-	margin-top:5%;
-	margin-bottom:5%;
-	margin:0%;
+    position: relative;
+    right: 15%;
+    background-color: green;
+    color: white;
+    font-weight: bold;
+    margin-top:5%;
+    margin-bottom:5%;
+    margin:0%;
 }
 #Right
 {
-	left: 15%;
+    left: 15%;
 }
 
 #right_block #author
 {
-	position: relative;
-	border-style: none;
-	color: blue;
-	font-size: 1vw;
-	font-weight: bold;
-	background-color: rgba(255,255,255,0.6);
-	margin-top: 10%;
-	margin-left: 5%;
+    position: relative;
+    width: 80%;
+    left: 10%;
+    border-style: none;
+    color: blue;
+    font-size: 1vw;
+    font-weight: bold;
+    background-color: rgba(255,255,255,0.6);
 }
 
 #fullscreen, #restart{
-	width: 40%;
-	font-size: 1vw;
-	margin-top: 5%;
+    width: 40%;
+    font-size: 1vw;
+    margin-top: 5%;
 }

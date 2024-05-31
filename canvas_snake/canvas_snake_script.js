@@ -344,6 +344,17 @@ class Game
         this.generateFruit();
         this.scoreTextComponent.setText(this.scoreValue);
     }
+    restart()
+    {
+        this.clear();
+        this.fruit = "";
+        this.gameOver = false;
+        this.time_interval =  200;
+        this.scoreValue = 0;
+        this.player = new Snake();
+        this.generateFruit();
+        this.scoreTextComponent.setText(this.scoreValue);
+    }
     clear()
     {
         /*Function to clear the canvas*/
@@ -537,11 +548,19 @@ function FullScreenZoom()
    if (document.fullscreenElement != null)
    {
         document.getElementById("fullscreen").style.backgroundColor = "pink";
+        document.getElementById("left_block").style.width = "70vw";
+        
    }
    else
    {
         document.getElementById("fullscreen").style.backgroundColor = "lightgray";
+        document.getElementById("left_block").style.width = "50vw";
    }
+}
+
+function restartGame() {
+    gameObj.restart();
+    gameObj.updateGameArea();
 }
 
 //When fullscreen changes call my function to handle the zooming
@@ -564,7 +583,7 @@ document.getElementById("Right").addEventListener("click", function (e) {gameObj
 document.getElementById("Up").addEventListener("click", function (e) {gameObj.player.setSnakeMovementDirection_UP();});
 document.getElementById("Down").addEventListener("click", function (e) {gameObj.player.setSnakeMovementDirection_DOWN();});
 document.getElementById("fullscreen").addEventListener("click", function (e) {FullscreenMode();});
-document.getElementById("restart").addEventListener("click", function (e) {location.reload(); });
+document.getElementById("restart").addEventListener("click", function (e) {restartGame() });
 
 //Prevent the default behaviour on this window.
 window.addEventListener("keydown", function(e) {
