@@ -54,11 +54,13 @@ function FullScreenZoom()
    {
         document.getElementById("fullscreen_button").style.backgroundColor = "pink";
         document.getElementById("fullscreen_button").value = "Exit Fullscreen";
+        document.getElementById("game_div").style.width = "55vw";
    }
    else
    {
         document.getElementById("fullscreen_button").style.backgroundColor = "white";
         document.getElementById("fullscreen_button").value = "Enter Fullscreen";
+        document.getElementById("game_div").style.width = "45vw";
    }
 }
 
