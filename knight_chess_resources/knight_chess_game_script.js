@@ -99,7 +99,7 @@ function SquareClicked(x)
 				{
 					square.style.backgroundColor = "black";
 				}
-				else if (square.style.backgroundColor == "yellow")
+				else if (square.style.backgroundColor == "pink")
 				{
 					square.style.backgroundColor = "white";
 				}
@@ -255,6 +255,7 @@ function SearchOption()
 		}
 	}
 }
+
 function getGameOverStatus()
 {
 	for(var i =0; i<8; i++)
@@ -265,7 +266,8 @@ function getGameOverStatus()
 				document.getElementById("elem"+i+j).style.backgroundColor == "black")
 			{
 				document.getElementById("result").innerHTML = "Game Over. You failed to conquer the checkerboard.";
-				gameOver=0;
+				document.getElementById("result").style.backgroundColor = "pink";
+                gameOver=0;
 				break;
 			}
 		}
@@ -273,7 +275,8 @@ function getGameOverStatus()
 	if(gameOver!=0)
 	{
 		document.getElementById("result").innerHTML = "Congratulations. You have conquered the checkerboard.";
-	}
+        document.getElementById("result").style.backgroundColor = "yellow";
+    }
 }
 
 function gameRestart()
@@ -284,8 +287,8 @@ function gameRestart()
 	score = 0;
 	gameOver=2; // 0 for game lost, 1 for game won, 2 for init.
 	document.getElementById("score").innerHTML = "Score: ";
-	document.getElementById("result").innerHTML = "";
     document.getElementById("result").innerHTML = "Choose a square in order to begin.";
+    document.getElementById("result").style.backgroundColor = "white";
 	for(var i =0; i<8; i++)
 	{
 		for(var j=0;j<8;j++)
