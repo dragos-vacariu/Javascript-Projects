@@ -461,6 +461,9 @@ function StartGame()
 {
 	window.block = new TowerBlock();
 	window.build_platform = new Platform();
+    window.score = 0;
+    window.combo = initialCombo;
+    window.comboMessage = "";
 	window.msCounter = 0;
 	window.blocksClimbed = 0;
 	window.spareBlocks = 3;
