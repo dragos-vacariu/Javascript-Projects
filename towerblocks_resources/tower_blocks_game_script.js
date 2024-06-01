@@ -149,7 +149,8 @@ class Platform
                         document.getElementById("elem"+ numberToString(i)+ numberToString(j)).style.backgroundImage = 
                                             document.getElementById("elem"+ numberToString(i)+ numberToString(j-offset)).style.backgroundImage;
                     }
-                    else{
+                    else
+                    {
                         document.getElementById("elem"+ numberToString(i)+ numberToString(j)).style.backgroundImage = "";
                     }
                 }
@@ -355,7 +356,8 @@ class TowerBlock
 					)
 				{
                     //Calculating the earned points based on the quality of the drop
-                    if(document.getElementById("elem" + numberToString(parseInt(this.Coords[2][0])) + numberToString(this.Coords[2][1]-1)).style.backgroundImage != "")
+                    if( (document.getElementById("elem" + numberToString(parseInt(this.Coords[2][0])) + numberToString(this.Coords[2][1]-1)) != null)
+                        && (document.getElementById("elem" + numberToString(parseInt(this.Coords[2][0])) + numberToString(this.Coords[2][1]-1)).style.backgroundImage != "") )
                     {
                         //Bonus for perfect alignment with the blocks from the left
                         window.score += combo;
@@ -363,7 +365,8 @@ class TowerBlock
                         comboMessage = "Horizontal Alignment"
                         document.getElementById("ComboMessage").style.color = "red";
                     }
-                    else if(document.getElementById("elem" + numberToString(parseInt(this.Coords[1][0])) + numberToString(this.Coords[1][1]+1)).style.backgroundImage != "")
+                    else if( (document.getElementById("elem" + numberToString(parseInt(this.Coords[1][0])) + numberToString(this.Coords[1][1]+1)) != null)
+                        && (document.getElementById("elem" + numberToString(parseInt(this.Coords[1][0])) + numberToString(this.Coords[1][1]+1)).style.backgroundImage != "") )
                     {
                         //Bonus for perfect alignment with the blocks from the right
                         window.score+=combo;
@@ -371,9 +374,11 @@ class TowerBlock
                         comboMessage = "Horizontal Alignment"
                         document.getElementById("ComboMessage").style.color = "red";
                     }
-                    else if(   (document.getElementById("elem" + numberToString(parseInt(this.Coords[3][0]+1)) + numberToString(this.Coords[3][1])).style.backgroundImage != "")
-                        && (document.getElementById("elem" + numberToString(parseInt(this.Coords[2][0]+1)) + numberToString(this.Coords[2][1])).style.backgroundImage != "")
-                      )
+                    else if( (document.getElementById("elem" + numberToString(parseInt(this.Coords[3][0]+1)) + numberToString(this.Coords[3][1])) != null)
+                            && (document.getElementById("elem" + numberToString(parseInt(this.Coords[2][0]+1)) + numberToString(this.Coords[2][1])) != null)
+                            && (document.getElementById("elem" + numberToString(parseInt(this.Coords[3][0]+1)) + numberToString(this.Coords[3][1])).style.backgroundImage != "")
+                            && (document.getElementById("elem" + numberToString(parseInt(this.Coords[2][0]+1)) + numberToString(this.Coords[2][1])).style.backgroundImage != "")
+                           )
                     {
                         //Bonus for perfect alignment with the blocks from below
                         window.score+=combo;
