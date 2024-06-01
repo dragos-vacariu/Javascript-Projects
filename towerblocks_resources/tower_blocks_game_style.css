@@ -88,6 +88,8 @@
     color:black; /*the color will be set via the script*/
     font-size: 0.8vw;
     height: 1vw;
+    border: none 2px black;
+    text-align: center;
 }
 
 #gameStatus{
@@ -124,7 +126,7 @@
     font-size: 1.3vw; /* font-size in percent of the viewport size.*/
 }
 
-#restartgame
+#restartgame, #fullscreen
 {
     margin-top: 1vw;
 }
