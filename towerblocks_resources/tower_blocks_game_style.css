@@ -83,6 +83,13 @@
     height: 7vw;
 }
 
+#ComboMessage{
+    position: relative;
+    color:black; /*the color will be set via the script*/
+    font-size: 0.8vw;
+    height: 1vw;
+}
+
 #gameStatus{
     color: red;
     font-size: 0.8vw;

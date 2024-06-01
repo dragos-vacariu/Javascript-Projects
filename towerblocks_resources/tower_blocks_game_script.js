@@ -1,18 +1,19 @@
 var blocksClimbed=0;
 var score =0;
 var game_started=false;
-var blockSquareTexture = "url('brick.jpg')";
-var platformTexture = "url('platform.jpg')"
-var TableRows = 15
-var TableCols = 15
+const blockSquareTexture = "url('brick.jpg')";
+const platformTexture = "url('platform.jpg')"
+const TableRows = 15
+const TableCols = 15
 var spareBlocks = 3;
 const initialCombo = 3;
 var combo = initialCombo;
+var comboMessage = "";
 var blockDone = false;
 
 const scoreAnimation = [
   {color: "black"},
-  {color: "green", content: "bonus"},
+  {color: "green"},
 ];
 
 const scoreAnimationTiming = {
@@ -20,7 +21,18 @@ const scoreAnimationTiming = {
   iterations: 1,
 };
 
-function FullscreenMode(e) {
+const comboMessageAnimation = [
+  {opacity: "0"},
+  {opacity: "1"},
+];
+
+const comboMessageAnimationTiming = {
+  duration: 1000,
+  iterations: 1,
+};
+
+function FullscreenMode(e) 
+{
     var game_content = document.getElementById("game_content");
 	if (document.fullscreenElement == null)
 	{
@@ -62,7 +74,6 @@ function Enter_FullScreen(e)
 		FullscreenMode(); 
 	}
 }
-
 
 function FullScreenZoom()
 {
@@ -215,7 +226,7 @@ class TowerBlock
         this.dropping = false;
 		this.FormBuilder();
 	}
-	MoveBlockLeftRight()
+    MoveBlockLeftRight()
 	{
         if (this.dropping == false)
         {
@@ -247,6 +258,9 @@ class TowerBlock
 			if (this.Coords[0][0] > TableRows  )
 			{
 				window.spareBlocks--;
+                comboMessage = ""
+                document.getElementById("ComboMessage").style.opacity = "0";
+                combo = initialCombo;
 				this.dropping = false;
 				this.reachedDown = true;
 				window.blockDone = true;
@@ -341,36 +355,37 @@ class TowerBlock
 					)
 				{
                     //Calculating the earned points based on the quality of the drop
-                    var perfect_drop = false;
                     if(document.getElementById("elem" + numberToString(parseInt(this.Coords[2][0])) + numberToString(this.Coords[2][1]-1)).style.backgroundImage != "")
                     {
                         //Bonus for perfect alignment with the blocks from the left
                         window.score += combo;
                         combo = combo + initialCombo;
-                        perfect_drop = true;
-                        document.getElementById("score").animate(scoreAnimation, scoreAnimationTiming);
+                        comboMessage = "Horizontal Alignment"
+                        document.getElementById("ComboMessage").style.color = "red";
                     }
-                    if(document.getElementById("elem" + numberToString(parseInt(this.Coords[1][0])) + numberToString(this.Coords[1][1]+1)).style.backgroundImage != "")
+                    else if(document.getElementById("elem" + numberToString(parseInt(this.Coords[1][0])) + numberToString(this.Coords[1][1]+1)).style.backgroundImage != "")
                     {
                         //Bonus for perfect alignment with the blocks from the right
                         window.score+=combo;
                         combo = combo + initialCombo;
-                        perfect_drop = true;
-                        document.getElementById("score").animate(scoreAnimation, scoreAnimationTiming);
+                        comboMessage = "Horizontal Alignment"
+                        document.getElementById("ComboMessage").style.color = "red";
                     }
-                    if(   (document.getElementById("elem" + numberToString(parseInt(this.Coords[3][0]+1)) + numberToString(this.Coords[3][1])).style.backgroundImage != "")
-					   && (document.getElementById("elem" + numberToString(parseInt(this.Coords[2][0]+1)) + numberToString(this.Coords[2][1])).style.backgroundImage != "")
+                    else if(   (document.getElementById("elem" + numberToString(parseInt(this.Coords[3][0]+1)) + numberToString(this.Coords[3][1])).style.backgroundImage != "")
+                        && (document.getElementById("elem" + numberToString(parseInt(this.Coords[2][0]+1)) + numberToString(this.Coords[2][1])).style.backgroundImage != "")
                       )
                     {
                         //Bonus for perfect alignment with the blocks from below
                         window.score+=combo;
                         combo = combo + initialCombo;
-                        perfect_drop = true;
-                        document.getElementById("score").animate(scoreAnimation, scoreAnimationTiming);
+                        comboMessage = "Vertical Alignment"
+                        document.getElementById("ComboMessage").style.color = "blue";
                     }
-                    if(perfect_drop == false)
+                    else
                     {
                         //no allignment
+                        comboMessage = ""
+                        document.getElementById("ComboMessage").style.opacity = "0";
                         combo = initialCombo;
                         window.score++;
                     }
@@ -407,13 +422,13 @@ class TowerBlock
 	}
 }
 
-
 var msCounter = 0;
 var recurrence = 100;
 var block;
 var build_platform;
 
-setInterval(function() {
+setInterval(function() 
+{
 	if(game_started)
 	{
         window.msCounter += window.recurrence;
@@ -421,7 +436,7 @@ setInterval(function() {
         {
              build_platform.MoveBuildingLeftRight();
         }
-		block.MoveBlockLeftRight();
+        block.MoveBlockLeftRight();
 
 		if (blockDone == true)
 		{
@@ -485,7 +500,9 @@ function RestartGame()
 	}
 	StartGame();
 }
-function numberToString(n){
+
+function numberToString(n)
+{
     return n > 9 ? "" + n: "0" + n;
 }
 
@@ -495,13 +512,17 @@ function updateBlocksClimbed()
     if(window.combo > initialCombo)
     {
         //window.combo-initialCombo will give the value of the last combo, not the value of next combo
+        document.getElementById("ComboMessage").innerHTML = comboMessage;
+        document.getElementById("ComboMessage").animate(comboMessageAnimation, comboMessageAnimationTiming);
         document.getElementById("score").innerHTML = "COMBO: X" + (window.combo-initialCombo) + "  SCORE: " + window.score;
+        document.getElementById("score").animate(scoreAnimation, scoreAnimationTiming);
     }
     else
     {
         document.getElementById("score").innerHTML = "SCORE: " + window.score;
     }
 }
+
 function updateSpareBlocks()
 {
 	document.getElementById("spareBlocks").innerHTML = "SPARES: " + window.spareBlocks;
