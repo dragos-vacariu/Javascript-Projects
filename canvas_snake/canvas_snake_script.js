@@ -269,7 +269,7 @@ class Snake
         /*
         Function to check whether the snake is hitting the margins of the canvas
         */
-        if ( (this.snake[0].PosY <= 0 )  || ( this.snake[0].PosY >= ( gameCanvas.height - defaultComponentSize) ) )
+        if ( (this.snake[0].PosY < 0 )  || ( this.snake[0].PosY > ( gameCanvas.height - defaultComponentSize) ) )
         {
             //if the snake's head cannot be entirely drawn to the screen, it means that is passed outside the boundries
             if (this.snakeDirection == "up")
@@ -283,7 +283,7 @@ class Snake
 			return true;
 
         }
-        if ( (this.snake[0].PosX <= 0 ) || ( this.snake[0].PosX >= ( gameCanvas.width - defaultComponentSize)))
+        if ( (this.snake[0].PosX < 0 ) || ( this.snake[0].PosX > ( gameCanvas.width - defaultComponentSize)))
         {
             
             //if the snake's head cannot be entirely drawn to the screen, it means that is passed outside the boundries
@@ -341,8 +341,8 @@ class Game
         this.snakeMaxSpeed = 100;
         this.msCounter = 0;
         this.scoreTextComponent = new text_component(gameCanvas.width - (90/100 * gameCanvas.width), (gameCanvas.height- (90/100 * gameCanvas.height)), "Score:", "7vw", "black", labelCanvas,labelContext);
-        this.gameOverTextComponent = new text_component( gameCanvas.width/2-100, gameCanvas.height/2, "", "7vw", "red", gameCanvas, gameContext);
-        this.gameResultTextComponent = new text_component( gameCanvas.width/2-100, gameCanvas.height/2+100, "", "5vw", "red", gameCanvas, gameContext);
+        this.gameOverTextComponent = new text_component( gameCanvas.width/2-250, gameCanvas.height/2, "", "7vw", "red", gameCanvas, gameContext);
+        this.gameResultTextComponent = new text_component( gameCanvas.width/2-350, gameCanvas.height/2+100, "", "5vw", "red", gameCanvas, gameContext);
         this.scoreValue = 0;
         this.scoreFactor = 1;
         this.player = new Snake();
@@ -433,7 +433,7 @@ class Game
                 {
                     this.gameOver = true;
                     this.gameOverTextComponent.setText("Game Over!");
-                    this.gameResultTextComponent.setText("You hit the wall!");
+                    this.gameResultTextComponent.setText("You collided with the wall!");
 					this.gameOverTextComponent.update();
 					this.gameResultTextComponent.update();
 					return;
