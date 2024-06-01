@@ -1,11 +1,24 @@
 var blocksClimbed=0;
+var score =0;
 var game_started=false;
 var blockSquareTexture = "url('brick.jpg')";
 var platformTexture = "url('platform.jpg')"
 var TableRows = 15
 var TableCols = 15
 var spareBlocks = 3;
+const initialCombo = 3;
+var combo = initialCombo;
 var blockDone = false;
+
+const scoreAnimation = [
+  {color: "black"},
+  {color: "green", content: "bonus"},
+];
+
+const scoreAnimationTiming = {
+  duration: 1000,
+  iterations: 1,
+};
 
 function FullscreenMode(e) {
     var game_content = document.getElementById("game_content");
@@ -321,16 +334,50 @@ class TowerBlock
 		{
 			if (this.Coords[2][0] < TableRows)
 			{
-				if( (document.getElementById("elem" + numberToString(parseInt(this.Coords[3][0]+1)) + numberToString(this.Coords[3][1])).style.backgroundImage != "")
+				if(    (document.getElementById("elem" + numberToString(parseInt(this.Coords[3][0]+1)) + numberToString(this.Coords[3][1])).style.backgroundImage != "")
 					|| (document.getElementById("elem" + numberToString(parseInt(this.Coords[2][0]+1)) + numberToString(this.Coords[2][1])).style.backgroundImage != "")
-					||(document.getElementById("elem" + numberToString(parseInt(this.Coords[3][0]+1)) + numberToString(this.Coords[3][1])).style.backgroundImage != "")
+					|| (document.getElementById("elem" + numberToString(parseInt(this.Coords[3][0]+1)) + numberToString(this.Coords[3][1])).style.backgroundImage != "")
 					|| (document.getElementById("elem" + numberToString(parseInt(this.Coords[2][0]+1)) + numberToString(this.Coords[2][1])).style.backgroundImage != "")
 					)
 				{
-
+                    //Calculating the earned points based on the quality of the drop
+                    var perfect_drop = false;
+                    if(document.getElementById("elem" + numberToString(parseInt(this.Coords[2][0])) + numberToString(this.Coords[2][1]-1)).style.backgroundImage != "")
+                    {
+                        //Bonus for perfect alignment with the blocks from the left
+                        window.score += combo;
+                        combo = combo + initialCombo;
+                        perfect_drop = true;
+                        document.getElementById("score").animate(scoreAnimation, scoreAnimationTiming);
+                    }
+                    if(document.getElementById("elem" + numberToString(parseInt(this.Coords[1][0])) + numberToString(this.Coords[1][1]+1)).style.backgroundImage != "")
+                    {
+                        //Bonus for perfect alignment with the blocks from the right
+                        window.score+=combo;
+                        combo = combo + initialCombo;
+                        perfect_drop = true;
+                        document.getElementById("score").animate(scoreAnimation, scoreAnimationTiming);
+                    }
+                    if(   (document.getElementById("elem" + numberToString(parseInt(this.Coords[3][0]+1)) + numberToString(this.Coords[3][1])).style.backgroundImage != "")
+					   && (document.getElementById("elem" + numberToString(parseInt(this.Coords[2][0]+1)) + numberToString(this.Coords[2][1])).style.backgroundImage != "")
+                      )
+                    {
+                        //Bonus for perfect alignment with the blocks from below
+                        window.score+=combo;
+                        combo = combo + initialCombo;
+                        perfect_drop = true;
+                        document.getElementById("score").animate(scoreAnimation, scoreAnimationTiming);
+                    }
+                    if(perfect_drop == false)
+                    {
+                        //no allignment
+                        combo = initialCombo;
+                        window.score++;
+                    }
+                    //Getting the game ready for the next iteration
+                    window.blocksClimbed++; // increase the global variable 
 					this.reachedDown = true;
 					this.dropping = false;
-					window.blocksClimbed++; // increase the global variable 
 					window.blockDone = true;
 					if (this.blockHeight > this.Coords[0][0])
 					{
@@ -444,7 +491,16 @@ function numberToString(n){
 
 function updateBlocksClimbed()
 {
-	document.getElementById("blocksClimbed").innerHTML = "SCORE: " + window.blocksClimbed;
+	document.getElementById("blocksClimbed").innerHTML = "BLOCKS DROPPED: " + window.blocksClimbed;
+    if(window.combo > initialCombo)
+    {
+        //window.combo-initialCombo will give the value of the last combo, not the value of next combo
+        document.getElementById("score").innerHTML = "COMBO: X" + (window.combo-initialCombo) + "  SCORE: " + window.score;
+    }
+    else
+    {
+        document.getElementById("score").innerHTML = "SCORE: " + window.score;
+    }
 }
 function updateSpareBlocks()
 {
