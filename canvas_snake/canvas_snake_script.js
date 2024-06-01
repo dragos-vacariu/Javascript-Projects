@@ -304,8 +304,15 @@ class Snake
         /*
         Function to grow the snake after eating a fruit.
         */
-        if(this.snake.length > 0)
+        if(this.snake.length > 0 && this.snake.length < 100)
         {
+            /*
+            This will increase the length of the body of the snake only until
+            a maximum given value, this will ensure than we will always have free square 
+            to play through.
+            Given the current configuration we have 32*20=640 square, and the snake can
+            only grow up to 100 squares, so we will have 540 square to travel through.
+            */
             var temp_posX = this.snake[this.snake.length-1].PosX;
             var temp_posY = this.snake[this.snake.length-1].PosY;
             this.snake.push(new shape_component(temp_posX, temp_posY, snakeBodyTexture) );
