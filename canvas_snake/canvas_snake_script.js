@@ -367,21 +367,29 @@ class Game
         switch (e.key) //if the key pressed is SPACE KEY
         {
             case "ArrowLeft":
+            case "A":
+            case "a":
             {
                 this.player.setSnakeMovementDirection_LEFT();
                 break;
             }
             case "ArrowRight":
+            case "D":
+            case "d":
             {
                 this.player.setSnakeMovementDirection_RIGHT();
                 break;
             }
             case "ArrowUp":
+            case "W":
+            case "w":
             {
                 this.player.setSnakeMovementDirection_UP();
                 break;
             }
             case "ArrowDown":
+            case "S":
+            case "s":
             {
                 this.player.setSnakeMovementDirection_DOWN();
                 break;
@@ -499,7 +507,8 @@ function resetInputButtonColors()
     document.getElementById("Down").style.backgroundColor = "green";
 }
 
-function FullscreenMode(e) {
+function FullscreenMode(e) 
+{
     var game_content = document.getElementById("game_content");
     var fullscreen_button = document.getElementById("fullscreen");
 	if (document.fullscreenElement == null)
@@ -558,7 +567,8 @@ function FullScreenZoom()
    }
 }
 
-function restartGame() {
+function restartGame() 
+{
     gameObj.restart();
     gameObj.updateGameArea();
 }
