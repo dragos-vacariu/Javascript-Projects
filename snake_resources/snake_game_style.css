@@ -151,12 +151,12 @@ form h6{
 {
 	background-color: rgba(0,0,255,0.2);
 	text-shadow: 2px 2px black;
-	color:yellow;
+	color: yellow;
 	height: 3vw;
 	border-style: solid;
 	border-width: 2px;
 	border-color: black;
-	text-align: left;
+	text-align: center;
 }
 
 #score, #result, #speed, input{
