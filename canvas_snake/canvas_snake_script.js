@@ -4,6 +4,7 @@ gameContext.scale(1,1);
 var labelCanvas = document.getElementById("label_canvas");
 var labelContext = labelCanvas.getContext("2d");
 labelContext.scale(1,1);
+const renderSpeed = 20; // will render a frame every 20ms. Meaning about 50FPS
 
 //Collecting the window size info and calculating the aspect ratio values for the canvas to be 1:1 with the window:
 
@@ -335,11 +336,15 @@ class Game
         //just the constructor function
         this.fruit = "";
         this.gameOver = false;
-        this.time_interval =  200;
+        this.snakeSpeed =  200;
+        this.snakeAccelerationFactor =  5;
+        this.snakeMaxSpeed = 100;
+        this.msCounter = 0;
         this.scoreTextComponent = new text_component(gameCanvas.width - (90/100 * gameCanvas.width), (gameCanvas.height- (90/100 * gameCanvas.height)), "Score:", "7vw", "black", labelCanvas,labelContext);
         this.gameOverTextComponent = new text_component( gameCanvas.width/2-100, gameCanvas.height/2, "", "7vw", "red", gameCanvas, gameContext);
         this.gameResultTextComponent = new text_component( gameCanvas.width/2-100, gameCanvas.height/2+100, "", "5vw", "red", gameCanvas, gameContext);
         this.scoreValue = 0;
+        this.scoreFactor = 1;
         this.player = new Snake();
         this.generateFruit();
         this.scoreTextComponent.setText(this.scoreValue);
@@ -349,7 +354,9 @@ class Game
         this.clear();
         this.fruit = "";
         this.gameOver = false;
-        this.time_interval =  200;
+        this.snakeSpeed =  200;
+        this.msCounter = 0;
+        this.scoreFactor = 1;
         this.scoreValue = 0;
         this.player = new Snake();
         this.generateFruit();
@@ -407,8 +414,10 @@ class Game
         /*
         Function to update the whole game screen. It also calls on the other components.update functions.
         */
-        if(this.gameOver == false)
+        this.msCounter += renderSpeed;
+        if(this.gameOver == false && this.msCounter >= this.snakeSpeed)
         {
+            this.msCounter = 0;
             if (this.fruit != "")
             {
                 if(this.player.checkSnakeCollision() == true)
@@ -431,11 +440,17 @@ class Game
                 }
                 else if ( this.player.snake[0].collidesWith(this.fruit) == true)
                 {
-                    this.scoreValue++;
+                    this.scoreValue+=this.scoreFactor;
                     this.scoreTextComponent.setText(this.scoreValue);
                     this.player.eat();
                     this.fruit = ""; // we don't have a fruit now
                     this.generateFruit();
+                    //Once every 5 eaten fruits if the SnakeSpeed allows is accelerate and offer better awards
+                    if(this.snakeSpeed > this.snakeMaxSpeed && this.player.snake.length % 5 == 0)
+                    {
+                        this.snakeSpeed -= this.snakeAccelerationFactor;
+                        this.scoreFactor++;
+                    }
                     //To call this.function within a class method: 
                     //You have to make the caller function able of invoking: EX: updateGameArea = () =>
                 }      
@@ -583,7 +598,7 @@ var gameObj = new Game();
 
 this.gameObj.updateGameArea();
 //update the game window every <time_interval> miliseconds
-setInterval(gameObj.updateGameArea, gameObj.time_interval);
+setInterval(gameObj.updateGameArea, renderSpeed);
 
 //if button is pressed check if you need to move the component inside the gameObject
 document.onkeydown = function(e) { gameObj.move(e); } //trigger event when key is pressed down
