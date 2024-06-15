@@ -244,14 +244,18 @@
 								<div id="score">Score: </div>
 								<div id="gameStatus">Game Stopped</div> 
 								<form id="menu">
-									<input type="button" id="startgame" onclick = "StartGame()" value="Start Game"></input><br>
-									<input type="button" id="restartgame" disabled onclick = "RestartGame()" value="Restart Game"></input><br>
+                                    <!--The button container divs will help styling the buttons inside as flex elements 
+                                    which will allow them better responsiveness on extreme small viewports-->
+									<div class="button_container"><input type="button" id="startgame" onclick = "StartGame()" value="Start Game"></div>
+									<div class="button_container"><input type="button" id="restartgame" disabled onclick = "RestartGame()" value="Restart Game"></div>
 								</form>
 								<form id="controls">
-									<input type="button" id="rotate" onclick = "Rotate()" value="Rotate"></input><br>
-									<input type="button" id="left" onclick = "TurnLeft()" value="Left"></input>
-									<input type="button" id="right" onclick = "TurnRight()" value="Right"></input><br>
-									<input type="button" id="down" onclick = "Accelerate()" value="Down"></input>
+									<div class="button_container"><input type="button" id="rotate" onclick = "Rotate()" value="Rotate"></div>
+									<div class="button_container">
+                                        <input type="button" id="left" onclick = "TurnLeft()" value="Left">
+                                        <input type="button" id="right" onclick = "TurnRight()" value="Right">
+									</div>
+                                    <div class="button_container"><input type="button" id="down" onclick = "Accelerate()" value="Down"></div>
 								</form>
                                 <h6 id="author">Dragos Vacariu @ 2019</h6>
 						</div>
