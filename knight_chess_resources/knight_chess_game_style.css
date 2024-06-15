@@ -78,6 +78,14 @@
     color: green;
     text-transform: uppercase;
 }
+
+#button_div
+{
+    width: 96%;
+    margin-left: 2%;
+    display: flex;
+}
+
 .game_button{
 	position:relative;
     border-style:solid;
@@ -97,6 +105,10 @@
 	width: 45vw;
 	height:auto;
 	left: 0%;
+}
+
+#fullscreen_button{
+    margin-left: 5%;
 }
 
 #page_block #game_content
@@ -120,5 +132,5 @@
 	font-size: 1vw;
 	font-weight: bold;
 	background-color: rgba(255,255,255,0.5);
-	margin-top: 10%;
+	margin-top: 5%;
 }
