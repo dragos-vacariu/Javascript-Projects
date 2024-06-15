@@ -165,8 +165,7 @@ will allow them better responsiveness on extreme small viewports*/
 #rotate{
     position:relative;
 	background-color: red;
-	border-style: solid;
-	border-color: blue;
+	border: solid 0.1vw black;
 	margin: 2%;
 	margin-left: 10%;
 	color: white;
