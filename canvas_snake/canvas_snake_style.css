@@ -111,6 +111,8 @@
     font-variant: small-caps;
 }
 
+/*The button container divs will help styling the buttons inside as flex elements which 
+will allow them better responsiveness on extreme small viewports*/
 #buttons .button_container
 {
     display: flex;

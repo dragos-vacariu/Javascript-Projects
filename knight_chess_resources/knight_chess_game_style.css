@@ -5,7 +5,7 @@
     margin:0%;
 	border-style:solid; 
 	border-color:red;
-	border-width:2px;
+	border-width:0.2vw;
 }
 
 #game_div table{
@@ -16,9 +16,9 @@
     margin-top:2%;
     padding:0%;
     width: 100%;
-    border-spacing: 2px;
+    border-spacing: 0.2vw;
 	border-color:red;
-	border-width:1px;
+	border-width: 0.1vw;
 }
 #gameHud{
     position: relative;

@@ -9,7 +9,7 @@
     margin-bottom:2%;
     margin-top:2%;
     width: 100%;
-    border-spacing: 2px;
+    border-spacing: 0.2vw;
 	border-color:black;
 	border-width:0.1vw;
 	opacity: 0.9;
@@ -94,6 +94,13 @@ form h6{
 	font-size: 1.2vw;
 }
 
+/*The button container divs will help styling the buttons inside as flex elements which 
+will allow them better responsiveness on extreme small viewports*/
+.button_container
+{
+    display: flex;
+}
+
 .game_button{
 	position:relative;
     border-style:solid;
@@ -160,7 +167,7 @@ form h6{
 	color: yellow;
 	height: 3vw;
 	border-style: solid;
-	border-width: 2px;
+	border-width: 0.2vw;
 	border-color: black;
 	text-align: center;
 }
@@ -180,7 +187,7 @@ form h6{
 	opacity: 0.9;
     margin: 2%;
     border-style:solid;
-	border-width:1px;
+	border-width:0.1vw;
 	border-color:white;
 }
 

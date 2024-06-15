@@ -137,6 +137,8 @@
 								<br><br><b>Be careful while controlling the snake, if you hit the tail the game if over.</b>
 							</h6>
 							<h6 id="result"></h6>
+                            <!--The menu div will help styling the buttons inside as flex elements which 
+                                will allow them better responsiveness on extreme small viewports-->
                             <div id="menu_div">
                                 <input class = "game_button" type="button" id="startgame" onclick="gameStart()" value="Start Game">
                                 <input class = "game_button" type="button" id="restartgame" disabled="true" onclick="gameRestart()" value="Restart Game">
@@ -144,10 +146,14 @@
 							</div>
                             <form id="controls">
 								<h6>Controls:</h6>
-								<input class = "game_button" type="button" id="turnUp" disabled="true" onclick="setDirUp()" value="Up"></input><br>
-								<input class = "game_button" type="button" id="turnLeft" disabled="true" onclick="setDirLeft()" value="Left"></input>
-								<input class = "game_button" type="button" id="turnRight" disabled="true" onclick="setDirRight()" value="Right"></input><br>
-								<input class = "game_button" type="button" id="turnDown" disabled="true" onclick="setDirDown()" value="Down"></input>
+                                <!--The button container divs will help styling the buttons inside as flex elements which 
+                                will allow them better responsiveness on extreme small viewports-->
+								<div class="button_container"><input class = "game_button" type="button" id="turnUp" disabled="true" onclick="setDirUp()" value="Up"></div>
+								<div class="button_container">
+                                    <input class = "game_button" type="button" id="turnLeft" disabled="true" onclick="setDirLeft()" value="Left">
+                                    <input class = "game_button" type="button" id="turnRight" disabled="true" onclick="setDirRight()" value="Right">
+                                </div>
+								<div class="button_container"><input class = "game_button" type="button" id="turnDown" disabled="true" onclick="setDirDown()" value="Down"></div>
                             </form>
 						</div>
 					</td>
