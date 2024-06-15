@@ -1,6 +1,6 @@
 #page_block #game_content{
     position:relative;
-    width:82%;
+    width:80%;
     height:auto;
     left:10%;
     background-image: url(textures/snake_page_background.jpg);
@@ -102,13 +102,18 @@
     padding-top: 0.5%;
     padding-bottom: 1%;
     margin-bottom:2%;
-
 }
+
 #buttons input
 {
     width: 30%;
     font-size: 2vw;
     font-variant: small-caps;
+}
+
+#buttons .button_container
+{
+    display: flex;
 }
 
 #buttons #Up, #Down{
@@ -117,36 +122,41 @@
     color: white;
     font-weight: bold;
     margin:1%;
+    margin-left: 35%;
 }
 #buttons #Left, #Right{
     position: relative;
-    right: 15%;
     background-color: green;
     color: white;
     font-weight: bold;
     margin-top:5%;
     margin-bottom:5%;
     margin:0%;
+    margin-left: 5%;
 }
 #Right
 {
-    left: 15%;
+    margin-left: 28%;
 }
 
 #right_block #author
 {
     position: relative;
     width: 80%;
-    left: 10%;
     border-style: none;
     color: blue;
     font-size: 1vw;
     font-weight: bold;
     background-color: rgba(255,255,255,0.6);
+    text-align: center;
+    padding: 2% 0%;
+    margin: 5% 10%;
+    border-radius: 10px;
 }
 
 #fullscreen, #restart{
     width: 40%;
     font-size: 1vw;
     margin-top: 5%;
+    margin-left: 5%;
 }
