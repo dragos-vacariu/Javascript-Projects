@@ -191,9 +191,14 @@ will allow them better responsiveness on extreme small viewports*/
 	border-color:white;
 }
 
+#game_content_first_column
+{
+    width: 60%;
+}
+
 #game_div
 {
-	width: 45vw;
+	width: 100%;
 	height:auto;
 	left: 0%;
 }
@@ -205,4 +210,6 @@ will allow them better responsiveness on extreme small viewports*/
 	background-repeat: repeat;
 	background-size: cover;
     margin: 10px 0px;
+    width: 90%;
+    left: 5%;
 }

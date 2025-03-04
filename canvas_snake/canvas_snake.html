@@ -38,48 +38,50 @@
 		</nav>
 		<div id="page_block">
 			<h2>Catalogue -> <a href={{javascript_games_page.value}}>{{javascript_games_page.name}}</a> -> Canvas Snake Game</h2>
-			<h3>Canvas Snake Game</h3>
-			<table id="game_content">
-				<tr>
-					<td>
-						<div id="left_block">
-							<canvas id="game_canvas">
-								<div ="border"></div>
-							</canvas>
+			<div id = "block_content">
+                <h3>Canvas Snake Game</h3>
+                <table id="game_content">
+                    <tr>
+                        <td id="game_content_first_column">
+                            <div id="left_block">
+                                <canvas id="game_canvas">
+                                    <div ="border"></div>
+                                </canvas>
 
-						</div>
-					</td>
-					<td>
-						<div id="right_block">
-							<canvas id="label_canvas"> 
-							</canvas>
-							<div id="buttons">
-                                <!--The button container divs will help styling the buttons inside as flex elements 
-                                which will allow them better responsiveness on extreme small viewports-->
-								<div class="button_container"><input type="button" id="Up" value="Up"></div>
-								<div class="button_container"><input type="button" id="Left" value="Left">
-                                    <input type="button" id="Right" value="Right"></div>
-								<div class="button_container"><input type="button" id="Down" value="Down"></div>
-							</div>
-							<div id="instructions">
-								<p>Use the <code>SPECIFIED KEYS</code> to move.</p>
-								<p style="color:green;">Eat the fruit to grow and earn points.</p>
-								<p style="color:red;">You will lose if you hit the tail or the wall.</p>
-							</div>
-                            <div class="button_container">
-                                <input type="button" id="fullscreen" value="Fullscreen">
-                                <input type="button" id="restart" value="Restart">
                             </div>
-							<h6 id="author">Dragos Vacariu @ 2023</h6>
-						</div>
-					</td>
-				</tr>
-			</table>
-			<h4>
-				Snake is a game in which the player has to move around the map eat the fruit, grow, avoid collisions and try to survive for as long as possible. 
-				<br><br>
-				See the <b><code>instructions</code></b> within the game frame to find out more.
-			</h4>
+                        </td>
+                        <td>
+                            <div id="right_block">
+                                <canvas id="label_canvas"> 
+                                </canvas>
+                                <div id="buttons">
+                                    <!--The button container divs will help styling the buttons inside as flex elements 
+                                    which will allow them better responsiveness on extreme small viewports-->
+                                    <div class="button_container"><input type="button" id="Up" value="Up"></div>
+                                    <div class="button_container"><input type="button" id="Left" value="Left">
+                                        <input type="button" id="Right" value="Right"></div>
+                                    <div class="button_container"><input type="button" id="Down" value="Down"></div>
+                                </div>
+                                <div id="instructions">
+                                    <p>Use the <code>SPECIFIED KEYS</code> to move.</p>
+                                    <p style="color:green;">Eat the fruit to grow and earn points.</p>
+                                    <p style="color:red;">You will lose if you hit the tail or the wall.</p>
+                                </div>
+                                <div class="button_container">
+                                    <input type="button" id="fullscreen" value="Fullscreen">
+                                    <input type="button" id="restart" value="Restart">
+                                </div>
+                                <h6 id="author">Dragos Vacariu @ 2023</h6>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <h4>
+                    Snake is a game in which the player has to move around the map eat the fruit, grow, avoid collisions and try to survive for as long as possible. 
+                    <br><br>
+                    See the <b><code>instructions</code></b> within the game frame to find out more.
+                </h4>
+            </div>
 		</div>
 		<footer>
             <h4 id="copyright_message">{{pageObject.footer_copyright}}</h4>
