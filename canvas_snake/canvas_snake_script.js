@@ -12,7 +12,7 @@ gameCanvas.width = window.innerWidth;
 gameCanvas.height = 10* window.innerWidth/16; // aspect ratio 16:10
 
 labelCanvas.width = window.innerWidth;
-labelCanvas.height = 1* window.innerWidth/10; // aspect ratio 16:10
+labelCanvas.height = 2* window.innerWidth/10; // aspect ratio 16:10
 
 var defaultComponentSize = window.innerWidth/32;
 //let the component be a ratio of the gameCanvas pixel size
@@ -38,10 +38,10 @@ class text_component
         this.type = "text_component";
         this.PosX = x_pos;
         this.PosY = y_pos;
-        this.fontFamily = "Consolas";
+        this.fontFamily = "Arial";
         this.size = size;
-		this.canvas = canvas;
-		this.context = context;
+        this.canvas = canvas;
+        this.context = context;
         this.labelName = labelName;
         this.textMessage = this.labelName;
         this.color = color;
@@ -55,9 +55,9 @@ class text_component
     {
         /*Function to update the component on the screen canvas*/
         this.context.font = this.size + " "  + this.fontFamily + " " + "bold";
-		this.context.fontVariantCaps = "small-caps";
-		this.context.fontWeight = "bold";
-		this.context.letterSpacing = "3vw";
+        //this.context.fontVariantCaps = "small-caps";
+        this.context.fontWeight = "normal";
+        this.context.letterSpacing = "3vw";
         this.context.fillStyle = this.color;
         this.context.fillText(this.textMessage, this.PosX , this.PosY);
     }
@@ -124,7 +124,7 @@ class Snake
         this.snake = [];
         //the snake shall start from the middle of the screen.
         this.snake.push(new shape_component (gameCanvas.width/2, gameCanvas.height/2, snakeHeadTexture_LEFT));
-	}
+    }
     
     //Making update function capable of calling other function within the class by using this keyword.
      update = () =>  // this synthax allow JS to call another function defined within this class
@@ -134,7 +134,7 @@ class Snake
         */
         if (this.snake.length > 0)
         {
-			this.move(); // this function can be called only because of update = () => declaration
+            this.move(); // this function can be called only because of update = () => declaration
             for(var i=0 ; i< this.snake.length; i++)
             {
                 this.snake[i].update();
@@ -148,10 +148,10 @@ class Snake
         */
         if ( this.snakeDirection != "right") //Do not allow 180 degrees turns
         {
-			this.snakeDirection = "left";
-			this.snake[0].texture = snakeHeadTexture_LEFT;  
-			resetInputButtonColors();
-			document.getElementById("Left").style.backgroundColor = "red";
+            this.snakeDirection = "left";
+            this.snake[0].texture = snakeHeadTexture_LEFT;  
+            resetInputButtonColors();
+            document.getElementById("Left").style.backgroundColor = "red";
 
         }
     }
@@ -162,10 +162,10 @@ class Snake
         */
         if ( this.snakeDirection != "left") //Do not allow 180 degrees turns
         {
-			this.snakeDirection = "right";
-			this.snake[0].texture = snakeHeadTexture_RIGHT; 
-			resetInputButtonColors();
-			document.getElementById("Right").style.backgroundColor = "red";				
+            this.snakeDirection = "right";
+            this.snake[0].texture = snakeHeadTexture_RIGHT; 
+            resetInputButtonColors();
+            document.getElementById("Right").style.backgroundColor = "red";                
 
         }
     }
@@ -176,10 +176,10 @@ class Snake
         */
         if ( this.snakeDirection != "up") //Do not allow 180 degrees turns
         {
-			this.snakeDirection = "down";
-			this.snake[0].texture = snakeHeadTexture_DOWN; 
-			resetInputButtonColors();
-			document.getElementById("Down").style.backgroundColor = "red";   
+            this.snakeDirection = "down";
+            this.snake[0].texture = snakeHeadTexture_DOWN; 
+            resetInputButtonColors();
+            document.getElementById("Down").style.backgroundColor = "red";   
          
         }
     }
@@ -190,10 +190,10 @@ class Snake
         */
         if ( this.snakeDirection != "down") //Do not allow 180 degrees turns
         {
-			this.snakeDirection = "up";
-			this.snake[0].texture = snakeHeadTexture_UP; 
-			resetInputButtonColors();
-			document.getElementById("Up").style.backgroundColor = "red";
+            this.snakeDirection = "up";
+            this.snake[0].texture = snakeHeadTexture_UP; 
+            resetInputButtonColors();
+            document.getElementById("Up").style.backgroundColor = "red";
 
         }
     }
@@ -211,7 +211,7 @@ class Snake
             
             //move the body
             this.moveBody(buffer_X, buffer_Y);
-			
+            
         }
         else if(this.snakeDirection =="down")
         {
@@ -221,7 +221,7 @@ class Snake
             this.snake[0].PosY += this.snakeSpeed;
             //move the body
             this.moveBody(buffer_X, buffer_Y); 
-			
+            
         }
         else if (this.snakeDirection == "left")
         {
@@ -232,7 +232,7 @@ class Snake
             
             //move the body
             this.moveBody(buffer_X, buffer_Y); 
-						
+                        
         }
         else if(this.snakeDirection =="right")
         {
@@ -243,7 +243,7 @@ class Snake
             
             //move the body
             this.moveBody(buffer_X, buffer_Y);
-			
+            
         }
 
     }
@@ -280,7 +280,7 @@ class Snake
             {
                 gameCanvas.style.borderBottomColor = "red";
             }
-			return true;
+            return true;
 
         }
         if ( (this.snake[0].PosX < 0 ) || ( this.snake[0].PosX > ( gameCanvas.width - defaultComponentSize)))
@@ -295,7 +295,7 @@ class Snake
             {
                 gameCanvas.style.borderRightColor = "red";
             }
-			return true;
+            return true;
         }
         return false;
     }
@@ -328,7 +328,7 @@ class Snake
                 if (this.snake[0].collidesWith(this.snake[i]) == true)
                 {
                     //if the snake head collides with the rest of the body
-					return true;
+                    return true;
                 }
             }
             return false;
@@ -347,7 +347,7 @@ class Game
         this.snakeAccelerationFactor =  5;
         this.snakeMaxSpeed = 100;
         this.msCounter = 0;
-        this.scoreTextComponent = new text_component(gameCanvas.width - (90/100 * gameCanvas.width), (gameCanvas.height- (90/100 * gameCanvas.height)), "Score:", "7vw", "black", labelCanvas,labelContext);
+        this.scoreTextComponent = new text_component(gameCanvas.width - (90/120 * gameCanvas.width), (gameCanvas.height- (90/115 * gameCanvas.height)), "Score:", "14vw", "black", labelCanvas,labelContext);
         this.gameOverTextComponent = new text_component( gameCanvas.width/2-250, gameCanvas.height/2, "", "7vw", "red", gameCanvas, gameContext);
         this.gameResultTextComponent = new text_component( gameCanvas.width/2-350, gameCanvas.height/2+100, "", "5vw", "red", gameCanvas, gameContext);
         this.scoreValue = 0;
@@ -373,7 +373,7 @@ class Game
     {
         /*Function to clear the canvas*/
         gameContext.clearRect(0, 0, gameCanvas.width, gameCanvas.height);
-		labelContext.clearRect(0, 0, labelCanvas.width, labelCanvas.height);
+        labelContext.clearRect(0, 0, labelCanvas.width, labelCanvas.height);
     }
     move(e)
     {
@@ -432,18 +432,18 @@ class Game
                     this.gameOver = true;
                     this.gameOverTextComponent.setText("Game Over!");
                     this.gameResultTextComponent.setText("You collided with yourself!");
-					this.gameOverTextComponent.update();
-					this.gameResultTextComponent.update();
-					return;
+                    this.gameOverTextComponent.update();
+                    this.gameResultTextComponent.update();
+                    return;
                 }
                 else if (this.player.checkSnakeHittingMargins() == true)
                 {
                     this.gameOver = true;
                     this.gameOverTextComponent.setText("Game Over!");
                     this.gameResultTextComponent.setText("You collided with the wall!");
-					this.gameOverTextComponent.update();
-					this.gameResultTextComponent.update();
-					return;
+                    this.gameOverTextComponent.update();
+                    this.gameResultTextComponent.update();
+                    return;
                 }
                 else if ( this.player.snake[0].collidesWith(this.fruit) == true)
                 {
@@ -461,8 +461,8 @@ class Game
                     //To call this.function within a class method: 
                     //You have to make the caller function able of invoking: EX: updateGameArea = () =>
                 }      
-		        this.clear();
-				this.player.update();
+                this.clear();
+                this.player.update();
                 this.scoreTextComponent.update();
                 this.fruit.update();
             }
@@ -475,48 +475,48 @@ class Game
     }
     
     generateFruit = () => // class invokable function.
-    {	
-		/* Function to generate a new fruit after the current one has been eaten.*/
-		
+    {    
+        /* Function to generate a new fruit after the current one has been eaten.*/
+        
         while(this.fruit=="") //don't leave this loop until you find a free spot to generate a fruit.
-		{
-			var screenOffset = 2;  //to ignore the first and last column/row from near the border/edge of the canvas
-			
-			//calculate how many elements would fit on a row excluse 2 rows (first and last)
-			var max_Rand_Y = Math.floor((gameCanvas.height / defaultComponentSize) - screenOffset); 
+        {
+            var screenOffset = 2;  //to ignore the first and last column/row from near the border/edge of the canvas
+            
+            //calculate how many elements would fit on a row excluse 2 rows (first and last)
+            var max_Rand_Y = Math.floor((gameCanvas.height / defaultComponentSize) - screenOffset); 
 
-			//generate a random rows number from 0 to LastRow-2
-			var posY = Math.floor(Math.random()* max_Rand_Y  ) ; 
+            //generate a random rows number from 0 to LastRow-2
+            var posY = Math.floor(Math.random()* max_Rand_Y  ) ; 
 
-			// from 0 to LastRow-2 make it from 1 to LastRow-1
-			posY += screenOffset/2; 
-			
-			// multiply with the actual size of the lement to get the position / coordinate
-			posY = posY * defaultComponentSize;
-			
-			//Same as before but for X Axis - taking under consideration the number of columns
-			var max_Rand_X = Math.floor((gameCanvas.width / defaultComponentSize) - screenOffset);
+            // from 0 to LastRow-2 make it from 1 to LastRow-1
+            posY += screenOffset/2; 
+            
+            // multiply with the actual size of the lement to get the position / coordinate
+            posY = posY * defaultComponentSize;
+            
+            //Same as before but for X Axis - taking under consideration the number of columns
+            var max_Rand_X = Math.floor((gameCanvas.width / defaultComponentSize) - screenOffset);
 
-			var posX = Math.floor(Math.random()* max_Rand_X);
+            var posX = Math.floor(Math.random()* max_Rand_X);
 
-			posX += screenOffset/2; 
-			posX = posX * defaultComponentSize;
+            posX += screenOffset/2; 
+            posX = posX * defaultComponentSize;
 
-			var positionIsClean = true;
-			
-			var temp_component = new shape_component(posX, posY, "",)
-			for(var i = 0; i < this.player.snake.length; i++)
-			{
-				if ( this.player.snake[i].collidesWith(temp_component) == true)
-				{
-					positionIsClean = false;
-					
-				}
-			}
-			if (positionIsClean)
-			{
-				this.fruit = new shape_component(temp_component.PosX, temp_component.PosY, fruitTexture);
-			}
+            var positionIsClean = true;
+            
+            var temp_component = new shape_component(posX, posY, "",)
+            for(var i = 0; i < this.player.snake.length; i++)
+            {
+                if ( this.player.snake[i].collidesWith(temp_component) == true)
+                {
+                    positionIsClean = false;
+                    
+                }
+            }
+            if (positionIsClean)
+            {
+                this.fruit = new shape_component(temp_component.PosX, temp_component.PosY, fruitTexture);
+            }
         }
     }
 }
@@ -533,45 +533,45 @@ function FullscreenMode(e)
 {
     var game_content = document.getElementById("game_content");
     var fullscreen_button = document.getElementById("fullscreen");
-	if (document.fullscreenElement == null)
-	{
-		if (game_content.requestFullscreen) 
-		{
-			game_content.requestFullscreen();
-		} 
-		else if (game_content.webkitRequestFullscreen) 
-		{ /* Safari */
-			game_content.webkitRequestFullscreen();
-		} 
+    if (document.fullscreenElement == null)
+    {
+        if (game_content.requestFullscreen) 
+        {
+            game_content.requestFullscreen();
+        } 
+        else if (game_content.webkitRequestFullscreen) 
+        { /* Safari */
+            game_content.webkitRequestFullscreen();
+        } 
         else if (game_content.msRequestFullscreen) 
-		{ /* IE11 */
-			game_content.msRequestFullscreen();
-		}
-	}
-	else
-	{
+        { /* IE11 */
+            game_content.msRequestFullscreen();
+        }
+    }
+    else
+    {
 
-		if (document.exitFullscreen) 
-		{
-			document.exitFullscreen();
-		} 
-		else if (document.webkitExitFullscreen) 
-		{ /* Safari */
-			document.webkitExitFullscreen();
-		} 
+        if (document.exitFullscreen) 
+        {
+            document.exitFullscreen();
+        } 
+        else if (document.webkitExitFullscreen) 
+        { /* Safari */
+            document.webkitExitFullscreen();
+        } 
         else if (document.msExitFullscreen) 
-		{ /* IE11 */
-			document.msExitFullscreen();
-		}
-	}
+        { /* IE11 */
+            document.msExitFullscreen();
+        }
+    }
 }
 
 function Enter_FullScreen(e)
 {
-	if (e.key == "f")
-	{
-		FullscreenMode(); 
-	}
+    if (e.key == "f")
+    {
+        FullscreenMode(); 
+    }
 }
 
 function FullScreenZoom()
@@ -579,13 +579,13 @@ function FullScreenZoom()
    if (document.fullscreenElement != null)
    {
         document.getElementById("fullscreen").style.backgroundColor = "pink";
-        document.getElementById("left_block").style.width = "70vw";
+        //document.getElementById("left_block").style.width = "70vw";
         
    }
    else
    {
         document.getElementById("fullscreen").style.backgroundColor = "lightgray";
-        document.getElementById("left_block").style.width = "50vw";
+        //document.getElementById("left_block").style.width = "50vw";
    }
 }
 
