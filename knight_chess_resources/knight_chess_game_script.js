@@ -54,13 +54,13 @@ function FullScreenZoom()
    {
         document.getElementById("fullscreen_button").style.backgroundColor = "pink";
         document.getElementById("fullscreen_button").value = "Exit Fullscreen";
-        document.getElementById("game_div").style.width = "55vw";
+        //document.getElementById("game_div").style.width = "55vw";
    }
    else
    {
         document.getElementById("fullscreen_button").style.backgroundColor = "white";
         document.getElementById("fullscreen_button").value = "Enter Fullscreen";
-        document.getElementById("game_div").style.width = "45vw";
+        //document.getElementById("game_div").style.width = "45vw";
    }
 }
 
@@ -139,23 +139,23 @@ function SquareClicked(x)
 		}
 		if(score >= 10 && score < 20)
 		{
-			document.getElementById("score").style.backgroundColor = "#FF9E00"; //bronze color
+			document.getElementById("score").style.color = "lightgray"; //bronze color
 		}
 		else if(score >= 20 && score < 30)
 		{
-			document.getElementById("score").style.backgroundColor = "#FACD00"; //yellow color;
+			document.getElementById("score").style.color = "yellow"; //yellow color;
 		}
 		else if(score >= 30 && score < 45)
 		{
-			document.getElementById("score").style.backgroundColor = "silver";
+			document.getElementById("score").style.color = "azure";
 		}
 		else if(score >= 45 && score < 60)
 		{
-			document.getElementById("score").style.backgroundColor = "gold";
+			document.getElementById("score").style.color = "lightblue";
 		}
 		else if(score >= 60)
 		{
-			document.getElementById("score").style.backgroundColor = "green";
+			document.getElementById("score").style.color = "lightgreen";
 		}
 	}
 }
@@ -266,7 +266,7 @@ function getGameOverStatus()
 				document.getElementById("elem"+i+j).style.backgroundColor == "black")
 			{
 				document.getElementById("result").innerHTML = "Game Over. You failed to conquer the checkerboard.";
-				document.getElementById("result").style.backgroundColor = "pink";
+				document.getElementById("result").style.color = "red";
                 gameOver=0;
 				break;
 			}
@@ -275,7 +275,7 @@ function getGameOverStatus()
 	if(gameOver!=0)
 	{
 		document.getElementById("result").innerHTML = "Congratulations. You have conquered the checkerboard.";
-        document.getElementById("result").style.backgroundColor = "yellow";
+        document.getElementById("result").style.color = "blue";
     }
 }
 
