@@ -63,14 +63,12 @@ function FullScreenZoom()
    if (document.fullscreenElement != null)
    {
         document.getElementById("fullscreen_button").style.backgroundColor = "pink";
-        document.getElementById("fullscreen_button").value = "Exit Fullscreen";
-        document.getElementById("game_div").style.width = "55vw";
+        //document.getElementById("game_div").style.width = "55vw";
    }
    else
    {
         document.getElementById("fullscreen_button").style.backgroundColor = "#eeeeee";
-        document.getElementById("fullscreen_button").value = "Enter Fullscreen";
-        document.getElementById("game_div").style.width = "45vw";
+        //document.getElementById("game_div").style.width = "45vw";
    }
 }
 
@@ -88,10 +86,12 @@ function gameStart()
 {
     if(snakeSeettled==false)
     {
-        document.getElementById("result").innerHTML = "Please select a square before hitting START."
+        document.getElementById("result").style.backgroundColor =  "rgba(255,0,0,0.4)";
     }
     else
     {
+        document.getElementById("result").style.backgroundColor =  "rgba(0,0,255,0.2)";
+        document.getElementById("result").text = "";
         for(var i = 0 ; i<snakeHeadPos.length; i++) //Only the snake head is available in snakeHeadPos currently
         {
             document.getElementById(snakeHeadPos[i]).style.backgroundImage = snakeHeadTexture;
@@ -157,6 +157,10 @@ function setDirLeft()
     //do this check to avoid turning 180 degrees around.
     if(SnakeDirMoving!="right" )
     {
+        document.getElementById("turnUp").style.backgroundColor = "white";
+        document.getElementById("turnLeft").style.backgroundColor = "rgba(200,200,200,1.0)";
+        document.getElementById("turnRight").style.backgroundColor = "white";
+        document.getElementById("turnDown").style.backgroundColor = "white";
         SnakeDirMoving="left";
     }
 }
@@ -166,6 +170,10 @@ function setDirRight()
     //do this check to avoid turning 180 degrees around.
     if(SnakeDirMoving!="left" )
     {
+        document.getElementById("turnUp").style.backgroundColor = "white";
+        document.getElementById("turnLeft").style.backgroundColor = "white";
+        document.getElementById("turnRight").style.backgroundColor = "rgba(200,200,200,1.0)";
+        document.getElementById("turnDown").style.backgroundColor = "white";
         SnakeDirMoving="right";
     }
 }
@@ -175,6 +183,10 @@ function setDirUp()
     //do this check to avoid turning 180 degrees around.
     if(SnakeDirMoving!="down" )
     {
+        document.getElementById("turnUp").style.backgroundColor = "rgba(200,200,200,1.0)";
+        document.getElementById("turnLeft").style.backgroundColor = "white";
+        document.getElementById("turnRight").style.backgroundColor = "white";
+        document.getElementById("turnDown").style.backgroundColor = "white";
         SnakeDirMoving="up";
     }
 }
@@ -184,6 +196,10 @@ function setDirDown()
     //do this check to avoid turning 180 degrees around.
     if(SnakeDirMoving!="up")
     {
+        document.getElementById("turnUp").style.backgroundColor = "white";
+        document.getElementById("turnLeft").style.backgroundColor = "white";
+        document.getElementById("turnRight").style.backgroundColor = "white";
+        document.getElementById("turnDown").style.backgroundColor = "rgba(200,200,200,1.0)";
         SnakeDirMoving="down";
     }
 }
