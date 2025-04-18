@@ -25,7 +25,6 @@
         <div id="page_block">
             <h2>Catalogue -> <a href={{javascript_games_page.value}}>{{javascript_games_page.name}}</a> -> Tetris Game</h2>
             <div id = "block_content">
-                <h3>Tetris Game</h3>
                 <table id="game_content">
                     <tr>
                         <td id = "game_content_first_column">
@@ -235,6 +234,7 @@
                                         which will allow them better responsiveness on extreme small viewports-->
                                         <div class="button_container"><input type="button" id="startgame" onclick = "StartGame()" value="Start Game"></div>
                                         <div class="button_container"><input type="button" id="restartgame" disabled onclick = "RestartGame()" value="Restart Game"></div>
+                                        <div class="button_container"><input type="button" id="fullscreen" onclick = "FullscreenMode()" value="Fullscreen"></input></div>
                                     </form>
                                     <form id="controls">
                                         <div class="button_container"><input type="button" id="rotate" onclick = "Rotate()" value="Rotate"></div>
@@ -247,28 +247,24 @@
                                     <h6 id="author">Dragos Vacariu @ 2019</h6>
                             </div>
                         </td>
-                        <td id = "info_column">
-                            <div>
-                                <div id = "controlInfo"><span id="code_style">Control Info:</span><br><br>Use the  <span id="code_style">Left</span> and  <span id="code_style">Right</span> 
-                                    buttons from the left or Key Arrows <span id="code_style"><- -></span> from the keyboard to move the bricks.<br><br> Use 
-                                    <span id="code_style">Space</span> button or <span id="code_style">Rotate</span> button to rotate the brick.
-                                    <br><br>Use <span id="code_style">Down Arrow</span> to accelerate the fall.
-                                    <h6>If the pile reaches reach to the top of the screen the game is over.</h6>
-                                    <input type="button" id="fullscreen" onclick = "FullscreenMode()" value="Fullscreen"></input><br>
-                                    
-                                </div>
-                            </div>
-                        </td>
                     </tr>
                 </table>
-                <h4>
-                    Tetris is a classic game in which the player has to move/rotate bricks of different forms while trying to fill out the rows    
-                    from one end to the other. Filling out the row will award points and further space to build on.
-                    <br><br>The game ends if the bricks pile reaches the top rows. 
+                    <b>Tetris</b> is a classic game in 
+                    the player must move and rotate falling bricks of various shapes to complete horizontal rows. 
+                    When a row is fully filled, it disappears—awarding points and creating more space to continue stacking.
                     <br><br>
-                    Read the <b><code>Control Info</code></b> to find out more.
-                </h4>
-            
+                    
+                    The game ends when the stacked bricks reach the top of the grid and no more moves are possible.
+                    <br><br>
+                    
+                    <b>Controls:</b>
+                    <ul class="regular_ul">
+                        <li>Use the <b>Left</b> and <b>Right</b> buttons on the screen, or the <b>←</b> / <b>→</b> arrow keys 
+                            on your keyboard to 
+                            move the bricks horizontally.</li>
+                        <li>Press the <b>Spacebar</b> or click the <b>Rotate</b> button to rotate the brick.</li>
+                        <li>Press the <b>↓</b> <b>Down Arrow</b> to accelerate the brick’s fall.</li>
+                    </ul>
             </div>
         </div>
         <footer id="page_footer">
