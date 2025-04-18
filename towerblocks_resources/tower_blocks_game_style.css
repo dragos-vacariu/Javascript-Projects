@@ -1,14 +1,33 @@
 #page_block #game_content
 {
-	position:relative;
-	width:90%;
-	height:auto;
-	left:5%;
-	background-image: url(towerblocks_page_background.jpg);
-	background-repeat: repeat;
-	background-size: fill;
-	position:relative;
-	border: solid 2px black;
+    position:relative;
+    float: left;
+    table-layout: fixed;
+    width:60%; /* the width of game_content is also influenced by width of game_div*/
+    margin: 0%;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    padding: 0%;
+    height:auto;
+    background-image: url(towerblocks_page_background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position:relative;
+    border: ridge 2px rgba(255,255,255, 0.1);
+    border-radius: 1vw;
+    /*The following will ensure that the width of the element will not grow with the added border-size.
+    So the border will be within the defined element width.
+    */
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+#page_block #game_content tr td{
+    vertical-align: top;
+    position: relative; 
+    /*by having columns with position: relative will ensure that no element 
+    with absolute position is gonna drift outside the table*/
 }
 
 #game_content_first_column{
@@ -57,27 +76,33 @@
 }
 
 #hud{
-    position:relative;
-	width:80%;
-    height: 36vw;
-    min-height: 80%;
-	padding: 1%;
-	margin: 3% 6%;
-	border-style:solid;
-	border-color: black;
-	border-width: 1px;
-    font-family: Courier New;
-    font-size : 1vw; /* font-size 1% of the viewport size.*/
-	color: black;
-    background-color: rgba(200,200,200,0.5);
+    position: absolute;
+    display:flex;
+    flex-direction: column; /* 👈 This makes it vertical */
+    justify-content: space-between; /* THIS evenly distributes content vertically */
+    overflow: hidden;
+    margin: 0%;
+    padding:0%;
+    width: 100%;
+    height: 100%;
+    border: none 0px white;
+    
+    /*The following will ensure that the width of the element will not grow with the added border-size.
+    So the border will be within the defined element width.
+    */
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
 }
 
 #hud h6{
 	position: relative;
 	padding: 1%;
 	margin: 1%;
-	font-family: Consolas;
+    font-family: Georgia;
+    font-weight: normal;
     width:94%;
+    line-height: 1.2; /*the line height is proportional to the font*/
 }
 
 #controlInfo{
@@ -85,6 +110,7 @@
     color:blue;
     font-size: 1vw;
     height: 7vw;
+    line-height: 1.2; /*the line height is proportional to the font*/
 }
 
 #ComboMessage{
@@ -99,8 +125,8 @@
 #gameStatus{
     color: red;
     font-size: 0.8vw;
-    font-family: Courier New;
     height: 3vw;
+    line-height: 1.2; /*the line height is proportional to the font*/
 }
 
 #menu{
@@ -123,11 +149,19 @@
 #restartgame, #startgame, #fullscreen, #drop_block{
     position: relative;
     right:0%;
-	width: 100%;
-	height: 2.5vw;
+	width: 98%;
+    margin: auto;
+	height: 2vw;
     text-align: center;
-    font-family: Arial;
+    font-family: Georgia;
     font-size: 1.3vw; /* font-size in percent of the viewport size.*/
+    
+    /*The following will ensure that the width of the element will not grow with the added border-size.
+    So the border will be within the defined element width.
+    */
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
 }
 
 #restartgame, #fullscreen
@@ -167,4 +201,5 @@
 	margin-top: 1vw;
     margin-left: 1vw;
     width: 13vw;
+    margin: auto;
 }
