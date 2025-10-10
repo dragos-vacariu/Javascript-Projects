@@ -1,0 +1,313 @@
+<!DOCTYPE html >
+<html>
+    <head>
+        <title>Digital Journal</title>
+    </head>
+    <style>
+        #page_block #page_title
+        {
+            position:relative;
+            width:98%;
+            padding: 0.5% 0%;
+            padding-left: 0%;
+            margin: 0px;
+            top:0vw;
+            color:black;
+            border:none 0px black;
+            font-family:Rockwell;
+            font-size: 1.5rem;
+            /*background-color:#995500;*/
+            /*
+            background-color:rgba(255,255,255,0.8);
+            background-image:url("../images/main_heading_texture.jpg");
+            background-blend-mode: overlay;
+            background-position: center;
+            background-size: 100px;
+            background-repeat: repeat;*/
+            text-shadow: 0px 0px white;
+            text-align: center;
+            letter-spacing:2px;
+            word-wrap:break-word;
+        }
+        
+        #page_content #menu
+        {
+            position:relative;
+            
+            display: flex;
+            justify-content: center; /* THIS evenly distributes content vertically */
+            flex-wrap: wrap;
+            
+            border: solid 1px blue;
+            width: 40%;
+            margin:  2px auto;
+            padding: 2px;
+            
+            /*The following will ensure that the width of the element will not grow with the added border-size.
+            So the border will be within the defined element width.
+            */
+            -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+            -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+            box-sizing: border-box;         /* Opera/IE 8+ */
+        }
+        .page_button{
+            position: relative;
+            min-width: 45px; /*we need at least this width to be able to display the button text value properly*/
+            font-size: 12px;
+            font-family: Georgia;
+            padding: 1%;
+            margin: 2px 1%;
+            background-image: radial-gradient(circle, rgba(255,255,255,1.0), rgba(143,55,0, 0.001));
+            font-size: 12px;
+            border: outset 1px black;
+            border-radius: 5px;
+            
+            /*The following will ensure that the width of the element will not grow with the added border-size.
+            So the border will be within the defined element width.
+            */
+            -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+            -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+            box-sizing: border-box;         /* Opera/IE 8+ */
+        }
+
+        #journalled_content
+        {
+            border: solid 2px black;
+            margin: 1%;
+        }
+        
+        .jour_entry
+        {
+            position: relative;
+            overflow: hidden;
+            width: 98%;
+            margin: auto;
+            border: solid 2px red;
+            /*The following will ensure that the width of the element will not grow with the added border-size.
+            So the border will be within the defined element width.
+            */
+            -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+            -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+            box-sizing: border-box;         /* Opera/IE 8+ */
+        }
+        .jour_entry_title
+        {
+            background-color: white; 
+            font-family: Georgia; 
+            font-size: 17px; 
+            width: 98%;
+            margin: 2px 1%;
+            padding: 2px;
+            /*The following will ensure that the width of the element will not grow with the added border-size.
+            So the border will be within the defined element width.
+            */
+            -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+            -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+            box-sizing: border-box;         /* Opera/IE 8+ */
+        }
+        
+        .jour_entry_content
+        {
+            background-color: white; 
+            font-family: Georgia; 
+            font-size: 12px; 
+            field-sizing: content;
+            width: 98%;
+            margin: 2px 1%;
+            padding: 2px;
+            /*The following will ensure that the width of the element will not grow with the added border-size.
+            So the border will be within the defined element width.
+            */
+            -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+            -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+            box-sizing: border-box;         /* Opera/IE 8+ */
+        }
+    </style>
+    <body>
+        <header id="page_header">
+            <!--The content will be added from javascript-->
+        </header>
+        <div id="page_block">
+            <h2 id="page_title">Digital Journal</h2>
+            <div id="page_content">
+                <div id="menu">
+                    <input id="add_button" class="page_button" type = "button" value="Add Entry" onclick = "addPost()"></input>
+                    <input id="save_button" class="page_button" type = "button" value="Save/Download Page" onclick = "savePage()"></input>
+                </div>
+                <div id = "journalled_content">
+                    <div class = "jour_entry">
+                        <input class="page_button" type = "button" value="Edit"></input>
+                        <div class="jour_entry_title" contenteditable="false">Corporate growth</div>
+                        <div class="jour_entry_content" contenteditable="false">
+                            “If You Have to Ask for Growth, Maybe It’s Not Growth At All.”
+                            "Growth" is everywhere—on every corporate slide deck, every motivational poster, every 
+                            one-on-one feedback form.
+                            But here’s a truth:
+                            Everyone is growing—whether you ask them or not.
+                            Sit still in your bed long enough and a thought will eventually hit you. That thought gets bigger, becomes an idea, maybe a plan, a prototype, then something real.
+                            That’s growth.
+                            No pressure. No deadline. No slogans.
+                            We’re not against growth.
+                            We’ve all grown—from not knowing how to speak - to reading, writing, learning math, even foreign languages.
+                            We’ve grown because life asked us to.
+                            Society structured it through school. And yes, many of us hated school—because it wasn’t our growth, it was demanded growth.
+                            Now companies are doing the same.
+
+                            What we call “growth” today often isn’t growth at all.
+
+                            💥 It’s pressure.
+                            💥 It’s fear.
+                            💥 It’s being pushed to adapt—often with no support, no pause, no peace.
+
+                            I’ve grown.
+                            From freezing at basic math to writing multi-language software systems.
+                            From self-doubt to weekends learning out of obsession, not obligation.
+                            From curiosity—not compliance.
+
+                            But lately, “growth” feels like a weapon in the corporate world.
+
+                            Learn this. Adapt to that. Work faster. Pick it up—or fall behind.
+
+                            🔁 Real growth is gradual. Personal. Messy.
+                            It comes from a desire to understand—not a fear of becoming irrelevant.
+
+                            Today’s version of the “growth mindset” sometimes sounds more like this:
+
+                            “If you’re struggling, you’re not trying hard enough.”
+                            “If you’re burned out, it’s your attitude.”
+                            “If you’re not constantly learning, you’re lazy.”
+
+                            That’s not empowerment. That’s gaslighting.
+
+                            I don’t want promotions or applause.
+                            I want peace. Mastery. Time. Clarity.
+                            And the freedom to grow when it’s meaningful, not just when it’s demanded.
+
+                            If you have to ask people to grow, maybe that’s not growth—it’s enforced adaptation.
+                            It taps into survival instincts, not passion. And most people aren't thriving when they're just trying to stay afloat.
+
+                            So next time you talk about “growth,”
+                            Ask yourself—
+                            ✨ Is it their desire to grow?
+                            ✨ Or your need for more productivity?
+
+                            Growth isn’t about chasing the light at the end of a tunnel that only ends when you die.
+                            It’s about becoming—on your own terms.
+                            A better version of yourself.
+                            And since it’s about you, it should be under your control.
+                            But right now, it’s dictated by trends, markets, and demands. 
+                            </div>
+                    </div>
+                </div>
+            </div>
+</html>
+
+<script>
+    var journalled_content = document.getElementById("journalled_content");
+    var djour_entries = document.getElementsByClassName("jour_entry");
+    
+    for (var index=0; index < djour_entries.length; index++)
+    {
+        djour_entries[index].style = "border: solid 2px red;";
+        djour_entries[index].children[0].onclick = toggleEdit;
+        //djour_entries[index].onclick = expand_collapse_content;
+    }
+    
+    function addPost()
+    {
+        // Create the main container div
+        const entryDiv = document.createElement('div');
+        entryDiv.className = 'jour_entry';
+
+        // Create the Edit button
+        const editBtn = document.createElement('input');
+        editBtn.type = 'button';
+        editBtn.value = 'Post';
+        editBtn.className = 'page_button';
+        // Add event listener for editing
+        editBtn.onclick = toggleEdit;
+
+        // Create the title input
+        const titleInput = document.createElement('input');
+        titleInput.type = 'text';
+        titleInput.className = 'jour_entry_title';
+        titleInput.value = 'New Title';
+        titleInput.disabled = false; // Initially disabled
+
+        // Create the content textarea
+        const contentTextarea = document.createElement('textarea');
+        contentTextarea.className = 'jour_entry_content';
+        contentTextarea.disabled = false; // Initially disabled
+        contentTextarea.textContent = 'Your content here...';
+
+        // Append elements to the main container
+        entryDiv.appendChild(editBtn);
+        entryDiv.appendChild(titleInput);
+        entryDiv.appendChild(contentTextarea);
+
+        // Append the journal entry to the container
+        journalled_content.insertBefore(entryDiv, journalled_content.firstChild);
+    }
+
+        // Toggle read-only / editable state
+    function toggleEdit() 
+    {
+        if(this.parentNode.children[0].value == "Edit")
+        {
+            this.parentNode.children[0].value = "Post";
+            this.parentNode.children[1].contentEditable = "true";
+            this.parentNode.children[2].contentEditable = "true";
+            this.parentNode.children[1].style.border = "solid 2px black";
+            this.parentNode.children[2].style.border = "solid 2px black";
+        }
+        else
+        {
+            this.parentNode.children[0].value = "Edit";
+            this.parentNode.children[1].contentEditable = "false";
+            this.parentNode.children[2].contentEditable = "false";
+            this.parentNode.children[1].style.border = "none 2px black";
+            this.parentNode.children[2].style.border = "none 2px black";
+        }
+    }
+    
+    function savePage()
+    {
+        // Get the current HTML content
+        const textToWrite = document.documentElement.outerHTML;
+    
+        // Trigger download of the HTML file
+        const textFileAsBlob = new Blob([textToWrite], { type: 'text/html' });
+        const downloadLink = document.createElement('a');
+
+        downloadLink.download = document.title + ".html";
+        downloadLink.innerHTML = "Download File";
+        
+        if (window.webkitURL != null) 
+        {
+            // Chrome allows the link to be clicked without actually adding it to the DOM.
+            downloadLink.href = window.webkitURL.createObjectURL(textFileAsBlob);
+        } 
+        else 
+        {
+            // Firefox requires the link to be added to the DOM before it can be clicked.
+            downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
+            downloadLink.onclick = destroyClickedElement;
+            downloadLink.style.display = "none";
+            document.body.appendChild(downloadLink);
+        }
+        
+        downloadLink.click();
+    };
+    
+    function expand_collapse_content()
+    {
+        if (this.children[2].style.fieldSizing == "content")
+        {
+            this.children[2].style.fieldSizing = "unset"
+        }
+        else
+        {
+            this.children[2].style.fieldSizing = "content";
+        }
+    }
+</script>
