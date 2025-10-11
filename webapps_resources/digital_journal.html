@@ -4,6 +4,18 @@
         <title>Digital Journal</title>
     </head>
     <style>
+        :root 
+        {
+            --paragraph-font: normal normal 1rem/1.4 Georgia, serif; 
+            --background-gradient: linear-gradient(to right, rgba(255,255,255,0.4), rgba(255,255,255,0.1));
+
+        }
+        
+        body 
+        {
+            background: var(--background-gradient);
+        }
+        
         #page_block #page_title
         {
             position:relative;
@@ -50,7 +62,9 @@
             -moz-box-sizing: border-box;    /* Firefox, other Gecko */
             box-sizing: border-box;         /* Opera/IE 8+ */
         }
-        .page_button{
+        
+        .page_button
+        {
             position: relative;
             min-width: 45px; /*we need at least this width to be able to display the button text value properly*/
             font-size: 12px;
@@ -72,8 +86,7 @@
 
         #journalled_content
         {
-            border: solid 2px black;
-            margin: 1%;
+            margin: 0.5%;
         }
         
         .jour_entry
@@ -81,8 +94,9 @@
             position: relative;
             overflow: hidden;
             width: 98%;
-            margin: auto;
-            border: solid 2px red;
+            margin:  1%;
+            border: ridge 1px black;
+            border-radius: 1vw;
             /*The following will ensure that the width of the element will not grow with the added border-size.
             So the border will be within the defined element width.
             */
@@ -90,14 +104,16 @@
             -moz-box-sizing: border-box;    /* Firefox, other Gecko */
             box-sizing: border-box;         /* Opera/IE 8+ */
         }
+        
         .jour_entry_title
         {
             background-color: white; 
             font-family: Georgia; 
-            font-size: 17px; 
+            font-size: 19px; 
             width: 98%;
             margin: 2px 1%;
-            padding: 2px;
+            padding: 0.5% 1%;
+            border-radius: 1vw;
             /*The following will ensure that the width of the element will not grow with the added border-size.
             So the border will be within the defined element width.
             */
@@ -109,12 +125,13 @@
         .jour_entry_content
         {
             background-color: white; 
-            font-family: Georgia; 
-            font-size: 12px; 
+            font: var(--paragraph-font);
+
             field-sizing: content;
             width: 98%;
             margin: 2px 1%;
-            padding: 2px;
+            padding: 1%;
+            border-radius: 1vw;
             /*The following will ensure that the width of the element will not grow with the added border-size.
             So the border will be within the defined element width.
             */
@@ -122,6 +139,52 @@
             -moz-box-sizing: border-box;    /* Firefox, other Gecko */
             box-sizing: border-box;         /* Opera/IE 8+ */
         }
+        
+          /* Basic styling for the button */
+          .dropdown 
+          {
+            position: relative;
+            display: inline-block;
+            margin: 2px 1%;
+          }
+
+          /* Style for the button */
+          #dropbtn 
+          {
+            
+          }
+
+          /* Container for the dropdown menu */
+          .dropdown-content 
+          {
+            display: none; /* Hidden by default */
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+          }
+
+          /* Style for each menu item */
+          .dropdown-content a 
+          {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+          }
+
+          /* Hover effect for menu items */
+          .dropdown-content a:hover 
+          {
+            background-color: #ddd;
+          }
+
+          /* Show the menu when active */
+          .show 
+          {
+            display: block;
+          }
     </style>
     <body>
         <header id="page_header">
@@ -136,7 +199,13 @@
                 </div>
                 <div id = "journalled_content">
                     <div class = "jour_entry">
-                        <input class="page_button" type = "button" value="Edit"></input>
+                        <div class="dropdown">
+                            <button onclick="toggleDropdown()" id="dropbtn" class="page_button">...</button>
+                            <div id="myDropdown" class="dropdown-content">
+                                <a href="#">Edit</a>
+                                <a href="#">Remove</a>
+                            </div>
+                        </div>
                         <div class="jour_entry_title" contenteditable="false">Corporate growth</div>
                         <div class="jour_entry_content" contenteditable="false">
                             “If You Have to Ask for Growth, Maybe It’s Not Growth At All.”
@@ -196,7 +265,7 @@
                             A better version of yourself.
                             And since it’s about you, it should be under your control.
                             But right now, it’s dictated by trends, markets, and demands. 
-                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -208,8 +277,9 @@
     
     for (var index=0; index < djour_entries.length; index++)
     {
-        djour_entries[index].style = "border: solid 2px red;";
-        djour_entries[index].children[0].onclick = toggleEdit;
+        djour_entries[index].children[0].children[1].children[0].onclick = toggleEdit;
+        djour_entries[index].children[0].children[1].children[1].onclick = remove_entry;
+        //djour_entries[index].children[1].onclick = remove_entry;
         //djour_entries[index].onclick = expand_collapse_content;
     }
     
@@ -226,6 +296,14 @@
         editBtn.className = 'page_button';
         // Add event listener for editing
         editBtn.onclick = toggleEdit;
+        
+        // Create the Remove button
+        const removetBtn = document.createElement('input');
+        removetBtn.type = 'button';
+        removetBtn.value = 'Remove';
+        removetBtn.className = 'page_button';
+        // Add event listener for editing
+        removetBtn.onclick = remove_entry;
 
         // Create the title input
         const titleInput = document.createElement('input');
@@ -242,6 +320,7 @@
 
         // Append elements to the main container
         entryDiv.appendChild(editBtn);
+        entryDiv.appendChild(removetBtn);
         entryDiv.appendChild(titleInput);
         entryDiv.appendChild(contentTextarea);
 
@@ -252,22 +331,28 @@
         // Toggle read-only / editable state
     function toggleEdit() 
     {
-        if(this.parentNode.children[0].value == "Edit")
-        {
-            this.parentNode.children[0].value = "Post";
-            this.parentNode.children[1].contentEditable = "true";
-            this.parentNode.children[2].contentEditable = "true";
-            this.parentNode.children[1].style.border = "solid 2px black";
-            this.parentNode.children[2].style.border = "solid 2px black";
-        }
-        else
-        {
-            this.parentNode.children[0].value = "Edit";
-            this.parentNode.children[1].contentEditable = "false";
-            this.parentNode.children[2].contentEditable = "false";
-            this.parentNode.children[1].style.border = "none 2px black";
-            this.parentNode.children[2].style.border = "none 2px black";
-        }
+        
+        const entry_post = this.parentNode.parentNode.parentNode;
+        
+        entry_post.children[0].children[0].textContent = "Post";
+        entry_post.children[0].children[0].onclick = saveEdit;
+        entry_post.children[1].contentEditable = "true";
+        entry_post.children[2].contentEditable = "true";
+        entry_post.children[1].style.border = "solid 1px black";
+        entry_post.children[2].style.border = "solid 1px black";
+
+    }
+    
+    function saveEdit()
+    {
+        const entry_post = this.parentNode.parentNode;
+        
+        entry_post.children[0].children[0].textContent = "...";
+        entry_post.children[0].children[0].onclick = toggleDropdown;
+        entry_post.children[1].contentEditable = "false";
+        entry_post.children[2].contentEditable = "false";
+        entry_post.children[1].style.border = "none 1px black";
+        entry_post.children[2].style.border = "none 1px black";
     }
     
     function savePage()
@@ -309,5 +394,32 @@
         {
             this.children[2].style.fieldSizing = "content";
         }
+    }
+    
+    function remove_entry()
+    {
+        journalled_content.removeChild(this.parentNode.parentNode.parentNode);
+    }
+    
+    function toggleDropdown() 
+    {
+      document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function(event) 
+    {
+      if (!event.target.matches('#dropbtn')) 
+      {
+        const dropdowns = document.getElementsByClassName("dropdown-content");
+        for (let i = 0; i < dropdowns.length; i++) 
+        {
+            const openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) 
+            {
+                openDropdown.classList.remove('show');
+            }
+        }
+      }
     }
 </script>
